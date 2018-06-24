@@ -63,13 +63,14 @@ $(document).ready(function(){
 	$(".reply-write-button2").click(function(){
     	var content = $(".reply-write-content2").val(); // 해당하는 frm을 serialize를 해줍니다. ajax로 데이터를 보내기위해서 하는 작업입니다.
     	var no = "${no}"; // id값은 기본키이자 바뀌면안되는것이고 id값으로 조건을 줄꺼라서 고유 id 값을 받아옵니다.
+    	var id = "${sid}";
     	
     	$.ajax({
     		url : "${pageContext.request.contextPath}/reply_write_check2.do", // controller로 보낼 url
-    		type : "GET", // post방식으로 전송
-        	data : 'content='+content+'&no='+no, // data로는 위에서 serialize한 frm을 보냅니다.
+    		type : 'GET', // post방식으로 전송
+        	data : 'content='+content+'&no='+no+'&id='+id, // data로는 위에서 serialize한 frm을 보냅니다.
         	async : false, // 전역변수 사용을 위해서 설정해준다
-        	dataType : "json", // serialize하면 json형태로 값을 보내줘야합니다.
+        	dataType : 'json', // serialize하면 json형태로 값을 보내줘야합니다.
         	contentType: "application/x-www-form-urlencoded; charset=UTF-8", // 인코딩 설정
         	success : function(data){
         		

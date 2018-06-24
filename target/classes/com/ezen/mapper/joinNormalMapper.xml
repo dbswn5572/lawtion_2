@@ -5,7 +5,16 @@
 
 <mapper namespace="lawtion.dao.joinNormalDAO">
 
-	<insert id="getResult">
-		insert into join_normal values(#{id},#{password},#{name},#{phone},#{email},#{birth},sysdate)
-	</insert>
+   <insert id="getResult">
+      insert into join_normal values(#{id},#{password},#{name},#{phone},#{email},#{birth},sysdate)
+   </insert>
+   
+   <select id="getResultList" resultType = "lawtion.vo.joinNormalVO">
+      select rownum as rno,name,id,birth,phone,email,to_char(jdate,'yyyy-mm-dd')
+         from (select * from join_normal order by jdate desc)
+   </select>
+   
+   <update id="getUpdateResult">
+      UPDATE join_normal SET password=#{password},phone=#{phone1}+#{phone2}+#{phone3},email=#{email} WHERE id=#{sid}
+   </update>
 </mapper>

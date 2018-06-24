@@ -17,13 +17,17 @@
 		select count(*) from (select * from lawtion_auction_comment where ano=#{no}) where lawyer=2
 	</select>
 	
+	<select id="execTotalBiddingCountId" resultType="int">
+		select count(*) from (select * from lawtion_auction_comment where id=#{id}) where lawyer=2
+	</select>
+	
 	<select id="execTotalSearchCount" resultType="int">
 		SELECT count(*) FROM (SELECT * FROM lawtion_auction_board where sysdate <![CDATA[<]]> edate)
 		 where title||content like '%' || #{param1} || '%' and category like '%' || #{param2} || '%' and area like '%' || #{param3} || '%'
 	</select>
 	
 	<select id="getResultList" resultType="lawtion.vo.AuctionBoardVO">
-		select * from (select rownum as rno, no, title,
+		select * from (select rownum as rno, no, id, title,
 		 adate,
 		 hits, edate, category, area
 		 from (select * from lawtion_auction_board order by adate desc) where sysdate <![CDATA[<]]> edate)
@@ -31,7 +35,7 @@
 	</select>
 	
 	<select id="getResultSearchList" resultType="lawtion.vo.AuctionBoardVO">
-		select * from (select rownum as rno, no, title, content,
+		select * from (select rownum as rno, no, ,id, title,
 		 adate,
 		 hits, edate, category, area from
 		 (select * from (select * from lawtion_auction_board order by adate desc) where sysdate <![CDATA[<]]> edate)
@@ -41,12 +45,12 @@
 	
 	<insert id="getInsertResult">
 		insert into lawtion_auction_board 
-		values(sequ_lawtion_auction_board.nextval,#{title},#{content}
+		values(sequ_lawtion_auction_board.nextval,#{id},#{title},#{content}
 				,#{fname},sysdate,0,#{category},#{edate},#{area},#{agree})
 	</insert>
 	
 	<select id="getResultVO" resultType="lawtion.vo.AuctionBoardVO">
-		select no,title,content,fname,to_char(adate,'yyyy-mm-dd hh24:mi'),hits,edate,area,category
+		select no,id,title,content,fname,to_char(adate,'yyyy-mm-dd hh24:mi'),hits,edate,area,category
 		 from lawtion_auction_board where no=#{no}
 	</select>
 	
@@ -56,11 +60,19 @@
 	
 	<insert id="getReplyInsertResult">
 		insert into lawtion_auction_comment values(sequ_lawtion_auction_comment.nextval,
-		#{content},sysdate,#{ano},#{lawyer})
+		#{id},#{content},sysdate,#{ano},#{lawyer})
 	</insert>
 	
 	<select id="getReplyList" resultType="lawtion.vo.AuctionCommentVO">
-		select cno,content,cdate,ano,lawyer from lawtion_auction_comment where ano=#{no} order by cno
+		select id,cno,content,cdate,ano,lawyer from lawtion_auction_comment where ano=#{no} order by cno
+	</select>
+	
+	<delete id="getDeleteResult">
+		delete lawtion_auction_board where no=#{no}
+	</delete>
+	
+	<select id="WhoAreYou" resultType="int">
+		select count(*) from join_normal where id=#{id}
 	</select>
 	
 	

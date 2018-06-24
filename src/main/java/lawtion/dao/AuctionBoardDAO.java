@@ -22,9 +22,11 @@ public interface AuctionBoardDAO {
 		}
 	}*/
 	
+	public int WhoAreYou(String id);
 	public int execTotalCount();
 	public int execTotalCommentCount(String no);
 	public int execTotalBiddingCount(String no);
+	public int execTotalBiddingCountId(String id);
 	public int execTotalSearchCount(String input, String category, String area);
 	public ArrayList<AuctionBoardVO> getResultSearchList(int startCount, int endCount, String input, String category, String area);
 	
@@ -51,7 +53,7 @@ public interface AuctionBoardDAO {
 		return result;
 	}*/
 	
-	/* ÀüÃ¼ ¸®½ºÆ® Ãâ·Â */
+	/* ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ */
 	public ArrayList<AuctionBoardVO> getResultList(int startCount, int endCount);
 	/*{
 		ArrayList<AuctionBoardVO> list = new ArrayList<AuctionBoardVO>();
@@ -96,7 +98,7 @@ public interface AuctionBoardDAO {
 		
 	}*/
 	
-	/*ÇÑ °³ÀÇ ·Î¿ì °®°í¿À±â*/
+	/*ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	public AuctionBoardVO getResultVO(String no);
 	/*{
 		AuctionBoardVO vo = new AuctionBoardVO();
@@ -126,7 +128,7 @@ public interface AuctionBoardDAO {
 		return vo;
 	}*/
 	
-	/*Á¶È¸¼ö ¾÷µ¥ÀÌÆ®*/
+	/*ï¿½ï¿½È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®*/
 	public void getUpdateHits(String no);
 	/*{
 		try{
@@ -139,6 +141,9 @@ public interface AuctionBoardDAO {
 	}*/
 	
 	/*comment insert*/ 
+	
+	public int getUpdateResult(AuctionBoardVO vo);
+	
 	public int getReplyInsertResult(AuctionCommentVO vo);
 	/*{
 		int result = 0;
@@ -158,7 +163,7 @@ public interface AuctionBoardDAO {
 		
 	}*/
 			
-	/*´ñ±Û Ãâ·Â*/
+	/*ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½*/
 	public ArrayList<AuctionCommentVO> getReplyList(String no);
 	/*{
 		ArrayList<AuctionCommentVO> list = new ArrayList<AuctionCommentVO>();
@@ -212,5 +217,6 @@ public interface AuctionBoardDAO {
 			e.printStackTrace();
 		}
 	}*/
+	public int getDeleteResult(String no);
 
 }

@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link rel="stylesheet" type="text/css" href="http://localhost:9000/lawtion/css/lawtion.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/joincss.css">
 <title>Insert title here</title>
-<script src="http://localhost:9000/lawtion/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 <style>
 	select.phoneselect{
 	width:20%;
@@ -17,21 +18,52 @@
 	height:38px; background-color:#F6F6F6;
 	}
 </style>
+<script>
+	$(document).ready(function(){
+		$("#join_bt").click(function(){
+			lawyerInfo.submit();
+		});
+		
+		$("#passCheck").focusout(function(){
+			if($("#pass").val()==""){
+				alert("비밀번호를 입력해주세요");
+				$("#pass").focus();
+				return false;
+			}else{
+				if($("passCheck").val()!=""){
+					if($("#pass").val()==$("#passCheck").val()){
+						$("#msg").css("font-size","9pt").css("color","blue").css("display","block");
+						$("#msg").text("비밀번호가 동일합니다.");
+						return false;
+					}else {
+						$("#msg").css("font-size","9pt").css("color","red").css("display","block");
+						$("#msg").text("비밀번호가 틀립니다.");
+						$("#pass").val("").focus();
+						$("#passCheck").val("");
+						return false;
+					}
+				}
+			}
+				
+		});
+	});
+	
+</script>
 </head>
 <jsp:include page ="../header1.jsp"/>
 <body>
 	<p>
 	<div class="review-title">
 		<div class="title-sub">
-			<img src="http://localhost:9000/lawtion/images/join.jpg" width="500" height="100" class="title">
+			<img src="${pageContext.request.contextPath}/images/join.jpg" width="500" height="100" class="title">
 		</div>	
 	</div>
 	<div class="join-title">
 		<div class="join-sub">
-			<img src="http://localhost:9000/lawtion/images/join_main.jpg"  class="title">
+			<img src="${pageContext.request.contextPath}/images/join_main.jpg"  class="title">
 		</div>
 		<div class="join-sub-sub">
-			<img src="http://localhost:9000/lawtion/images/join-sub-title2.png"  class="title" width="500" height="152">
+			<img src="${pageContext.request.contextPath}/images/join-sub-title2.png"  class="title" width="500" height="152">
 		</div>
 	</div>
 	<div class="join-main">
@@ -41,10 +73,11 @@
 				<label class="join-info-sub">개인 정보를 정확히 입력해 주세요.</label>
 			</div>
 			<div class="join-table">
+			<form name="lawyerInfo" action="join_lawyer_check.do" method="post" enctype="multipart/form-data">
 				<table border=1 class="user-join-table">
 					<tr>
 						<th>이름</th>
-						<td><input type="text"></td>
+						<td><input type="text" name="name" id="name"></td>
 					</tr>
 					<tr>
 						<th>아이디</th>
@@ -56,11 +89,12 @@
 					</tr>
 					<tr>
 						<th>비밀번호확인</th>
-						<td><input type="password" name="passCheck" id="passCheck"></td>
+						<td><input type="password" name="passCheck" id="passCheck">
+						<span id="msg"></span></td>
 					</tr>
 					<tr>
 						<th>생년월일</th>
-						<td><input type="date"></td>
+						<td><input type="date" name="birth" id="birth"></td>
 					</tr>
 					<tr>
 						<th>휴대폰번호</th>
@@ -79,7 +113,7 @@
 						<td><input type="text" name="email" placeholder=" Email주소 전체를 입력해주세요." id="email"></td>
 					</tr>
 					<tr>
-						<th>변호사 자격번호</th>
+						<th>변호사 자격증</th>
 						<td>
 						<div class="fileBox">
 							<label for="license" class="btn_file">파일선택</label>
@@ -88,16 +122,15 @@
 						</td>
 					</tr>
 					<tr>
-						<th>사업자 등록번호</th>
+						<th>사진</th>
 						<td>
 						<div class="fileBox">
-							<label for="license" class="btn_file">파일선택</label>
+							<label for="business" class="btn_file">파일선택</label>
 							<input type="file" id="business" class="fname" name="fileBusiness" style="width:200px; opacity:0; filter:alpha(opacity=0); cursor:pointer;">
 						</div>
 						</td>
 					</tr>
 				</table>
-				
 				<div class="join-terms">
 					<ul>
 						<li>
@@ -189,12 +222,14 @@
 					</ul>
 					
 				</div>
+				<div class="main-sub">
+				<button type="button" class="join-next-btton" id="join_bt">다음</button>
+				</div>
+				</form>
 			</div> <!-- end of select -->
 		</div> <!-- end of join-select -->
-		<div class="main-sub">
-			<button type="button" class="join-next-btton">다음</button>
-		</div>
-	</div> <!-- end of join-main -->
+		
+	</div><!-- end of join-main -->
 </body>
 <jsp:include page ="../footer.jsp"/>
 </html>

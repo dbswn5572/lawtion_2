@@ -73,9 +73,9 @@ public interface PrecedentDAO {
 		ArrayList<PrecedentVO> list = new ArrayList<PrecedentVO>();
 		String str = "";
 		if(result.equals("1")){
-			str = "½Â¼Ò";
+			str = "ï¿½Â¼ï¿½";
 		} else {
-			str = "ÆÐ¼Ò";
+			str = "ï¿½Ð¼ï¿½";
 		}
 		try {
 			String sql = "select rownum as rno, no , title, result, hits from precedent_normal where result=?";
@@ -102,11 +102,11 @@ public interface PrecedentDAO {
 		ArrayList<PrecedentVO> list = new ArrayList<PrecedentVO>();
 		String str = "";
 		if(scale.equals("1")){
-			str = "´ë¹ý¿ø";
+			str = "ï¿½ï¿½ï¿½ï¿½ï¿½";
 		} else if(scale.equals("2")) {
-			str = "°íµî¹ý¿ø";
+			str = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 		} else {
-			str = "ÇÏ±Þ½É";
+			str = "ï¿½Ï±Þ½ï¿½";
 		}
 		
 		try {
@@ -134,17 +134,17 @@ public interface PrecedentDAO {
 		ArrayList<PrecedentVO> list = new ArrayList<PrecedentVO>();
 		String str = "";
 		if(category.equals("1")){
-			str = "¹Î»ç";
+			str = "ï¿½Î»ï¿½";
 		} else if(category.equals("2")) {
-			str = "Çü»ç";
+			str = "ï¿½ï¿½ï¿½ï¿½";
 		} else if(category.equals("3")) {
-			str = "°¡»ç";
+			str = "ï¿½ï¿½ï¿½ï¿½";
 		} else if(category.equals("4")) {
-			str = "Æ¯Çã";
+			str = "Æ¯ï¿½ï¿½";
 		} else if(category.equals("5")) {
-			str = "¼¼¹«";
+			str = "ï¿½ï¿½ï¿½ï¿½";
 		} else {
-			str = "ÀÏ¹ÝÇàÁ¤";
+			str = "ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½";
 		}
 		
 		try {
@@ -235,6 +235,8 @@ public interface PrecedentDAO {
 		
 		return result;
 	}*/
+	
+	public int InsertPrecedent(PrecedentVO vo);
 	public ArrayList<PrecedentVO> getResultList(int startCount, int endCount); /*{
 		
 		ArrayList<PrecedentVO> list = new ArrayList<PrecedentVO>();

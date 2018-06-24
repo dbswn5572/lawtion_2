@@ -5,7 +5,7 @@
 
 <mapper namespace="lawtion.dao.joinLayerDAO">
 	<insert id="getInsertResult">
-		insert into join_layer(id,password,name,phone,email,birth,jdate,license_no,business_no,license,business,rlicense,rbusiness) 
-		values(#{id},#{password},#{name},#{phone},#{email},#{birth},sysdate,#{license_no},#{business_no},#{license},#{business},#{rlicense},#{rbusiness})
+		insert into join_lawyer(id,password,name,phone,email,birth,jdate,license,business,rlicense,rbusiness) 
+		values(#{id},#{password},#{name},#{phone},#{email},#{birth},sysdate,#{license},#{business},#{rlicense},#{rbusiness})
 	</insert>
 </mapper>

@@ -83,7 +83,9 @@
 	<jsp:include page ="../header.jsp"/>
 	<div class="review">
 		<div class="review-title">
-			<img src="${pageContext.request.contextPath}/images/talktitle.PNG" width="200" height="60" class="title">
+			<div class="title-sub">
+				<img src="${pageContext.request.contextPath}/images/reviewtitle1.jpg" width="500" height="100" class="title">
+			</div>	
 		</div>
 		<nav class="review-select">
 			<div class="select">

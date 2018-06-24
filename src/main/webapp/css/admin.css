@@ -1,0 +1,213 @@
+@CHARSET "UTF-8";
+   /* admin 세로 메뉴 */
+
+   
+   body ul.admin-menu{
+      margin:0;
+      padding:0;
+      list-style:none;
+      width:10%;
+      background-color:#0d3553;
+      position:relative;
+      height:80%;
+   }
+   
+
+   body header div.ad-nav1{
+      width:200px;
+      height:100%;
+      float:left;
+      /*overflow:hidden;*/
+      position:fixed;
+      margin:0;
+      list-style:none;
+      color:white;         
+   }
+   div.ad-header-nav1 a{ 
+      text-decoration:none;
+      display:block;
+      text-size:16px;
+   }
+
+
+   
+   input[type="checkbox"]:checked ~ nav {
+    width: 250px;
+}
+/*
+input[type="checkbox"]:checked ~ nav label[for="menu_state"] i::before {
+  content: "\f053";
+}*/   
+   input[type="checkbox"]:checked ~ nav ul {
+        width: 100%;
+   }
+
+   input[type="checkbox"]:checked ~ nav ul li a i {
+        border-right: 1px solid #2f343e;
+   }
+   
+   input[type="checkbox"]:checked ~ nav ul li a span {
+        opacity: 1;
+        transition: opacity 0.25s ease-in-out;   
+   }
+
+   nav.ad-header-nav1 {
+       position: fixed;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background: #2c313a;
+        color: #9aa3a8;
+        width: 50px;
+       font-family: 'Montserrat', sans-serif;
+        font-weight: lighter;
+        transition: all 0.15s ease-in-out;
+        display:block;
+   }
+
+/**
+nav.ad-header-nav1 label[for="menu_state"] i {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: -8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  background: #fff;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  transition: width 0.15s ease-in-out;
+  z-index: 1;
+}
+**/
+      nav.ad-header-nav1 label[for="menu_state"] i::before {
+           margin-top: 2px;
+           content: "\f054";
+      }
+      nav.ad-header-nav1 label[for="menu_state"] i:hover {
+           box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      }
+      
+      nav.ad-header-nav1 ul {
+           /*overflow: hidden;*/
+           display: block;
+           width: 50px;
+           list-style-type: none;
+           padding: 0;
+           margin: 0;
+      }
+      nav.ad-header-nav1 ul li {
+           border: 1px solid #2f343e;
+           position: relative;
+      }
+      
+      nav.ad-header-nav1 ul li.unread:after {
+           content: attr(data-content);
+           position: absolute;
+           top: 10px;
+           left: 25px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           width: 15px;
+           height: 15px;
+           border-radius: 50%;
+           color: #fff;
+           background: #ef5952;
+           font-size: 8px;
+      } /*알림 창 */
+      
+      
+      nav.ad-header-nav1 ul li:not(:last-child) {
+        border-bottom: none;
+      }
+   nav.ad-header-nav1 ul li.active a {
+        background: #4c515d;
+        color: #fff;
+      }
+   nav.ad-header-nav1 ul li a {
+        position: relative;
+        display: block;
+        white-space: nowrap;
+        text-decoration: none;
+       color: #9aa3a8;
+        height: 50px;
+        width: 100%;
+  /*transition: all 0.15s ease-in-out;*/
+   }
+   nav.ad-header-nav1 ul li a:hover {
+        background: #4c515d;
+        color: #fff;
+   }
+   nav.ad-header-nav1 ul li a * {
+        height: 100%;
+         display: inline-block;
+   }
+
+   nav.ad-header-nav1 ul li a i {
+        text-align: center;
+        width: 50px;
+        z-index: 999999;
+   }
+   nav.ad-header-nav1 ul li a i.fa {
+     line-height: 50px;
+   }
+   nav.ad-header-nav1 ul li a span {
+     padding-left: 25px;
+     opacity: 0;
+      line-height: 50px;
+     transition: opacity 0.1s ease-in-out;
+   }
+   nav.ad-header-nav1 ul li a span.main-sub:hover{
+      cursor: pointer; 
+
+   }  /* 기본적으로 있는 메뉴 */
+   
+   div.ad-nav1 li ul.sub-group-list{
+      line-height:50px;
+        height: 100%;
+        /*max-height: 0;*/
+        display:block;
+        -webkit-transition: max-height .5s ease-in-out;
+        transition: max-height .5s ease-in-out;
+        background:#434a56;
+        overflow:hidden;
+   }   /* 펼쳐져야 하는 메뉴 */
+   
+   
+   
+   
+   
+   /* admin -  index  */   
+   div.container-admin{
+      width:1000px;
+      height:800px;
+      margin-left:290px;
+      padding:30px;
+      
+   }
+   
+   div.container-admin form.admin_notice ul li{
+      list-style:none;   
+   }
+      
+   div.container-admin div.admin1{
+      width:500px;
+      height:200px;
+      border:1px solid red;
+      float:left;
+      text-size:16px;
+   }
+   
+   div.container-admin div.admin2{
+      width:300px;
+      height:200px;
+      border:1px solid blue;   
+      text-size:16px;
+   }

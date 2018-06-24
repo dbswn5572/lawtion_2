@@ -5,178 +5,141 @@ import java.util.ArrayList;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class joinLayerVO {
-	String id,password,name,birth,phone,email;
-	String jdate,phone1,phone2,phone3,years,months,days;
-	String business,license,business_no,license_no,rbusiness,rlicense;
-	CommonsMultipartFile fileBusiness;
-	CommonsMultipartFile fileLicense;
-	
-	
-	public CommonsMultipartFile getFileBusiness() {
-		return fileBusiness;
-	}
+   String id,password,name,birth,phone,email;
+   String jdate,phone1,phone2,phone3;
+   String business,license,rbusiness,rlicense;
+   CommonsMultipartFile fileBusiness;
+   CommonsMultipartFile fileLicense;
+   
+   
+   public CommonsMultipartFile getFileBusiness() {
+      return fileBusiness;
+   }
 
-	public void setFileBusiness(CommonsMultipartFile fileBusiness) {
-		this.fileBusiness = fileBusiness;
-		System.out.println(this.fileBusiness.getOriginalFilename());
-	}
+   public void setFileBusiness(CommonsMultipartFile fileBusiness) {
+      this.fileBusiness = fileBusiness;
+      System.out.println(this.fileBusiness.getOriginalFilename());
+   }
 
-	public CommonsMultipartFile getFileLicense() {
-		return fileLicense;
-	}
+   public CommonsMultipartFile getFileLicense() {
+      return fileLicense;
+   }
 
-	public void setFileLicense(CommonsMultipartFile fileLicense) {
-		this.fileLicense = fileLicense;
-	}
-	public void setBusiness_no(String business_no) {
-		this.business_no = business_no;
-	}
-	public String getBusiness_no() {
-		return business_no;
-	}
-	public String getLicense_no() {
-		return license_no;
-	}
+   public void setFileLicense(CommonsMultipartFile fileLicense) {
+      this.fileLicense = fileLicense;
+      System.out.println(this.fileLicense.getOriginalFilename());
+   }
+   
+   public String getRbusiness() {
+      return rbusiness;
+   }
 
-	public void setLicense_no(String license_no) {
-		this.license_no = license_no;
-	}
+   public void setRbusiness(String rbusiness) {
+      this.rbusiness = rbusiness;
+   }
 
-	public String getRbusiness() {
-		return rbusiness;
-	}
+   public String getRlicense() {
+      return rlicense;
+   }
 
-	public void setRbusiness(String rbusiness) {
-		this.rbusiness = rbusiness;
-	}
+   public void setRlicense(String rlicense) {
+      this.rlicense = rlicense;
+   }
 
-	public String getRlicense() {
-		return rlicense;
-	}
+   public String getPhone1() {
+      return phone1;
+   }
 
-	public void setRlicense(String rlicense) {
-		this.rlicense = rlicense;
-	}
+   public void setPhone1(String phone1) {
+      this.phone1 = phone1;
+   }
 
-	public String getYears() {
-		return years;
-	}
+   public String getPhone2() {
+      return phone2;
+   }
 
-	public void setYears(String years) {
-		this.years = years;
-	}
+   public void setPhone2(String phone2) {
+      this.phone2 = phone2;
+   }
 
-	public String getMonths() {
-		return months;
-	}
+   public String getPhone3() {
+      return phone3;
+   }
 
-	public void setMonths(String months) {
-		this.months = months;
-	}
+   public void setPhone3(String phone3) {
+      this.phone3 = phone3;
+   }
 
-	public String getDays() {
-		return days;
-	}
+   public String getJdate() {
+      return jdate;
+   }
 
-	public void setDays(String days) {
-		this.days = days;
-	}
+   public void setJdate(String jdate) {
+      this.jdate = jdate;
+   }
 
-	public String getPhone1() {
-		return phone1;
-	}
+   public String getId() {
+      return id;
+   }
 
-	public void setPhone1(String phone1) {
-		this.phone1 = phone1;
-	}
+   public void setId(String id) {
+      this.id = id;
+   }
 
-	public String getPhone2() {
-		return phone2;
-	}
+   public String getPassword() {
+      return password;
+   }
 
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
-	}
+   public void setPassword(String password) {
+      this.password = password;
+   }
 
-	public String getPhone3() {
-		return phone3;
-	}
+   public String getName() {
+      return name;
+   }
 
-	public void setPhone3(String phone3) {
-		this.phone3 = phone3;
-	}
+   public void setName(String name) {
+      this.name = name;
+   }
 
-	public String getJdate() {
-		return jdate;
-	}
+   public String getBirth() {
+      return birth;
+   }
 
-	public void setJdate(String jdate) {
-		this.jdate = jdate;
-	}
+   public void setBirth(String birth) {
+      this.birth = birth;
+   }
 
-	public String getId() {
-		return id;
-	}
+   public String getPhone() {
+      return phone1+phone2+phone3;
+   }
 
-	public void setId(String id) {
-		System.out.print("id="+id);
-		this.id = id;
-	}
+   public void setPhone(String phone) {
+      this.phone = phone;
+   }
 
-	public String getPassword() {
-		return password;
-	}
+   public String getEmail() {
+      return email;
+   }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+   public void setEmail(String email) {
+      this.email = email;
+   }
 
-	public String getName() {
-		return name;
-	}
+   public String getBusiness() {
+      return business;
+   }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+   public void setBusiness(String business) {
+      this.business = business;
+   }
 
-	public String getBirth() {
-		return years+"."+months+"."+days;
-	}
+   public String getLicense() {
+      return license;
+   }
 
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-
-	public String getPhone() {
-		return phone1+phone2+phone3;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getBusiness() {
-		return business;
-	}
-
-	public void setBusiness(String business) {
-		this.business = business;
-	}
-
-	public String getLicense() {
-		return license;
-	}
-
-	public void setLicense(String license) {
-		this.license = license;
-	}
+   public void setLicense(String license) {
+      this.license = license;
+   }
 
 }

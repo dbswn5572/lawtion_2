@@ -570,21 +570,7 @@ selector(������) { property:value; ...... }
    
    /* header logo */
    
-   header div.logo{
-   display:inline-block;
-   margin:auto;
-   margin-left:200px;
-   width:1480px;
-   margin-top:-10px;
-   }
    
-   header div.logo img{
-   margin:auto;
-   display:inline-block;
-   margin:auto;
-   margin-left:620px;
-   margin-top:20px;
-   }
    
    /*header1.jsp*/
    
@@ -610,13 +596,23 @@ selector(������) { property:value; ...... }
       background:#f9f9f9;
       height:43px;
    }
-   header nav.header-nav2 {
+   header div nav.header-nav2 {
       text-align:center;
       margin:auto;
       position:relative;
       top:-80px;
+      margin-top:20px;
       /*border:3px solid blue;*/
+      margin-bottom:20px;
    }
+   div nav.header-nav2 ul:last-chlid{
+   margin-left:-20px;
+   }
+   
+   div.header3 nav.header-nav2 ul:nth-chlid(2){
+   margin-left:10px;
+   }
+   
    div.header1 nav.header-nav1 ul{
    margin-left:1110px;
    width:500px;
@@ -1369,7 +1365,7 @@ nav.review-select ul li {
 	line-height: 80px;
 	vertical-align: middle;
 	text-align: center;
-	margin-top: -16px;
+	margin-top: -10px;
 	width: 33%;
 	border-right: 1px solid lightgray;
 	list-style: none;
@@ -2023,10 +2019,11 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 	line-height: 80px;
 	vertical-align: middle;
 	text-align: center;
-	margin-top: -16px;
+	margin-top: -10px;
 	width: 33%;
 	border-right: 1px solid lightgray;
 	list-style: none;
+	background-color:white;
 	}
 
 	nav.review-select1 ul li:first-child {
@@ -2266,7 +2263,7 @@ table.auction_table_list tr td a button {
     margin-left:-10px;
 }
 
-/*�˻�â css*/
+/*검색어 css*/
 div.searchDiv {
 	height:40px;
 	width:300px;
@@ -2798,9 +2795,6 @@ table.auction_table_list tr.nth th {
 		border-collapse:collapse;
 		margin-left:auto;
 		margin-right:auto;
-	}
-	body div.notice th,tr{
-		border-bottom:2px solid rgb(221,221,221);
 	}
 	body div.notice th, body div.notice td{
 		padding:8px;

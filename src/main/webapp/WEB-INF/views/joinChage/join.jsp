@@ -4,24 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link rel="stylesheet" type="text/css" href="http://localhost:9000/lawtion/css/lawtion.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/joincss.css">
 <title>Insert title here</title>
-<script src="http://localhost:9000/lawtion/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 </head>
 <jsp:include page ="../header1.jsp"/>
 <body>
 	<p>
 	<div class="review-title">
 		<div class="title-sub">
-			<img src="http://localhost:9000/lawtion/images/join.jpg" width="500" height="100" class="title">
+			<img src="${pageContext.request.contextPath}/images/join.jpg" width="500" height="100" class="title">
 		</div>	
 	</div>
 	<div class="join-title">
 		<div class="join-sub">
-			<img src="http://localhost:9000/lawtion/images/join_main.jpg"  class="title">
+			<img src="${pageContext.request.contextPath}/images/join_main.jpg"  class="title">
 		</div>
 		<div class="join-sub-sub">
-			<img src="http://localhost:9000/lawtion/images/join-sub-title.png"  class="title" width="500" height="152">
+			<img src="${pageContext.request.contextPath}/images/join-sub-title.png"  class="title" width="500" height="152">
 		</div>
 	</div>
 	<div class="join-main">
@@ -33,18 +33,18 @@
 			<div class="select">
 				<section class="select-content1">
 					<div class="sel-img">
-						<img src="http://localhost:9000/lawtion/images/user.png" width="90" height="90" class="user-title">
+						<img src="${pageContext.request.contextPath}/images/user.png" width="90" height="90" class="user-title">
 					</div>
 					<div class="sel-info">
-						<a href="http://localhost:9000/lawtion/joinuser.do"><button class="join-user-button">사용자</button></a>
+						<a href="${pageContext.request.contextPath}/join_user.do"><button class="join-user-button">사용자</button></a>
 					</div>
 				</section>
 				<section class="select-content2">
 					<div class="sel-img">
-						<img src="http://localhost:9000/lawtion/images/lawyer.png" width="90" height="90" class="user-title">
+						<img src="${pageContext.request.contextPath}/images/lawyer.png" width="90" height="90" class="user-title">
 					</div>
 					<div class="sel-info">
-						<a href="http://localhost:9000/lawtion/joinlawyer.do"><button class="join-lawyer-button">변호사</button></a>
+						<a href="${pageContext.request.contextPath}/join_lawyer.do"><button class="join-lawyer-button">변호사</button></a>
 					</div>
 				</section>
 			</div> <!-- end of select -->

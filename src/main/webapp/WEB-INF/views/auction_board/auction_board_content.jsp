@@ -9,6 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/layer1.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
@@ -36,17 +37,17 @@ $(function(){
 		success : function(data){
 			$(".imgs, .b, .l, .comment, .date, .name, .bidding").remove();		
 			for(i=0;i<data.length;i++){
-				if(data[i].lawyer==1){
+				if(data[i].lawyer==0){
 					code = 	"<img src='${pageContext.request.contextPath}/images/lawer.png' class='imgs'>"
-						+ "<li class='l'><label class='name'><br class='b'>송명호 변호사님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
+						+ "<li class='l'><label class='name'><br class='b'>"+data[i].id+" 변호사님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
 						+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 						+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 					$("#total").text(data[i].total);
 					$("#total2").text(data[i].total2);
 					$("#reply-content-check").val("show");
 					$(".reply-content").append(code);
-				}else if(data[i].lawyer==0){
-					code = 	"<li class='l'><label class='name'><br class='b'>송명호님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
+				}else if(data[i].lawyer==1){
+					code = 	"<li class='l'><label class='name'><br class='b'>"+data[i].id+"님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
 						+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 						+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 					$("#total").text(data[i].total);
@@ -55,7 +56,7 @@ $(function(){
 					$(".reply-content").append(code);
 				}else{
 					code = 	"<img src='${pageContext.request.contextPath}/images/lawer.png' class='imgs'>"
-						+ "<li class='l'><strong><label class='name'><br class='b'>송명호 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
+						+ "<li class='l'><strong><label class='name'><br class='b'>"+data[i].id+" 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
 						+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 						+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 					$("#total").text(data[i].total);
@@ -81,7 +82,57 @@ $(function(){
 	});
 });
 
-$(document).ready(function(){			
+$(document).ready(function(){
+	
+	$(".ellipsis").click(function(){
+		
+		alert("만료된 페이지입니다.");
+		
+	});
+	
+	$('.btn-example').click(function(){
+        var $href = $(this).attr('href');
+        layer_popup($href);
+    });
+    
+	function layer_popup(el){
+
+        var $el = $(el);        //레이어의 id를 $el 변수에 저장
+        var isDim = $el.prev().hasClass('dimBg');   //dimmed 레이어를 감지하기 위한 boolean 변수
+
+        isDim ? $('.dim-layer').fadeIn() : $el.fadeIn();
+
+        var $elWidth = ~~($el.outerWidth()),
+            $elHeight = ~~($el.outerHeight()),
+            docWidth = $(document).width(),
+            docHeight = $(document).height();
+
+        // 화면의 중앙에 레이어를 띄운다.
+        if ($elHeight < docHeight || $elWidth < docWidth) {
+            $el.css({
+                marginTop: -$elHeight /2,
+                marginLeft: -$elWidth/2
+            })
+        } else {
+            $el.css({top: 0, left: 0});
+        }
+
+        $el.find('a.btn-layerCloseyes').click(function(){
+            isDim ? $('.dim-layer').fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+            $(location).attr('href','auction_delete_check.do?no=${vo.no}');
+        });
+        
+        $el.find('a.btn-layerCloseno').click(function(){
+            isDim ? $('.dim-layer').fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
+            return false;
+        });
+
+        $('.layer .dimBg').click(function(){
+            $('.dim-layer').fadeOut();
+            return false;
+        });
+
+    }
 	
 	$(".reply-view").css({"font-weight":"bold"});
 	$(".bidding-view").css({"font-weight":"normal"});
@@ -109,14 +160,16 @@ $(document).ready(function(){
 		/* 댓글 등록 시작 */
 		var content = $(".reply-write-content").val();
 		var no = "${vo.no}";
+		var id = "${sid}";
+		
 		//alert(no);
 		//alert(content);
 
 		$.ajax({
 			url : '${pageContext.request.contextPath}/reply_write_check.do',
-			type :'GET',
-			data : 'content='+content+'&no='+no,
-			dataType : 'json',
+			type :"GET",
+			data : 'content='+content+'&no='+no+'&id='+id,
+			dataType : "json",
 			contentType : 'application/x-www-form-urlencoded;charset=utf-8',
 			success : function(data){				
 	
@@ -161,17 +214,17 @@ $(document).ready(function(){
 			success : function(data){
 				$(".imgs, .b, .l, .comment, .date, .name, .bidding").remove();				
 				for(i=0;i<data.length;i++){
-					if(data[i].lawyer==1){
+					if(data[i].lawyer==0){
 						code = 	"<img src='${pageContext.request.contextPath}/images/lawer.png' class='imgs'>"
-							+ "<li class='l'><label class='name'><br class='b'>송명호 변호사님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
+							+ "<li class='l'><label class='name'><br class='b'>"+data[i].id+" 변호사님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
 							+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 							+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 						$("#total").text(data[i].total);
 						$("#total2").text(data[i].total2);
 						$("#reply-content-check").val("show");
 						$(".reply-content").append(code);
-					}else if(data[i].lawyer==0){
-						code = 	"<li class='l'><label class='name'><br class='b'>송명호님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
+					}else if(data[i].lawyer==1){
+						code = 	"<li class='l'><label class='name'><br class='b'>"+data[i].id+"님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
 							+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 							+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 						$("#total").text(data[i].total);
@@ -180,7 +233,7 @@ $(document).ready(function(){
 						$(".reply-content").append(code);
 					}else{
 						code = 	"<img src='${pageContext.request.contextPath}/images/lawer.png' class='imgs'>"
-							+ "<li class='l'><strong><label class='name'><br class='b'>송명호 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
+							+ "<li class='l'><strong><label class='name'><br class='b'>"+data[i].id+" 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
 							+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 							+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 						$("#total").text(data[i].total);
@@ -233,7 +286,7 @@ $(document).ready(function(){
 				for(i=0;i<data.length;i++){
 					if(data[i].lawyer==2){
 						code = 	"<img src='${pageContext.request.contextPath}/images/lawer.png' class='imgs'>"
-							+ "<li class='l'><strong><label class='name'><br class='b'>송명호 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
+							+ "<li class='l'><strong><label class='name'><br class='b'>"+data[i].id+" 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
 							+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 							+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 						$("#total").text(data[i].total);
@@ -261,6 +314,9 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
+	
+	
 });
 
 
@@ -283,17 +339,17 @@ reply_view_load = function(){
 			success : function(data){
 				$(".imgs, .b, .l, .comment, .date, .name, .bidding").remove();				
 				for(i=0;i<data.length;i++){
-					if(data[i].lawyer==1){
+					if(data[i].lawyer==0){
 						code = 	"<img src='${pageContext.request.contextPath}/images/lawer.png' class='imgs'>"
-							+ "<li class='l'><label class='name'><br class='b'>송명호 변호사님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
+							+ "<li class='l'><label class='name'><br class='b'>"+data[i].id+" 변호사님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
 							+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 							+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 						$("#total").text(data[i].total);
 						$("#total2").text(data[i].total2);
 						$("#reply-content-check").val("show");
 						$(".reply-content").append(code);
-					}else if(data[i].lawyer==0){
-						code = 	"<li class='l'><label class='name'><br class='b'>송명호님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
+					}else if(data[i].lawyer==1){
+						code = 	"<li class='l'><label class='name'><br class='b'>"+data[i].id+"님, <br class='b'></label><span class='bidding' id='bidding'>댓글 등록하셨습니다. </span></li>"
 							+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 							+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 						$("#total").text(data[i].total);
@@ -302,7 +358,7 @@ reply_view_load = function(){
 						$(".reply-content").append(code);
 					}else{
 						code = 	"<img src='${pageContext.request.contextPath}/images/lawer.png' class='imgs'>"
-							+ "<li class='l'><strong><label class='name'><br class='b'>송명호 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
+							+ "<li class='l'><strong><label class='name'><br class='b'>"+data[i].id+" 변호사님, <br class='b'></label><span class='bidding' id='bidding'>입찰 신청하셨습니다. </span></strong></li>"
 							+ "<li class='l'><span class='date'>"+data[i].rdate+"</span></li>"
 							+ "<br class='b'><li class='l'><div class='comment'>"+data[i].content+"</div></li>";					
 						$("#total").text(data[i].total);
@@ -334,6 +390,8 @@ function showBiddingPopup(){
 				"width=650px, height=800px, left=600, top=100"
 				);
 }
+
+
 
 </script>
 <style>
@@ -409,7 +467,7 @@ span.date{
 				</tr>
 				<tr>
 					<td>
-						<li class="abc_name">정**</li>
+						<li class="abc_name">신청자 : ${vo.id}</li>
 						<li class="abc_date">${vo.adate}</li>
 					</td>
 					<td class="abc_edate">
@@ -510,14 +568,43 @@ span.date{
 			</div>
 			
 			<br><br>
-			<% if(lawyer==1){ %>
+			<c:choose>
+            <c:when test="${lawyer == 0}">
 			<a href="#" onclick="showBiddingPopup()"><button>입찰 신청하기</button></a>
+			<a href="${pageContext.request.contextPath}/auction_board.do?rpage=${rpage }"><button>목록</button></a>
+			</c:when>
+			<c:when test="${lawyer == 1 && sid == vo.id}">
 			<a href="${pageContext.request.contextPath}/auction_board_write.do"><button>글쓰기</button></a>
 			<a href="${pageContext.request.contextPath}/auction_board.do?rpage=${rpage }"><button>목록</button></a>
-			<% }else{ %>
+			<a href="#layer2" class="btn-example"><button>삭제하기</button></a>
+			</c:when>
+			<c:when test="${lawyer == 1}">
 			<a href="${pageContext.request.contextPath}/auction_board_write.do"><button>글쓰기</button></a>
 			<a href="${pageContext.request.contextPath}/auction_board.do?rpage=${rpage }"><button>목록</button></a>
-			<% } %>
+			</c:when>
+			</c:choose>
+			
+			
+			<!-- 삭제 팝업 -->
+<div class="dim-layer">
+    <div class="dimBg"></div>
+    <div id="layer2" class="pop-layer">
+        <div class="pop-container">
+            <div class="pop-conts">
+                <!--content //-->
+                <p class="ctxt mb20"><strong>해당 글을 삭제하시겠습니까?</strong></p>
+
+                <div class="btn-r">
+                	<a href="${pageContext.request.contextPath}/auction_delete_check.do?no=${vo.no}" class="btn-layerCloseyes"><strong>예</strong></a>
+                    <a href="${pageContext.request.contextPath}/index.do" class="btn-layerCloseno"><strong>아니오</strong></a>
+                </div>
+                <!--// content-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 			
 			<br><br><br><br>
 			

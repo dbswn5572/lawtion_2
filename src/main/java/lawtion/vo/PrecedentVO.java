@@ -50,6 +50,12 @@ public class PrecedentVO {
 		return result;
 	}
 	public void setResult(String result) {
+		if(result.equals("win")){
+			result="승";
+		}
+		if(result.equals("lose")){
+			result="패";
+		}
 		this.result = result;
 	}
 	

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="lawtion.dao.NoticeDAO">
+
+   <select id="execTotalCount"  resultType="int">
+      select count(*) from lawtion_notice
+   </select>
+
+   <select id="getResultList" resultType="lawtion.vo.NoticeVO" >
+      select rno,no,title,to_char(rdate,'yyyy-mm-dd') as rdate,hits 
+       from (select rownum as rno,no,title,rdate,hits
+       from (select * from lawtion_notice order by no desc))
+       where rno between #{param1} and #{param2} 
+   </select>
+   <select id="getResultVO" resultType="lawtion.vo.NoticeVO">
+      select no,title,content,fname,rfname,to_char(rdate,'yyyy-mm-dd') as rdate,
+      hits from lawtion_notice where no=#{no}
+   </select>
+   <update id="getUpdateHits">
+      update lawtion_notice set hits=hits+1 where no=#{no}
+   </update>
+   <insert id="getInsertResult">
+      insert into lawtion_notice values
+      (sequ_lawtion_notice.nextval,#{title},#{content},#{fname},#{rfname},sysdate,0)
+   </insert>
+   <update id="getUpdateResult">
+      update lawtion_notice set title=#{title},content=#{content},fname=#{fname},
+            rfname=#{rfname} where no=#{no}
+   </update>
+   <update id="getUpdateResultNoFile">
+      update lawtion_notice set title=#{title},content=#{content} where no=#{no}
+   </update>
+   <select id="getRfnameResult" resultType="String">
+      select rfname from lawtion_notice where no =#{no}
+   </select>
+   <delete id="getDeleteResult" >
+      delete from lawtion_notice where no=#{no}
+   </delete>
+   <select id="getPrePage" resultType="lawtion.vo.NoticeVO">
+      select * from (select no,title,rdate,hits,content,fname,lag(no,1,0) over (order by no) as per_seq,lag(title,1,'이전글없음')
+      over (order by no) as pre_title,lag(to_char(rdate,'yyyy-mm-dd')) over (order by no) as pre_rdate, lag(hits,1,0)
+      over (order by no) as pre_hits, lag(content,1,'이전글없음') over (order by no) as pre_content,lag(fname,1,'이전글없음')
+      over (order by no) as pre_fname from lawtion_notice) where no=#{no}
+   </select>
+   <select id="getNextPage" resultType="lawtion.vo.NoticeVO">
+      select * from (select no,title,rdate,hits,content,fname,lead(no,1,0) over (order by no) as next_seq,lead(title,1,'이후글없음')
+        over (order by no) as next_title,lag(to_char(rdate,'yyyy-mm-dd')) over (order by no) as pre_rdate, lead(hits,1,0)
+        over (order by no) as next_hits, lead(content,1,'이후글없음') over (order by no) as next_content,lead(fname,1,'이후글없음')
+        over (order by no) as next_fname from lawtion_notice) where no=#{no}
+   </select>
+</mapper>

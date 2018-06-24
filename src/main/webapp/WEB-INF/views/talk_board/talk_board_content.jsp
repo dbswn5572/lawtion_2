@@ -268,7 +268,9 @@
 	<jsp:include page ="../header.jsp"/>
 	<div class="review">
 		<div class="review-title">
-			<img src="${pageContext.request.contextPath}/images/talktitle.PNG" width="240" height="60" class="title">
+			<div class="title-sub">
+				<img src="${pageContext.request.contextPath}/images/talktitle.jpg" width="500" height="100" class="title">
+			</div>	
 		</div>
 		<div class="talknotice">
 			<label class="talktitle">

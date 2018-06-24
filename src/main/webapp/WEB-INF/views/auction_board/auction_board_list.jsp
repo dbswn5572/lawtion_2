@@ -115,12 +115,11 @@
 	</c:choose>
 	<td class="writer">
 		<span>
-			<a href="#">
-			이**</a>
+			${vo.id }
 		</span>
 	</td>
 	<td class="subject">
-		<a href="${pageContext.request.contextPath}/auction_board_content.do?no=${vo.no}&rno=${vo.rno}&rpage=${rpage }">[${vo.category}] [${vo.area}] ${vo.title}</a>
+		<a href="${pageContext.request.contextPath}/auction_board_content.do?no=${vo.no}&rno=${vo.rno}&rpage=${rpage }&id=${sid }">[${vo.category}] [${vo.area}] ${vo.title}</a>
 	</td>
 	<td>${vo.hits}</td>
 	<c:choose>

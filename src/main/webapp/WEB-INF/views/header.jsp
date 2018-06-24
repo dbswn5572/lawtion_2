@@ -13,6 +13,30 @@
    <script src="http://code.jquery.com/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
+<script>
+   $(document).ready(function(){
+      $("#btnLogin").click(function(){
+         
+         if($("#id_lg").val() == ""){
+            alert("아이디를 입력하세요");
+            $("#id_lg").focus();
+            return false;
+         }else if($("#pass_lg").val() == ""){
+            alert("패스워드를 입력하세요");
+            $("#pass_lg").focus();
+            return false;
+         }
+         
+         loginForm.submit();   
+      });
+      
+      $("#header_login").click(function(){
+         $('div.modal').modal();   
+      });
+   });
+   
+
+</script>
 <body>
    <div id="loginmodal" class="modal fade" tabindex="-1" role="dialog"
       aria-labelledby="loginmodalLabel" aria-hidden="true">
@@ -30,9 +54,9 @@
                <div class="modal-body">
                <form name="loginForm" action="login_check.do" method="post">
                   <label class="login-label1">ID</label>
-                  <input type="text" name="id" id="id">
+                  <input type="text" name="id" id="id_lg">
                   <label class="login-label1">PASSWORD</label>
-                  <input type="password" name="password" id="pass">
+                  <input type="password" name="password" id="pass_lg">
                   <div class="checkbox">
                           <label>
                          <input type="checkbox" value="remember-me"> 아이디 기억하기
@@ -57,16 +81,16 @@
             <c:when test="${sid == null}">
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
-               <li><a data-toggle="modal" href="#loginmodal" class="btn-login">로그인</a></li>
-               <li><a href="${pageContext.request.contextPath}/join_select.do">회원가입</a></li>
+               <li><a class="btn-login" id="header_login" style="cursor:pointer">로그인</a></li>
+               <li><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
             </ul>
             </c:when>
             <c:when test="${sid != null}">
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
-               <li><a href="${pageContext.request.contextPath}/mypageuser.do">마이페이지</a></li>
                <li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
-               <li><a href="${pageContext.request.contextPath}/join_select.do">회원가입</a></li>
+               <li><a href="${pageContext.request.contextPath}/mypageuser.do?sid=${sid}">마이페이지</a></li>
+               <li><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
             </ul>
             </c:when>
             </c:choose>
