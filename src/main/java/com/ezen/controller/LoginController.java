@@ -1,14 +1,19 @@
 package com.ezen.controller;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,12 +35,15 @@ public class LoginController {
    }
    
    @RequestMapping(value="/login_check.do", method=RequestMethod.POST)
-   public ModelAndView login_check(joinNormalVO vo1, HttpSession session, joinLayerVO vo2){
+   public ModelAndView login_check(joinNormalVO vo1, HttpSession session, joinLayerVO vo2, HttpServletRequest request, HttpServletResponse response) throws Exception{
       
       int result1 = login_check(vo2, session);
       ModelAndView mv = new ModelAndView();
       LoginDAO dao = sqlSession.getMapper(LoginDAO.class);
       int result2 = dao.LoginResult(vo1);
+      response.setContentType("text/html; charset=UTF-8");
+      request.setCharacterEncoding("utf-8");
+      PrintWriter w = response.getWriter();
 
       
       if((result2 == 1 && result1 == 0) || (result2 == 0 && result1 == 1)){
@@ -45,9 +53,17 @@ public class LoginController {
          session.setAttribute("sid", vo2.getId());
          }
          
-         mv.setViewName("/index");
+         mv.setViewName("redirect:/index.do");
       }else{
-         mv.setViewName("/login/login");
+    	  
+    	  
+    	 mv.setViewName("index");
+    	 w.println("<script>");
+    	 w.println("alert('아이디와 비밀번호를 확인하세요.');");
+    	 w.println("</script>");
+    	 w.flush();
+    	 
+    	 
       }
       return mv;
    }

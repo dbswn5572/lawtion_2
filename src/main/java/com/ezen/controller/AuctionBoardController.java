@@ -1,6 +1,9 @@
 package com.ezen.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 
@@ -30,27 +33,27 @@ public class AuctionBoardController {
 		
 		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
 		
-		//ÆäÀÌÂ¡ Ã³¸® - startCount, endCount ±¸ÇÏ±â
+		//ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½ - startCount, endCount ï¿½ï¿½ï¿½Ï±ï¿½
 				int startCount = 0;
 				int endCount = 0;
-				int pageSize = 10;	//ÇÑÆäÀÌÁö´ç °Ô½Ã¹° ¼ö
-				int reqPage = 1;	//¿äÃ»ÆäÀÌÁö	
-				int pageCount = 1;	//ÀüÃ¼ ÆäÀÌÁö ¼ö
-				int dbCount = 0;	//DB¿¡¼­ °¡Á®¿Â ÀüÃ¼ Çà¼ö
+				int pageSize = 10;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ ï¿½ï¿½
+				int reqPage = 1;	//ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+				int pageCount = 1;	//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+				int dbCount = 0;	//DBï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½
 				
 				if((category=="" && area=="" && input=="") || input==null){
 					
 					//System.out.println(input);
 					dbCount=dao.execTotalCount();
 					
-					//ÃÑ ÆäÀÌÁö ¼ö °è»ê
+					//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 					if(dbCount % pageSize == 0){
 						pageCount = dbCount/pageSize;
 					}else{
 						pageCount = dbCount/pageSize+1;
 					}
 
-					//¿äÃ» ÆäÀÌÁö °è»ê
+					//ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					if(rpage != null){				
 						reqPage = Integer.parseInt(rpage); 
 						startCount = (reqPage-1) * pageSize+1;	
@@ -84,14 +87,14 @@ public class AuctionBoardController {
 					//System.out.println(area);
 					dbCount=dao.execTotalSearchCount(input, category, area);
 					
-					//ÃÑ ÆäÀÌÁö ¼ö °è»ê
+					//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
 					if(dbCount % pageSize == 0){
 						pageCount = dbCount/pageSize;
 					}else{
 						pageCount = dbCount/pageSize+1;
 					}
 
-					//¿äÃ» ÆäÀÌÁö °è»ê
+					//ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					if(rpage != null){				
 						reqPage = Integer.parseInt(rpage); 
 						startCount = (reqPage-1) * pageSize+1;	
@@ -122,16 +125,18 @@ public class AuctionBoardController {
 	}
 	
 	@RequestMapping(value="/auction_board_content.do", method=RequestMethod.GET)
-	public ModelAndView auction_board_content(String no, String rno, int rpage){
+	public ModelAndView auction_board_content(String no, String rno, int rpage, String id){
 		ModelAndView mv = new ModelAndView();
 		
 		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
 		AuctionBoardVO vo = dao.getResultVO(no);
 		dao.getUpdateHits(no);
+		int lawyer = dao.WhoAreYou(id);
 		
 		mv.addObject("vo",vo);
 		mv.addObject("rno",rno);
 		mv.addObject("rpage",rpage);
+		mv.addObject("lawyer",lawyer);
 		mv.setViewName("/auction_board/auction_board_content");
 		
 		return mv;
@@ -152,6 +157,7 @@ public class AuctionBoardController {
 
 	@RequestMapping(value="/auction_board_check.do", method=RequestMethod.POST)
 	public String auction_board_check(AuctionBoardVO vo){
+		
 		String page="";
 		
 		if(vo.getAgree() == null){
@@ -165,7 +171,6 @@ public class AuctionBoardController {
 		if(result==1){
 			page = "redirect:/auction_board.do";
 		}
-		
 		
 		return page;
 	}
@@ -188,5 +193,21 @@ public class AuctionBoardController {
 	public String auction_board_content_check(){
 		return "redirect:/auction_board_content.do";
 	}*/
+	
+	@RequestMapping(value="/auction_delete_check.do",method=RequestMethod.GET)
+	public String auction_delete_check(String no){
+		
+		String page ="";
+		
+		
+		//ModelAndView mv = new ModelAndView();
+			
+		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+		int result = dao.getDeleteResult(no);
+		if(result==1){
+			page = "redirect:/auction_board.do";
+	   }
+		return page;
+	}
 
 }

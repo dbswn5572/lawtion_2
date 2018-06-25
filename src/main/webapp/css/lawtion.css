@@ -389,11 +389,12 @@ nav.ad-header-nav1 label[for="menu_state"] i {
 	text-size:11pt;
 	}
 	
-	div.mypage-content-table table th{
+	div.mypage-content-table table tr th{
 	border-top:0px;
 	border-bottom:1px solid lightgray;
 	font-family: 'Nanum Gothic', sans-serif;
 	color:#353535;
+	text-align:center;
 	}
 	
 	div.mypage-content-table table td{
@@ -570,21 +571,7 @@ selector(������) { property:value; ...... }
    
    /* header logo */
    
-   header div.logo{
-   display:inline-block;
-   margin:auto;
-   margin-left:200px;
-   width:1480px;
-   margin-top:-10px;
-   }
    
-   header div.logo img{
-   margin:auto;
-   display:inline-block;
-   margin:auto;
-   margin-left:620px;
-   margin-top:20px;
-   }
    
    /*header1.jsp*/
    
@@ -610,13 +597,23 @@ selector(������) { property:value; ...... }
       background:#f9f9f9;
       height:43px;
    }
-   header nav.header-nav2 {
+   header div nav.header-nav2 {
       text-align:center;
       margin:auto;
       position:relative;
       top:-80px;
+      margin-top:20px;
       /*border:3px solid blue;*/
+      margin-bottom:60px;
    }
+   div nav.header-nav2 ul:last-chlid{
+   margin-left:-20px;
+   }
+   
+   div.header3 nav.header-nav2 ul:nth-chlid(2){
+   margin-left:10px;
+   }
+   
    div.header1 nav.header-nav1 ul{
    margin-left:1110px;
    width:500px;
@@ -662,7 +659,7 @@ selector(������) { property:value; ...... }
    header div.logo{
    display:inline-block;
    margin:auto;
-   margin-left:200px;
+   margin-left:240px;
    width:1480px;
    margin-top:-10px;
    }
@@ -672,7 +669,7 @@ selector(������) { property:value; ...... }
    display:inline-block;
    margin:auto;
    margin-left:620px;
-   margin-top:20px;
+   margin-top:30px;
    }
    
    
@@ -969,7 +966,7 @@ div.introduce section.content_style div.pull-right input {
   outline: none;
   font-weight:100px;
   transition: .3s linear;
- 
+  font-family: 'Nanum Gothic', sans-serif;
 }
 div.introduce section.content_style div.pull-right input:focus {
   width: 250px;
@@ -981,7 +978,12 @@ div.introduce section.content_style table.results {
 	margin:65px 0px 0px 500px;
 	padding-top:200px;
 	padding-left:500px;
+	font-family: 'Nanum Gothic', sans-serif;
 }
+table.results tr.results_first th{
+text-align:center;
+}
+
 div.introduce section.content_style table.results tr:nth-child(9) td{
 	border-bottom:1px solid white;
 	border-left:1px solid white;
@@ -990,6 +992,7 @@ div.introduce section.content_style table.results tr:nth-child(9) td{
 div.introduce section.content_style table.results tr[visible='false'],
 no-result{
 	display:none;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 div.introduce section.content_style table.results tr[visible='true']{
 	display:table-row;
@@ -998,7 +1001,7 @@ div.introduce section.content_style table.results tr[visible='true']{
 div.introduce section.content_style table.results thead{
 	padding:10px;
 	vertical-align:top;
-	color:#369;
+	color:black;
 	border-bottom: 3px solid #036;
 	font-weight:bold;
 	font-size:150%;
@@ -1012,6 +1015,8 @@ div.introduce section.content_style table.results tbody th{
 	background:#f3f6f7;
 	font-size:130%;
 }
+
+
 div.introduce section.content_style table.results td{
 	width:350px;
 	padding:10px;
@@ -1026,7 +1031,13 @@ div.introduce section.content_style table.results tr td.profile img {
 	margin:5px;
 }
 
-
+td.group a:hover{
+	text-decoration:none;
+	
+}
+td.group, td.group a:active, td.group a:link{
+	color:black;
+}
 
 
 
@@ -1034,13 +1045,14 @@ div.introduce section.content_style table.results tr td.profile img {
 
 div.introduce section.content_style2{
 	 background-color:white; background-size:cover; 
-	 font-family: 'Nanum Myeongjo', serif;
+	 font-family: 'Nanum Gothic', sans-serif;
 }
 
 
 div.introduce section.content_style2 div.left-iframe div.pull-right{
 	padding-right:30px;
 	margin-left:40px;
+	
 }
 div.introduce section.content_style2 div.left-iframe div.pull-right:after{
 	content:""; 
@@ -1057,7 +1069,7 @@ div.introduce section.content_style2 div.left-iframe div.pull-right input {
   background: #b9dcff;
   outline: none;
   transition: .3s linear;
-
+  f
 }
 div.introduce section.content_style2 div.left-iframe div.pull-right input:focus {
   width: 300px;
@@ -1127,7 +1139,7 @@ div.introduce2 section.content_style2 div.right-iframe{
 
 div.introduce3 section.content_style{
 	background-color:white;background-size:cover;  
-	font-family: 'Nanum Myeongjo', serif;
+	font-family: 'Nanum Gothic', sans-serif;
 
 }
 div.introduce3 section.content_style div.right-content{
@@ -1143,6 +1155,8 @@ div.introduce3 section.content_style div.right-content div.right-img img{
 div.introduce3 section.content_style div.right-content div.lawyer-detail{
 	height:384px;
 	width:100%;
+	border-top:1px solid lightgray;
+	margin-top:20px;
 }
 div.introduce3 section.content_style div.right-content div.lawyer-detail table.career{
 	height:380px;
@@ -1177,7 +1191,7 @@ div.introduce3 section.content_style div.right-content div.lawyer-detail table.c
 	font-size:33px;
 	font-weight:bold;
 	text-align:right;
-	font-family:'210 ������� B';
+	font-family: 'Nanum Gothic', sans-serif;
 }
 div.introduce3 section.content_style div.right-content div.lawyer-detail table.career tr td.nameSet span.aaa{
 	font-size:16px;
@@ -1188,7 +1202,7 @@ div.introduce3 section.content_style div.right-content div.lawyer-detail table.c
 	font-size:17px;
 	font-weight:bold;
 	text-align:right;
-	font-family:'210 ������� B';
+	font-family: 'Nanum Gothic', sans-serif;
 }
 div.introduce3 section.content_style div.right-content div.lawyer-detail table.career tr td.nameSet div.detailGG{
 	font-size:15px;
@@ -1301,10 +1315,19 @@ div.introduce2 section.content_style div.right-content div.lawyer-detail table.c
 div.introduce2 section.content_style div.right-content div.lawyer-detail table.career tr td.trialSet hr{
 	border:1px solid gray;
 }
-div.introduce2 section.content_style div.right-content div.lawyer-detail table.career tr td.trialSet span.trial,span.win,span.lose{
+div.introduce2 section.content_style div.	right-content div.lawyer-detail table.career tr td.trialSet span.trial,span.win,span.lose{
 	font-weight:bold;
 	font-size:18px;
 }*/
+div.review-title3 {
+	display: inline-block;
+	background:#063454;
+	height:150px;
+	width:100%;
+	color:white;
+	margin-top:0px;
+}
+
 
 /*Review_Board*/
 div.review {
@@ -1320,6 +1343,7 @@ div.review-title {
 	height:150px;
 	width:100%;
 	color:white;
+	margin-top:10px;
 }
 div.title-sub{
 	width:510px;
@@ -1337,7 +1361,7 @@ div.review-title1 {
 	height:150px;
 	width:100%;
 	color:white;
-	margin-top:20px;
+	margin-top:10px;
 }
 div.review-title1 div.title-sub{
 	width:510px;
@@ -1369,7 +1393,7 @@ nav.review-select ul li {
 	line-height: 80px;
 	vertical-align: middle;
 	text-align: center;
-	margin-top: -16px;
+	margin-top: -10px;
 	width: 33%;
 	border-right: 1px solid lightgray;
 	list-style: none;
@@ -1486,6 +1510,17 @@ div.reviewlist table.all {
 div.reviewlist table.all tr td,div.reviewlist table.all tr th {
 	padding: 7px;
 	border-bottom: 1px lightgray solid;
+	text-align:center;
+}
+div.reviewlist table.all tr td a:hover, div.reviewlist table.all tr td a:link{
+	color:black;
+	text-decoration:none;
+}
+div.review-allbest table.best tr td a:hover, div.review-allbest table.best tr td a:link{
+	color:black;
+	text-decoration:none;
+	
+	
 }
 
 div.reviewlist table.all tr:last-child td {
@@ -1498,6 +1533,11 @@ div.reviewlist table.all tr:nth-child(1) {
 }
 
 /*Review write*/
+
+div.write{
+	width:100%;
+	margin:auto;
+}
 div.write-title {
 	margin-left: 450px;
 	margin-bottom: 10px;
@@ -1514,7 +1554,7 @@ div.write-title img {
 div.write table.review-Write {
 	font-size: 11pt;
 	margin: auto;
-	width: 43%;
+	width: 44%;
 	margin-bottom: 20px;
 }
 
@@ -1594,7 +1634,7 @@ div.write-title img {
 div.write table.talk-Write {
 	font-size: 11pt;
 	margin: auto;
-	width: 43%;
+	width: 44%;
 	margin-bottom: 20px;
 }
 
@@ -1808,7 +1848,7 @@ div.review-content ul {
 	width: 300px;
 	height: 27px;
 	margin-left: 1200px;
-	margin-top: -15px;
+	margin-top: 0px;
 }
 
 div.review-content ul li {
@@ -1945,6 +1985,8 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 
 /* �ǷʰԽ��� */
 /* �Ƿʸ��*/
+	
+	
 	body div.precedent {
 		background-color:white;
 	}
@@ -1972,6 +2014,7 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 	
 	div.reviewlist1 {
 	margin-top: 30px;
+	
 	}
 
 	div.reviewlist1 table.all {
@@ -1983,9 +2026,10 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 		margin-bottom: 200px;
 	}
 	
-	div.reviewlist1 table.all tr td,div.reviewlist table.all tr th {
+	div.reviewlist1 table.all tr td,div.reviewlist1 table.all tr th {
 		padding: 7px;
 		border-bottom: 1px lightgray solid;
+		text-align:center;
 	}
 	
 	div.reviewlist1 table.all tr:last-child td {
@@ -2002,6 +2046,11 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 		color:black;
 	}
 	
+	div.review0{
+	margin-top:0px;
+	}
+	
+		
 	div.review0 nav.review-select1 {
 	width: 100%;
 	height: 83px;
@@ -2023,10 +2072,11 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 	line-height: 80px;
 	vertical-align: middle;
 	text-align: center;
-	margin-top: -16px;
+	margin-top: -10px;
 	width: 33%;
 	border-right: 1px solid lightgray;
 	list-style: none;
+	background-color:white;
 	}
 
 	nav.review-select1 ul li:first-child {
@@ -2083,8 +2133,13 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 	}
 
 	div.wrap img {
-		margin-left:1860px;
-		margin-top:-590px;
+		display:inline-block;
+	}
+	
+	div.wrap {
+	float:right;
+	margin-top:-450px;
+	 	
 	}
 	
 	.done {
@@ -2116,11 +2171,15 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 		display:none
 	}
 
+	div.done{
+	margin-top:40px;
+	}
 	.table3 {
 		width:100%;
 		height:600px;
 		border-collapse:collapse;
 		border:3px solid rgb(73,73,73);
+		
 	}
 	
 	.table3 tr td a {
@@ -2166,6 +2225,21 @@ table.replylist tr td:nth-child(3) {width:15%; height:auto;}
 /*����� �Խ��� css*/
 
 /*auction_board, auction_board_list*/
+section.auction_style div.auction_button button {
+	width: 100px;
+	background-color: #e6e6e6;
+	border: none;
+	color: black;
+	padding: 10px 0;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 4px;
+	cursor: pointer;
+}
+
 
 div.auction_content /*board ���� div*/
 {
@@ -2175,7 +2249,7 @@ div.auction_content /*board ���� div*/
 }
 section.auction_style /*board ���� section*/
 {
-	width:1080px;
+	width:70%;
 	margin:auto;
 	text-align:center;
 }
@@ -2191,7 +2265,7 @@ h1.auction_title /*board ���� ����*/
 div.auction_content section.auction_style table.auction_table_list
 /*=auction_board_list.jsp, admin_member_list.jsp*/
 {
-	width:980px;
+	width:50%;
 	margin:auto;
 	font-size:14px;
 	border-collapse: collapse;
@@ -2259,20 +2333,21 @@ table.auction_table_list td {
 table.auction_table_list th {
     padding: 10px;
     text-align: left;
-    border-top: 3px solid rgb(116,69,23);
-    border-bottom: 3px solid rgb(116,69,23);
+    border-top: 3px solid #474747;
+    border-bottom: 3px solid #474747; 
 }
 table.auction_table_list tr td a button {
     margin-left:-10px;
 }
 
-/*�˻�â css*/
+/*검색어 css*/
 div.searchDiv {
-	height:40px;
-	width:300px;
-	border:1px solid rgb(116,69,23);
+	height:50px;
+	width:330px;
+	border:1px solid #474747;
 	background: #ffffff;
 	margin:auto;
+	margin-top:20px;
 }
 input.searchInput {
 	font-size:16px;
@@ -2286,7 +2361,7 @@ button.searchButton {
 	width:50px;
 	height:100%;
 	border:0px;
-	background:rgb(116,69,23);
+	background:#474747;
 	outline:none;
 	float:right;
 	color:#ffffff;
@@ -2302,7 +2377,7 @@ button.searchButton {
 /*auction_board_write*/
 
 table.auction_table_write {
-	width:580px;
+	width:80%;
 	margin:auto;
 	font-size:14px;
 }
@@ -2331,18 +2406,32 @@ table.auction_table_write tr td.abw_success {
 table.auction_table_write tr th {
     padding: 10px;
     text-align: left;
-    border-top: 3px solid rgb(116,69,23);
+    border-top: 3px solid #474747;
 }
+table.auction_table_write button {
+	width: 100px;
+	background-color: #e6e6e6;
+	border: none;
+	color: black;
+	padding: 10px 0;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 4px;
+	cursor: pointer;
+}
+
 
 /*auction_board_content*/
 
 table.auction_table_content {
-	width:680px;
+	width:80%;
 	margin:auto;
 	font-size:14px;
 	text-align:left;
 }
-
 table.auction_table_content tr th.abc_title {
 	width:440px;
 	font-size:17px;
@@ -2377,9 +2466,27 @@ table.auction_table_content tr td.abc_comment_count li:nth-child(2) {
 	border-right:none;
 }
 div.auction_comment {
-	width:690px;
+	width:80%;
 	margin:auto;
 	background-color:rgb(235,235,235);
+}
+section.auction_style td.abw_success button {
+	width: 100px;
+	background-color: #e6e6e6;
+	border: none;
+	color: black;
+	padding: 10px 0;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 4px;
+	cursor: pointer;
+}
+
+div.auction_comment table.auction_table_content{
+	width:100%;
 }
 table.auction_table_content tr td li, div.auction_comment li {
 	list-style:none;
@@ -2415,7 +2522,7 @@ section.auction_style2 /*board ���� section*/
 }
 h1.auction_title2 /*board ���� ����*/
 {
-	margin:auto;
+	margin:auto;c
 	text-align:center;
 	color:white;
 	margin-bottom:30px;
@@ -2799,19 +2906,37 @@ table.auction_table_list tr.nth th {
 		margin-left:auto;
 		margin-right:auto;
 	}
-	body div.notice th,tr{
-		border-bottom:2px solid rgb(221,221,221);
-	}
 	body div.notice th, body div.notice td{
 		padding:8px;
 	}
 	body div.notice th{
 		width:100px;
+		
 	}
+	
 	
 	body div.notice tr.theme{
 		font-weight:bold;
 	}
+	body div.notice tr td a:hover, a:active{
+		text-decoration:none;
+		color:black;
+		
+	}
+	
+	body div.notice tr td a:link{
+		color:black;
+	}
+	body div.notice tr.theme th{
+	text-align:center;
+	border-top:3px solid #474747;
+	border-bottom:3px solid #474747;
+	}
+	
+	body div.notice tr:nth-last-child(2){
+	border-bottom:1px solid lightgray;
+	}
+	
 	body div.notice th.subject{
 		width:800px;
 	}
@@ -2836,4 +2961,411 @@ table.auction_table_list tr.nth th {
    		border-bottom:1px solid white;
 	}
 
+	/* precedent_main.jsp */
+	div.pre{
+	width:100%;
+	height:auto;
+	}
+	div.pre_main{
+	width:58%;
+	margin:auto;
+	height:auto;
+	}
+	
+	div.pre_select{
+	width:100%;
+	height:90px;
+	display:flex;
+	}
+	
+	div.nomal_pre{
+	width:50%;
+	height:100%;
+	border-bottom:2px solid #474747;
+	border-right:1px solid lightgray;
+	border-left:1px solid lightgray;
+	float:left;
+	text-align:center;
+	
+	}
+	
+	div.reveiw_pre{
+	width:50%;
+	height:100%;
+	float:right;
+	text-align:center;
+	border-right:1px solid lightgray;
+	border-bottom:1px solid lightgray;
+	}
+	
+	div.nomal_pre label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.reveiw_pre label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.pre_search{
+	width:100%;
+	margin:auto;
+	margin-top:40px;
+	width:20%;
+	height:40px;
+	display:flex;
+	}
+	
+	div.pre_search input{
+	display:inline-block;
+	margin:auto;
+	width:80%;
+	height:85%;
+	}
+	
+	div.pre_search img{
+	width:20%;
+	heigth:100%;
+	}
+	
+	div.pre_table table{
+	width:100%;
+	}
+	
+	table.pre_table{
+	width:100%;
+	height:auto;
+	text-align:center;
+	font-family: 'Nanum Gothic', sans-serif;
+	border-collapse: collapse;
+	margin-top:40px;
+	margin-bottom:40px;
+	}
+	
+	table.pre_table tr th{
+	border-top:2px solid #474747;
+	border-bottom:2px solid #474747;
+	border-left:0px;
+	border-right:0px;
+	height:5px;
+	}
+	
+	table.pre_table tr td{
+	border-bottom:1px solid lightgray;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:11pt;
+	}
+	
+	div.pre_select a:hover, div.pre_select a:focus {
+	text-decoration:none;
+	}
+	
+	div.pre_list{
+	width:100%;
+	height:auto;
+	}
+	
+	div.pre_quick{
+	float:right;
+	margin-top:40px;
+	margin-left:-40px;
+	}
+	
+	div.pre_quick1{
+	margin-left:60px;
+	}
+	
+	div.pre_quick2{
+	width:200px; heigth:300px;
+	display:none;
+	}
+	
+	div.pre_quick2 table.quick_table{
+	width:200px;
+	height:100%;
+	border-collapse:collapse;
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align:center;
+	font-size:11pt;
+	font-weight:bold;	
+	}
+	
+	table.quick_table img{
+	border:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first td{
+	border-rigth:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first,table.quick_table tr.tr_last{
+	height:20%;
+	background-color:#073455;
+	color:white;
+	}
+	
+	/* pre_main2.jsp */
+	div.pre_main2{
+	width:58%;
+	margin:auto;
+	height:auto;
+	}
+	
+	div.pre_select2{
+	width:100%;
+	height:90px;
+	display:flex;
+	}
+	
+	div.nomal_pre2{
+	width:50%;
+	height:100%;
+	border-bottom:1px solid lightgray;
+	border-right:1px solid lightgray;
+	border-left:1px solid lightgray;
+	float:left;
+	text-align:center;
+	}
+	
+	div.reveiw_pre2{
+	width:50%;
+	height:100%;
+	border-bottom:2px solid #474747;
+	float:right;
+	text-align:center;
+	border-right:1px solid lightgray;
+	}
+	
+	div.nomal_pre2 label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.reveiw_pre2 label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.pre_search2{
+	width:100%;
+	margin:auto;
+	margin-top:40px;
+	width:20%;
+	height:40px;
+	display:flex;
+	}
+	
+	div.pre_search2 input{
+	display:inline-block;
+	margin:auto;
+	width:80%;
+	height:85%;
+	}
+	
+	div.pre_search2 img{
+	width:20%;
+	heigth:100%;
+	}
+	
+	div.pre_table2 table{
+	width:100%;
+	}
+	
+	table.pre_table2{
+	width:100%;
+	height:auto;
+	text-align:center;
+	font-family: 'Nanum Gothic', sans-serif;
+	border-collapse: collapse;
+	margin-top:40px;
+	margin-bottom:40px;
+	}
+	
+	table.pre_table2 tr th{
+	border-top:2px solid #474747;
+	border-bottom:2px solid #474747;
+	border-left:0px;
+	border-right:0px;
+	height:5px;
+	}
+	
+	table.pre_table2 tr td{
+	border-bottom:1px solid lightgray;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:11pt;
+	}
+	div.pre_select2 a:hover, div.pre_select a:focus {
+	text-decoration:none;
+	}
+	
+	div.pre_quick{
+	float:right;
+	margin-top:40px;
+	margin-left:-40px;
+	}
+	
+	div.pre_quick1{
+	margin-left:60px;
+	}
+	
+	div.pre_quick2{
+	width:200px; heigth:300px;
+	display:none;
+	}
+	
+	div.pre_quick2 table.quick_table{
+	width:200px;
+	height:100%;
+	border-collapse:collapse;
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align:center;
+	font-size:11pt;
+	font-weight:bold;	
+	}
+	
+	table.quick_table img{
+	border:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first td{
+	border-rigth:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first,table.quick_table tr.tr_last{
+	height:20%;
+	background-color:#073455;
+	color:white;
+	}
+	
+	/* pre_content.jsp */
+	div.pre_content{
+	width:100%;
+	margin:auto;
+	}
+	
+	div.pre_content1{
+	width:58%;
+	margin:auto;
+	margin-top:40px;
+	margin-bottom:40px;
+	height:auto;
+	}
+	
+	div.pre_content1 table{
+	width:100%;
+	border-bottom:2px solid #474747;
+	font-family: 'Nanum Gothic', sans-serif;
+	height:auto;
+	}
+	
+	div.pre_content1 table td{
+	padding-top:50px;
+	padding-bottom:50px;
+	padding-left:30px;
+	padding-right:30px;
+	font-size:11pt;
+	}
+	
+	
+	/* 로그인 모달창 css */
+	div.modal-footer{
+	display:flex;
+	}
+	
+	div.modal-header h4.model-title{
+	background-color:#0d3553;
+	}
+	div.modal-footer h4.model-login{
+	background-color:#0d3553;
+	margin:auto;
+	text-align:center;
+	width:50%;
+	}
+	
+	div.modal-footer h4.model-join{
+	background-color:#0d3553;
+	margin:auto;
+	text-align:center;
+	width:50%;
+	}
+	
+	div.modal-footer h4.model-login button{
+	width:100%;
+	background-color:#0d3553;
+	border:0px;
+	}
+	
+	div.modal-footer h4.model-join button{
+	width:100%;
+	background-color:#0d3553;
+	border:0px;
+	color:white;
+	}
+	
+	div.modal-body form div.modal_id{
+	height:40px;
+	margin:auto;
+	width:92%;
+	display:flex;
+	margin-bottom:10px;
+	}
+	div.modal-body form div.modal_id label{
+	width:155px;
+	height:100%;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	text-align:center;
+	padding-top:10px; 
+	}
+
+	div.modal-body form div.modal_id input{
+	width:100%;
+	height:100%;
+	}
+	
+	div.modal-body form div.modal_pass{
+	height:40px;
+	margin:auto;
+	width:92%;
+	display:flex;
+	}
+	div.modal-body form div.modal_pass label{
+	width:155px;
+	height:100%;
+	ont-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	text-align:center;
+	padding-top:10px;
+	}
+	div.modal-body form div.modal_pass input{
+	width:100%;
+	height:100%;
+	}
+	
+	div.modal-body form div.checkbox{
+	width:93%;
+	margin:auto;
+	margin-top:10px;
+	text-align:right;
+	}
+	
 	

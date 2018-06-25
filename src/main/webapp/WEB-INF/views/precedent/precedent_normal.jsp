@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href= "${pageContext.request.contextPath}/css/lawtion.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/am-pagination.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/paging.js"></script>
@@ -71,22 +71,21 @@
 			</div>	
 		</div>
 		
-		<nav class="review-select1">
-			<div class="select">
-				<ul>
-					<li class="select1"><a href="${pageContext.request.contextPath}/precedent_normal.do">기존판례</a></li>
-					<li class="select2"><a href="${pageContext.request.contextPath}/precedent_review.do">후기판례</a></li>
-				</ul>
-			</div>
-		</nav>
-		
-		 <form name="searchform" action="search_input.do" method="post">
-      		<div class="gogo">
-         		<input type="text" name="search1" class="s_input" placeholder="  검색어를 입력하세요" id="search_form">
-         		<a href="#"><img src="${pageContext.request.contextPath}/images/magnifier3.jpg" id="search"></a>
-      		</div>
-   		</form>
-		
+			<nav class="review-select1">
+				<div class="select">
+					<ul>
+						<li class="select1"><a href="${pageContext.request.contextPath}/precedent_normal.do">기존판례</a></li>
+						<li class="select2"><a href="${pageContext.request.contextPath}/precedent_review.do">후기판례</a></li>
+					</ul>
+				</div>
+			</nav>
+				
+			 <form name="searchform" action="search_input.do" method="post">
+	      		<div class="gogo">
+	         		<input type="text" name="search1" class="s_input" placeholder="  검색어를 입력하세요" id="search_form">
+	         		<a href="#"><img src="${pageContext.request.contextPath}/images/magnifier3.jpg" id="search"></a>
+	      		</div>
+	   		</form>
 		<div class="reviewlist1">
 			<table border=0 class="all">
 				<tr>
@@ -115,12 +114,13 @@
 		</div>
 	</div>
 	
-		<div class="wrap">
-			 <div class="btn">
-	          	 <img src="${pageContext.request.contextPath}/images/btn_search_log_off.png" id="ban1">
-	     	 </div>
-     	 </div>
-      
+		
+      <div class="wrap">
+	 <div class="btn">
+         	 <img src="${pageContext.request.contextPath}/images/btn_search_log_off.png" id="ban1" width="200" height="50">
+    	 </div>
+   	 
+  		 </div>
      	 
 	 
 	<jsp:include page ="../footer.jsp"/>

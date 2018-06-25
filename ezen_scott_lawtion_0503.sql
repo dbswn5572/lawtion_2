@@ -157,7 +157,7 @@ CREATE TABLE JOIN_NORMAL(
   );
 
 ------------------------------변호사 회원가입 DB---------------------------------------
-CREATE TABLE JOIN_LAYER(
+CREATE TABLE JOIN_LAWYER(
   ID VARCHAR2(30) CONSTRAINT PK_LAYER_ID PRIMARY KEY,
   PASSWORD VARCHAR2(30) NOT NULL,
   NAME VARCHAR2(30) NOT NULL,
@@ -172,7 +172,6 @@ CREATE TABLE JOIN_LAYER(
   RLICENSE VARCHAR2(100),
   RBUSINESS VARCHAR2(100)
   );
-
 
 --테이블 & 시퀀스 생성--
 create table precedent_normal(
@@ -237,6 +236,7 @@ insert into precedent_review
 ------------------------------
 create table lawtion_auction_board(
   no number(4) constraint pk_lawtion_auction_board_no primary key,
+  id varchar2(50) not null,
   title varchar2(50) not null,
   content varchar2(500),
   fname varchar2(100),
@@ -248,12 +248,18 @@ create table lawtion_auction_board(
   agree varchar2(50)
 );
 
+select * from lawtion_auction_board;
+select * from lawtion_auction_comment;
+
+commit;
+
 create sequence sequ_lawtion_auction_board
   start with 1
   increment by 1;
   
 create table lawtion_auction_comment(
   cno number(4) primary key,
+  id varchar2(50) not null,
   content varchar2(500),
   cdate date,
   ano number(4),

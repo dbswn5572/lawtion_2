@@ -112,47 +112,47 @@ function previewImage(targetObj, View_area) {
 		<div class="mypage-auction">
 			<div class="mypage-box1">
 				<a href="${pageContext.request.contextPath}/mypagelawyer.do">
-				<label>�輱������</label>
-				<span>�����<br>��û��Ȳ</span>
+				<label>김선웅님의</label>
+				<span>역경매<br>신청현황</span>
 				</a>
 			</div>
 			
 			<div class="mypage-box2">
 				<a href="${pageContext.request.contextPath}/mypagelawyerpro.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-write.png">
-					<span>���� ��û</span>
-					<label>1��</label>
+					<span>입찰신청</span>
+					<label>1건</label>
 				</a>
 			</div>
 			
 			<div class="mypage-box3">
 				<a href="${pageContext.request.contextPath}/mypagelawyersuccess.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-success.png">
-					<span>���� �� ����</span>
-					<label>2��</label>
+					<span>낙찰 및 마감</span>
+					<label>2건</label>
 				</a>
 			</div>
 			<div class="mypage-box4">
 				<a href="${pageContext.request.contextPath}/mypagelawyerinfo.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-my.png">
-					<span>�������� ����</span>
+					<span>개인정보수정</span>
 				</a>
 			</div>
 		</div>
 		<div class="mypage-content">
 			<div class="mypage-content-sub">
-				<span class="mypage-sub-title">�������� ����</span>
+				<span class="mypage-sub-title">개인정보 수정</span>
 			</div>
 			<div class="mypage-content-table">
 				<form action="#" method="post" class="mypage-info">
 					<table>
 						<tr>
-							<th>���̵�</th>
+							<th>아이디</th>
 							<td><input type="text" disabled value="hyeona6923"></td>
-							<th>���λ���</th>
+							<th>본인사진</th>
 						</tr>
 						<tr>
-							<th>��й�ȣ</th>
+							<th>비밀번호</th>
 							<td><input type="password"></td>
 							<td rowspan=4>
 								<div class="mypage-img">
@@ -162,11 +162,11 @@ function previewImage(targetObj, View_area) {
 							</td>
 						</tr>
 						<tr>
-							<th>��й�ȣ Ȯ��</th>
+							<th>비밀번호확인</th>
 							<td><input type="password"></td>
 						</tr>
 						<tr>
-							<th>�޴��� ��ȣ</th>
+							<th>핸드폰번호</th>
 							<td>
 								<select name="phone1" id="phone1" class="phoneselect">
 								<option value="010">010</option>
@@ -178,13 +178,13 @@ function previewImage(targetObj, View_area) {
 							</td>
 						</tr>
 						<tr>
-							<th>�̸���</th>
-							<td><input type="text" name="email" placeholder=" Email�ּ� ��ü�� �Է����ּ���." id="email"></td>
+							<th>이메일</th>
+							<td><input type="text" name="email" placeholder=" Email 주소 전체를 입력해주세요." id="email"></td>
 						</tr>
 					</table>
 				</form>
 				<div class="mypage-info">
-					<button type="mypage-info-button">�����Ϸ�</button>
+					<button type="mypage-info-button">수정완료</button>
 				</div>
 			</div>
 		</div>

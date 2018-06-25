@@ -13,8 +13,33 @@
    <script src="http://code.jquery.com/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
+<script>
+   $(document).ready(function(){
+      $("#btnLogin").click(function(){
+         
+         if($("#id_lg").val() == ""){
+            alert("아이디를 입력하세요");
+            $("#id_lg").focus();
+            return false;
+         }else if($("#pass_lg").val() == ""){
+            alert("패스워드를 입력하세요");
+            $("#pass_lg").focus();
+            return false;
+         }
+       
+         
+         loginForm.submit();   
+      });
+      
+      $("#header_login").click(function(){
+         $('div.modal').modal();   
+      });
+   });
+   
+
+</script>
 <body>
-   <div id="loginmodal" class="modal fade" tabindex="-1" role="dialog"
+      <div id="loginmodal" class="modal fade" tabindex="-1" role="dialog"
       aria-labelledby="loginmodalLabel" aria-hidden="true">
          <!-- .modal-dialog -->
          <div class="modal-dialog">
@@ -29,23 +54,26 @@
                <!-- 내용 -->
                <div class="modal-body">
                <form name="loginForm" action="login_check.do" method="post">
-                  <label class="login-label1">ID</label>
-                  <input type="text" name="id" id="id">
-                  <label class="login-label1">PASSWORD</label>
-                  <input type="password" name="password" id="pass">
+                  <div class="modal_id">
+                  	<label class="login-label1">ID</label>
+                  	<input type="text" name="id" id="id">
+                  </div>
+                  <div class="modal_pass">
+                  	<label class="login-label1">PASSWORD</label>
+                  	<input type="password" name="password" id="pass">
+                  </div>
                   <div class="checkbox">
-                          <label>
-                         <input type="checkbox" value="remember-me"> 아이디 기억하기
-                          </label>
-                     </div>
+                        <label>
+                       		<input type="checkbox" value="remember-me"> 아이디 기억하기
+                        </label>
+                   </div>
                </form>
                </div>
                <!-- 하단 -->
                <div class="modal-footer">
-               <button type="button">아이디/비밀번호 찾기</button>
-               <button type="button" id="btnLogin">LOGIN</button>
-               <h4>or</h4>
-               <a href="${pageContext.request.contextPath}/join_select.do"><button type="button">JOIN</button></a>
+               <h4 class="model-login"><button type="button" id="btnLogin">LOGIN</button></h4>
+               <h4 class="model-join"><a href="${pageContext.request.contextPath}/join.do"><button type="button">JOIN</button></a></h4>
+               
                </div>
             </div>
          </div>
@@ -57,16 +85,15 @@
             <c:when test="${sid == null}">
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
-               <li><a data-toggle="modal" href="#loginmodal" class="btn-login">로그인</a></li>
-               <li><a href="${pageContext.request.contextPath}/join_select.do">회원가입</a></li>
+               <li><a class="btn-login" id="header_login" style="cursor:pointer">로그인</a></li>
+               <li><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
             </ul>
             </c:when>
             <c:when test="${sid != null}">
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
-               <li><a href="${pageContext.request.contextPath}/mypageuser.do">마이페이지</a></li>
                <li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
-               <li><a href="${pageContext.request.contextPath}/join_select.do">회원가입</a></li>
+               <li><a href="${pageContext.request.contextPath}/mypageuser.do?sid=${sid}">마이페이지</a></li>
             </ul>
             </c:when>
             </c:choose>

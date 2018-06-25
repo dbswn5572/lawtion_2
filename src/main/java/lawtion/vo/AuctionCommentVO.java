@@ -2,6 +2,13 @@ package lawtion.vo;
 
 public class AuctionCommentVO {
 	int ano, cno, total, total2, lawyer;
+	String id;
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getLawyer() {
 		return lawyer;
 	}
@@ -22,11 +29,11 @@ public class AuctionCommentVO {
 	}
 	String content, cdate, ctotal, btotal;
 	public String getCtotal() {
-		this.ctotal = "´ñ±Û "+total;
+		this.ctotal = "ëŒ“ê¸€ "+total;
 		return ctotal;
 	}
 	public String getBtotal() {
-		this.btotal = total2+"¸íÀÇ ÀÔÂûÀÚ";
+		this.btotal = total2+"ëª…ì˜ ì…ì°°ì";
 		return btotal;
 	}
 	public int getAno() {

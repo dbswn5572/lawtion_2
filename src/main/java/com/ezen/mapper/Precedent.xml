@@ -55,4 +55,8 @@
 	 where rno between #{param1} and #{param2}
 </select>
 
+<insert id="InsertPrecedent">
+	insert into precedent_normal values(sequ_precedent_normal.nextval,#{title},#{content},#{result},0)
+</insert>
+
 </mapper>

@@ -24,19 +24,21 @@ public class AuctionCommentController{
 	@Autowired
 	SqlSessionTemplate sqlSession;
 	
-	/* °Ô½ÃÆÇ ´ñ±Û µî·Ï */
+	/* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ */
 	@RequestMapping(value="/reply_write_check.do", method=RequestMethod.GET)
 	@ResponseBody
-	public String reply_write_check(String content, String no){
+	public String reply_write_check(String id, String content, String no){
 		//System.out.println("content=" + content);
 		//System.out.println("no=" + no);
 		AuctionCommentVO vo = new AuctionCommentVO();
+		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+		
+		vo.setId(id);
 		vo.setContent(content);
 		vo.setAno(Integer.parseInt(no));
-		vo.setLawyer((int)(Math.random()*2));
+		vo.setLawyer(dao.WhoAreYou(id));
 				
-		//´ñ±Û Ãß°¡ÀÛ¾÷ : CGV_BOARD_REPLY		
-		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+		//ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½ : CGV_BOARD_REPLY		
 		int result = dao.getReplyInsertResult(vo);
 		//dao.closed();
 				
@@ -45,28 +47,30 @@ public class AuctionCommentController{
 	
 	/* 
 	 * 
-	 * ÀÓ½Ã·Î ¸¸µç ÀÔÂû ½ÅÃ»ÇÏ±â
+	 * ï¿½Ó½Ã·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï±ï¿½
 	 * 
 	 * */
 	@RequestMapping(value="/reply_write_check2.do", method=RequestMethod.GET)
 	@ResponseBody
-	public String reply_write_check2(String content, String no){
+	public String reply_write_check2(String id, String content, String no){
 		//System.out.println("content=" + content);
 		//System.out.println("no=" + no);
 		AuctionCommentVO vo = new AuctionCommentVO();
+		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+		
+		vo.setId(id);
 		vo.setContent(content);
 		vo.setAno(Integer.parseInt(no));
 		vo.setLawyer(2);
 				
-		//´ñ±Û Ãß°¡ÀÛ¾÷ : CGV_BOARD_REPLY	
-		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+		//ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Û¾ï¿½ : CGV_BOARD_REPLY	
 		int result = dao.getReplyInsertResult(vo);
 		//dao.closed();
-				
+		
 		return String.valueOf(result);
 	}
 	
-	/* °Ô½ÃÆÇ ´ñ±Û °¡Á®¿À±â */
+	/* ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	@RequestMapping(value="/reply_list.do", method=RequestMethod.GET)
 	@ResponseBody
 	public JSONArray reply_list(String no){
@@ -74,7 +78,7 @@ public class AuctionCommentController{
 		
 		JSONArray jarray = new JSONArray();		
 		
-		//´ñ±Û°¡Á®¿À±â - ArrayList<BoardReplyVO>	
+		//ï¿½ï¿½Û°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ArrayList<BoardReplyVO>	
 		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
 		ArrayList<AuctionCommentVO> list = dao.getReplyList(no);
 		//dao.closed();
@@ -83,9 +87,10 @@ public class AuctionCommentController{
 		cvo.setTotal2(dao.execTotalBiddingCount(no));
 		
 		
-		//ArrayList<BoardReplyVO> Å¸ÀÔ µ¥ÀÌÅÍ¸¦ JSON ÇüÅÂ·Î ¹Ù²Ù¾î¼­ Àü¼Û
+		//ArrayList<BoardReplyVO> Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ JSON ï¿½ï¿½ï¿½Â·ï¿½ ï¿½Ù²Ù¾î¼­ ï¿½ï¿½ï¿½ï¿½
 		for(AuctionCommentVO vo:list){
 			JSONObject obj = new JSONObject();
+			obj.put("id",vo.getId());
 			obj.put("rid", vo.getAno());
 			obj.put("content", vo.getContent());
 			obj.put("rdate", vo.getCdate());

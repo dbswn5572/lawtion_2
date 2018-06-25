@@ -65,7 +65,7 @@ body {
   display: block;
 }
 
-a.btn-layerClose {
+a.btn-layerCloseyes,  a.btn-layerCloseno{
   display: inline-block;
   height: 25px;
   padding: 0 14px 0;

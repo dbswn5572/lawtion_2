@@ -5,10 +5,19 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class AuctionBoardVO {
 	int rno, no, hits, btotal;
 	long e;
-	String title, content, fname, adate, category, edate, area, agree;
+	String id, title, content, fname, adate, category, edate, area, agree;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getBtotal() {
 		return btotal;
 	}
@@ -20,10 +29,10 @@ public class AuctionBoardVO {
 	}
 	public void setCategory(String category) {
 		if(category.equals("ex1")){
-			category = "민사";
+			category = "형사";
 		}
 		if(category.equals("ex2")){
-			category = "형사";
+			category = "민사";
 		}
 		this.category = category;
 	}
@@ -57,10 +66,10 @@ public class AuctionBoardVO {
 	}
 	public void setArea(String area) {
 		if(area.equals("1")){
-			area = "강원";
+			area = "경기";
 		}
 		if(area.equals("2")){
-			area = "경기";
+			area = "강원";
 		}
 		this.area = area;
 	}

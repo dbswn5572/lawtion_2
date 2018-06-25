@@ -1,112 +1,88 @@
 package lawtion.vo;
 
 public class joinNormalVO {
-	String id,password,name,birth,phone,email,jdate,phone1,phone2,phone3,years,months,days;
+   String id,password,name,birth,phone,email,jdate,phone1,phone2,phone3;
 
-	public String getYears() {
-		return years;
-	}
+   public String getPhone1() {
+      return phone1;
+   }
 
-	public void setYears(String years) {
-		this.years = years;
-	}
+   public void setPhone1(String phone1) {
+      this.phone1 = phone1;
+   }
 
-	public String getMonths() {
-		return months;
-	}
+   public String getPhone2() {
+      return phone2;
+   }
 
-	public void setMonths(String months) {
-		this.months = months;
-	}
+   public void setPhone2(String phone2) {
+      this.phone2 = phone2;
+   }
 
-	public String getDays() {
-		return days;
-	}
+   public String getPhone3() {
+      return phone3;
+   }
 
-	public void setDays(String days) {
-		this.days = days;
-	}
+   public void setPhone3(String phone3) {
+      this.phone3 = phone3;
+   }
 
-	public String getPhone1() {
-		return phone1;
-	}
+   public String getJdate() {
+      return jdate;
+   }
 
-	public void setPhone1(String phone1) {
-		this.phone1 = phone1;
-	}
+   public void setJdate(String jdate) {
+      this.jdate = jdate;
+   }
 
-	public String getPhone2() {
-		return phone2;
-	}
+   public String getId() {
+      return id;
+   }
 
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
-	}
+   public void setId(String id) {
+      this.id = id;
+   }
 
-	public String getPhone3() {
-		return phone3;
-	}
+   public String getPassword() {
+      return password;
+   }
 
-	public void setPhone3(String phone3) {
-		this.phone3 = phone3;
-	}
+   public void setPassword(String password) {
+      this.password = password;
+   }
 
-	public String getJdate() {
-		return jdate;
-	}
+   public String getName() {
+      return name;
+   }
 
-	public void setJdate(String jdate) {
-		this.jdate = jdate;
-	}
+   public void setName(String name) {
+      this.name = name;
+   }
 
-	public String getId() {
-		return id;
-	}
+   public String getBirth() {
+      return birth;
+   }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+   public void setBirth(String birth) {
+      this.birth = birth;
+   }
 
-	public String getPassword() {
-		return password;
-	}
+   public String getPhone() {
+      return phone1+phone2+phone3;
+   }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+   public void setPhone(String phone) {
+      this.phone = phone;
+   }
 
-	public String getName() {
-		return name;
-	}
+   public String getEmail() {
+      return email;
+   }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getBirth() {
-		return years+"."+months+"."+days;
-	}
-
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-
-	public String getPhone() {
-		return phone1+phone2+phone3;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
+   public void setEmail(String email) {
+      this.email = email;
+   }
+   
+   
 
 }

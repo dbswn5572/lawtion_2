@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   	<link rel="stylesheet" type="text/css" href="http://localhost:9000/mycgv/css/am-pagination.css">
   	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/lawtion.css">
@@ -67,21 +67,7 @@
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
-		<!-- 하부 메뉴 네비게이션 -->
-		<nav class="cd-stretchy-nav">
-				<a class="cd-nav-trigger" href="#0">
-					<span aria-hidden="true"></span>
-				</a>
-			<ul>
-				<li><a href="${pageContext.request.contextPath}/index.do" class="active"><span>Home</span></a></li>
-				<li><a href="#0"><span>LawTalk</span></a></li>
-				<li><a href="#0"><span>KakaoTalk</span></a></li>
-				<li><a href="#0"><span>Schedule</span></a></li>
-				<li><a href="#0"><span>Contact</span></a></li>
-			</ul>
-
-			<span aria-hidden="true" class="stretchy-nav-bg"></span>
-		</nav>
+		
 		<div class="introduce2">
 	<section class="content_style">
 		<div class="review-title">

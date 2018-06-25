@@ -1,0 +1,323 @@
+/* precedent_main.jsp */
+	div.pre{
+	width:100%;
+	height:auto;
+	}
+	div.pre_main{
+	width:58%;
+	margin:auto;
+	height:auto;
+	}
+	
+	div.pre_select{
+	width:100%;
+	height:90px;
+	display:flex;
+	}
+	
+	div.nomal_pre{
+	width:50%;
+	height:100%;
+	border-bottom:2px solid #474747;
+	border-right:1px solid lightgray;
+	border-left:1px solid lightgray;
+	float:left;
+	text-align:center;
+	
+	}
+	
+	div.reveiw_pre{
+	width:50%;
+	height:100%;
+	float:right;
+	text-align:center;
+	border-right:1px solid lightgray;
+	border-bottom:1px solid lightgray;
+	}
+	
+	div.nomal_pre label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.reveiw_pre label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.pre_search{
+	width:100%;
+	margin:auto;
+	margin-top:40px;
+	width:20%;
+	height:40px;
+	display:flex;
+	}
+	
+	div.pre_search input{
+	display:inline-block;
+	margin:auto;
+	width:80%;
+	height:85%;
+	}
+	
+	div.pre_search img{
+	width:20%;
+	heigth:100%;
+	}
+	
+	div.pre_table table{
+	width:100%;
+	}
+	
+	table.pre_table{
+	width:100%;
+	height:auto;
+	text-align:center;
+	font-family: 'Nanum Gothic', sans-serif;
+	border-collapse: collapse;
+	margin-top:40px;
+	margin-bottom:40px;
+	}
+	
+	table.pre_table tr th{
+	border-top:2px solid #474747;
+	border-bottom:2px solid #474747;
+	border-left:0px;
+	border-right:0px;
+	height:5px;
+	}
+	
+	table.pre_table tr td{
+	border-bottom:1px solid lightgray;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:11pt;
+	}
+	
+	div.pre_select a:hover, div.pre_select a:focus {
+	text-decoration:none;
+	}
+	
+	div.pre_list{
+	width:100%;
+	height:auto;
+	}
+	
+	div.pre_quick{
+	float:right;
+	margin-top:40px;
+	margin-left:-40px;
+	}
+	
+	div.pre_quick1{
+	margin-left:60px;
+	}
+	
+	div.pre_quick2{
+	width:200px; heigth:300px;
+	display:none;
+	}
+	
+	div.pre_quick2 table.quick_table{
+	width:200px;
+	height:100%;
+	border-collapse:collapse;
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align:center;
+	font-size:11pt;
+	font-weight:bold;	
+	}
+	
+	table.quick_table img{
+	border:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first td{
+	border-rigth:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first,table.quick_table tr.tr_last{
+	height:20%;
+	background-color:#073455;
+	color:white;
+	}
+	
+	/* pre_main2.jsp */
+	div.pre_main2{
+	width:58%;
+	margin:auto;
+	height:auto;
+	}
+	
+	div.pre_select2{
+	width:100%;
+	height:90px;
+	display:flex;
+	}
+	
+	div.nomal_pre2{
+	width:50%;
+	height:100%;
+	border-bottom:1px solid lightgray;
+	border-right:1px solid lightgray;
+	border-left:1px solid lightgray;
+	float:left;
+	text-align:center;
+	}
+	
+	div.reveiw_pre2{
+	width:50%;
+	height:100%;
+	border-bottom:2px solid #474747;
+	float:right;
+	text-align:center;
+	border-right:1px solid lightgray;
+	}
+	
+	div.nomal_pre2 label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.reveiw_pre2 label{
+	width:100%;
+	display:inline-block;
+	font-family: 'Nanum Gothic', sans-serif;
+	font-size:14pt;
+	margin-top:30px;
+	color:black;
+	}
+	
+	div.pre_search2{
+	width:100%;
+	margin:auto;
+	margin-top:40px;
+	width:20%;
+	height:40px;
+	display:flex;
+	}
+	
+	div.pre_search2 input{
+	display:inline-block;
+	margin:auto;
+	width:80%;
+	height:85%;
+	}
+	
+	div.pre_search2 img{
+	width:20%;
+	heigth:100%;
+	}
+	
+	div.pre_table2 table{
+	width:100%;
+	}
+	
+	table.pre_table2{
+	width:100%;
+	height:auto;
+	text-align:center;
+	font-family: 'Nanum Gothic', sans-serif;
+	border-collapse: collapse;
+	margin-top:40px;
+	margin-bottom:40px;
+	}
+	
+	table.pre_table2 tr th{
+	border-top:2px solid #474747;
+	border-bottom:2px solid #474747;
+	border-left:0px;
+	border-right:0px;
+	height:5px;
+	}
+	
+	table.pre_table2 tr td{
+	border-bottom:1px solid lightgray;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:11pt;
+	}
+	div.pre_select2 a:hover, div.pre_select a:focus {
+	text-decoration:none;
+	}
+	
+	div.pre_quick{
+	float:right;
+	margin-top:40px;
+	margin-left:-40px;
+	}
+	
+	div.pre_quick1{
+	margin-left:60px;
+	}
+	
+	div.pre_quick2{
+	width:200px; heigth:300px;
+	display:none;
+	}
+	
+	div.pre_quick2 table.quick_table{
+	width:200px;
+	height:100%;
+	border-collapse:collapse;
+	font-family: 'Nanum Gothic', sans-serif;
+	text-align:center;
+	font-size:11pt;
+	font-weight:bold;	
+	}
+	
+	table.quick_table img{
+	border:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first td{
+	border-rigth:1px solid #073455;
+	}
+	
+	table.quick_table tr.tr_first,table.quick_table tr.tr_last{
+	height:20%;
+	background-color:#073455;
+	color:white;
+	}
+	
+	/* pre_content.jsp */
+	div.pre_content{
+	width:100%;
+	margin:auto;
+	}
+	
+	div.pre_content1{
+	width:58%;
+	margin:auto;
+	margin-top:40px;
+	margin-bottom:40px;
+	height:auto;
+	}
+	
+	div.pre_content1 table{
+	width:100%;
+	border-bottom:2px solid #474747;
+	font-family: 'Nanum Gothic', sans-serif;
+	height:auto;
+	}
+	
+	div.pre_content1 table td{
+	padding-top:50px;
+	padding-bottom:50px;
+	padding-left:30px;
+	padding-right:30px;
+	font-size:11pt;
+	}

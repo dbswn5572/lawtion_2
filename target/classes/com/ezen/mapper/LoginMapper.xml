@@ -5,15 +5,20 @@
 
 <mapper namespace="lawtion.dao.LoginDAO">
 
-	<select id="LoginResult" resultType="int">
-		select count(*) from join_normal where id=#{id} and password=#{password}
-	</select>
-	
-	<select id="LoginLayerResult" resultType="int">
-		select count(*) from join_layer where id=#{id} and password=#{password}
-	</select>
-	
-	<select id="getUserName" resultType="String">
-		select name from join_normal where id=#{id}
-	</select>
+   <select id="LoginResult" resultType="int">
+      select count(*) from join_normal where id=#{id} and password=#{password}
+   </select>
+   
+   <select id="LoginLayerResult" resultType="int">
+      select count(*) from join_lawyer where id=#{id} and password=#{password}
+   </select>
+   
+   <select id="getUserName" resultType="String">
+      select name from join_normal where id=#{param1}
+   </select>
+   
+   <select id="getResultVO" resultType="lawtion.vo.joinNormalVO">
+      select name, id, substr(phone,4,4) as phone2, substr(phone,8) as phone3, email from join_normal where id=#{param1}
+   </select>
+   
 </mapper>

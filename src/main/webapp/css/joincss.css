@@ -1,236 +1,236 @@
 /*Join.jsp 현아수정부분*/
-	div.join-title {
-	display: inline-block;
-	height:auto;
-	width:100%;
-	color:white;
-	margin:auto;
-	}
-	div.join-sub{
-		margin:auto;
-		width:25%;
-		margin-top:20px;
-		height:auto;
-	}
-	
-	div.join-sub-sub{
-		margin:auto;
-		width:25%;
-		height:auto;
-		margin-bottom:20px;
-		margin-top:-20px;
-	}
-	div.join-main{
-	width:100%;
-	margin:auto;
-	}
-	div.join-select{
-	width:60%;
-	margin:auto;
-	height:auto;
-	border-top:1px solid gray;
-	border-bottom:1px solid gray;
-	padding-bottom:40px;
-	}
-	
-	div.select{
-	width:100%;
-	height:auto;
-	display:flex;
-	background-color:#F6F6F6;
-	}
-	
-	/**
-	section.select-content{
-	display:flex;
-	}*/
-	
-	section.select-content1{
-	width:50%;
-	margin:auto;
-	border-right:1px solid lightgray;
-	margin-left:250px;
-	margin-top:40px;
-	margin-bottom:40px;
-	}
-	section.select-content2{
-	width:50%;
-	margin:auto;
-	margin-left:200px;
-	margin-top:40px;
-	margin-bottom:40px;
-	}
-	section.select-content1 div.sel-img{
-	margin:auto;
-	width:auto;
-	}
-	
-	div.sel-info{
-	margin-top:30px;
-	margin-left:-30px;
-	}
-	img.user-title{
-	margin:auto;
-	width:auto;
-	}
-	
-	section.select-content1 img{
-	margin:auto;
-	width:auto;
-	}
-	
-	div.sel-img{
-	margin-bottom:30px;
-	}
-	
-	button.join-user-button{
-	background-color:white;
-	border:1px solid gray;
-	width:150px;
-	height:50px;
-	font-size:12pt;
-	}
-	
-	button.join-lawyer-button{
-	background-color:white;
-	border:1px solid gray;
-	width:150px;
-	height:50px;
-	font-size:12pt;
-	}
-	
-	div.join-text{
-	margin-top:30px;
-	margin-bottom:30px;
-	}
-	div.join-text label.join-info-title{
-	font-size:18pt;
-	font-weight:bold;
-	}
-	
-	div.join-main{
-	padding-bottom:30px;
-	}
-	
-	
-	
-	
-	/*join_user.jsp*/
-	
-	div.join-table{
-	width:100%;
-	}
-	
-	div.join-table table.user-join-table{
-	width:100%;
-	height:auto;
-	border-bottom:2px solid gray;
-	border-top:2px solid gray;
-	background-color:white;
-	border-left:0px;
-	border-right:0px;
-	}
-	
-	div.join-table table.user-join-table th{
-	width:25%;
-	border-top:0px; border-left:0px; border-right:0px;
-	font-size:11pt;
-	text-align:left;
-	padding-left:30px;
-	border-bottom:1px solid lightgray;
-	}
-	
-	table.user-join-table tr:nth-last-chlid(1),
-	table.user-join-table tr:nth-last-child(1) th{
-	border-bottom:0px white solid;
-	
-	}
-	
-	table.user-join-table tr{
-	border-bottom:1px solid lightgray;
-	}
-	
-	table.user-join-table input{
-	width:50%;
-	height:38px;
-	background-color:#F6F6F6;
-	border:0px;
-	}
-	
-	table.user-join-table td{
-	border-top:0px;
-	border-left:0px;
-	border-right:0px;
-	}
-	
-	div.join-terms label.terms-title{
-	font-size:18pt;
-	font-weight:bold;
-	margin-left:-40px;
-	
-	}
-	
-	div.join-terms label.terms-title-sub{
-	margin-left:-40px;
+   div.join-title {
+   display: inline-block;
+   height:auto;
+   width:100%;
+   color:white;
+   margin:auto;
+   }
+   div.join-sub{
+      margin:auto;
+      width:25%;
+      margin-top:20px;
+      height:auto;
+   }
+   
+   div.join-sub-sub{
+      margin:auto;
+      width:25%;
+      height:auto;
+      margin-bottom:20px;
+      margin-top:-20px;
+   }
+   div.join-main{
+   width:100%;
+   margin:auto;
+   }
+   div.join-select{
+   width:60%;
+   margin:auto;
+   height:auto;
+   border-top:1px solid gray;
+   border-bottom:1px solid gray;
+   padding-bottom:40px;
+   }
+   
+   div.select{
+   width:100%;
+   height:auto;
+   display:flex;
+   background-color:#F6F6F6;
+   }
+   
+   /**
+   section.select-content{
+   display:flex;
+   }*/
+   
+   section.select-content1{
+   width:50%;
+   margin:auto;
+   border-right:1px solid lightgray;
+   margin-left:250px;
+   margin-top:40px;
+   margin-bottom:40px;
+   }
+   section.select-content2{
+   width:50%;
+   margin:auto;
+   margin-left:200px;
+   margin-top:40px;
+   margin-bottom:40px;
+   }
+   section.select-content1 div.sel-img{
+   margin:auto;
+   width:auto;
+   }
+   
+   div.sel-info{
+   margin-top:30px;
+   margin-left:-30px;
+   }
+   img.user-title{
+   margin:auto;
+   width:auto;
+   }
+   
+   section.select-content1 img{
+   margin:auto;
+   width:auto;
+   }
+   
+   div.sel-img{
+   margin-bottom:30px;
+   }
+   
+   button.join-user-button{
+   background-color:white;
+   border:1px solid gray;
+   width:150px;
+   height:50px;
+   font-size:12pt;
+   }
+   
+   button.join-lawyer-button{
+   background-color:white;
+   border:1px solid gray;
+   width:150px;
+   height:50px;
+   font-size:12pt;
+   }
+   
+   div.join-text{
+   margin-top:30px;
+   margin-bottom:30px;
+   }
+   div.join-text label.join-info-title{
+   font-size:18pt;
+   font-weight:bold;
+   }
+   
+   div.join-main{
+   padding-bottom:30px;
+   }
+   
+   
+   
+   
+   /*join_user.jsp*/
+   
+   div.join-table{
+   width:100%;
+   }
+   
+   div.join-table table.user-join-table{
+   width:100%;
+   height:auto;
+   border-bottom:2px solid gray;
+   border-top:2px solid gray;
+   background-color:white;
+   border-left:0px;
+   border-right:0px;
+   }
+   
+   div.join-table table.user-join-table th{
+   width:25%;
+   border-top:0px; border-left:0px; border-right:0px;
+   font-size:11pt;
+   text-align:left;
+   padding-left:30px;
+   border-bottom:1px solid lightgray;
+   }
+   
+   table.user-join-table tr:nth-last-chlid(1),
+   table.user-join-table tr:nth-last-child(1) th{
+   border-bottom:0px white solid;
+   
+   }
+   
+   table.user-join-table tr{
+   border-bottom:1px solid lightgray;
+   }
+   
+   table.user-join-table input{
+   width:50%;
+   height:38px;
+   background-color:#F6F6F6;
+   border:0px;
+   }
+   
+   table.user-join-table td{
+   border-top:0px;
+   border-left:0px;
+   border-right:0px;
+   }
+   
+   div.join-terms label.terms-title{
+   font-size:18pt;
+   font-weight:bold;
+   margin-left:-40px;
+   
+   }
+   
+   div.join-terms label.terms-title-sub{
+   margin-left:-40px;
 
-	}
-	
-	div.join-terms{
-	width:100%;
-	height:auto;
-	margin-top:30px;
-	}
-	div.terms1{
-	border:1px solid gray;
-	margin-left:-30px;
-	font-size:10pt;
-	}
-	
-	div.main-sub{
-	width:9%;
-	height:auto;
-	margin:auto;
-	margin-top:30px;
-	}
-	
-	div.main-sub button{
-    	width:180px;
-  	  background-color: #353535;
-   	 border: none;
-   	color:#fff;
-  	  padding: 15px 0;
-  	  text-align: center;
- 	   text-decoration: none;
-  	  display: inline-block;
- 	   font-size: 15px;
- 	   cursor: pointer;
- 	   margin:auto;
-	}
-	
-	/*join_lawyer.jsp*/
-	table.user-join-table label.btn_file{
-	border:1px solid gray;
-	padding:5px;
-	margin-top:5px;
-	background-color:#353535;
-	color:white;
-	}
-	
-	table.user-join-table div.fileBox{
-	margin-top:10px;
-	}
+   }
+   
+   div.join-terms{
+   width:100%;
+   height:auto;
+   margin-top:30px;
+   }
+   div.terms1{
+   border:1px solid gray;
+   margin-left:-30px;
+   font-size:10pt;
+   }
+   
+   div.main-sub{
+   width:9%;
+   height:auto;
+   margin:auto;
+   margin-top:30px;
+   }
+   
+   div.main-sub button{
+       width:180px;
+       background-color: #353535;
+       border: none;
+      color:#fff;
+       padding: 15px 0;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 15px;
+       cursor: pointer;
+       margin:auto;
+   }
+   
+   /*join_lawyer.jsp*/
+   table.user-join-table label.btn_file{
+   border:1px solid gray;
+   padding:5px;
+   margin-top:5px;
+   background-color:#353535;
+   color:white;
+   }
+   
+   table.user-join-table div.fileBox{
+   margin-top:10px;
+   }
         
-	/*join_success.jsp*/
-	div.join-success{
-	width:100%;
-	margin:auto;
-	padding-bottom:20px;
-	}
-	div.join-success div.join-success-sub{
-	width:35%;
-	margin:auto;
-	}
-	
-	div.join-success-sub img{
-	margin:auto;
-	}
+   /*join_success.jsp*/
+   div.join-success{
+   width:100%;
+   margin:auto;
+   padding-bottom:20px;
+   }
+   div.join-success div.join-success-sub{
+   width:35%;
+   margin:auto;
+   }
+   
+   div.join-success-sub img{
+   margin:auto;
+   }

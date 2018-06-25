@@ -5,8 +5,8 @@ import java.sql.*;
 
 public class DBConn {
 	static String url="jdbc:oracle:thin:@localhost:1521:xe";
-	static String user="hr";
-	static String pass = "hr";
+	static String user="scott";
+	static String pass = "tiger";
 	static Connection conn;
 	
 	

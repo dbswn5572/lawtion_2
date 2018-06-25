@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   	<link rel="stylesheet" type="text/css" href="http://localhost:9000/mycgv/css/am-pagination.css">
   	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -31,7 +31,6 @@
 			    <div class="right-img" >
 				 <img src="${pageContext.request.contextPath}/images/content_img.jpg">
 			</div>
-			<hr>
 			<div class="lawyer-detail">
 				<table class="career">
 					<tr>
@@ -43,9 +42,6 @@
 							<div class="dnameGG">
 								<span class="dname">${vo.dname }</span>&nbsp;&nbsp;&nbsp;
 								&nbsp;&nbsp;&nbsp;&nbsp;
-								<button id="popup" onclick="window.open('introduce_calender.do','window_name',
-								'width=430,height=400','left='+(screen.availWidth-660)/2+',top='+(screen.availHeight-430)/2+',location=no,status=no,scrollbars=no');">
-								일정</button>
 							</div>
 							<hr>
 							<div class = "nameGG"><span class="name">${vo.name} 변호사</span></div><br>
