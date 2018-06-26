@@ -7,8 +7,11 @@ import lawtion.vo.*;
 public interface joinNormalDAO {
    public int getResult(joinNormalVO vo);
 
-   //회원 정보 리스트 출력
-   public ArrayList<joinNormalVO> getResultList();
+   //�쉶�썝 �젙蹂� 由ъ뒪�듃 異쒕젰
    public int getUpdateResult(joinNormalVO vo);
+   public int execTotalCount();
+   public ArrayList<joinNormalVO> getResultList(int startCount, int endCount);
+   public int getDeleteResult(String id);
+  
    
 }

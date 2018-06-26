@@ -21,4 +21,6 @@
       select name, id, substr(phone,4,4) as phone2, substr(phone,8) as phone3, email from join_normal where id=#{param1}
    </select>
    
+    
+   
 </mapper>

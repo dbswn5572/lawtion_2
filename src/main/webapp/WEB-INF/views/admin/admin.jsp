@@ -31,7 +31,7 @@
 			if($(this).next("ul").is(":visible")){
 				$(this).next("ul").slideUp();
 			}else{
-				$(this).next("ul").slideUp();
+				$(this).next("ul").slideDown();
 			}
 			
 		});
@@ -60,18 +60,26 @@ table.theme{
 							<span class="main-sub">Lawtion Admin</span>
 						</a>
 					</li>
-					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do?no=${vo.no}&rno=${vo.rno}"><i class="fa fa-paper-plane"></i>
+					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do"><i class="fa fa-paper-plane"></i>
 							<span class="main-sub">공지사항</span></a>
 						<ul class="sub-group-list">
-							<li><a href="${pageContext.request.contextPath}/admin_notice_write.do?no=${vo.no}&rno=${vo.rno}"><i class="fa fa-pencil"></i><span>공지사항 작성</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_notice_write.do"><i class="fa fa-pencil"></i><span>공지사항 작성</span></a></li>
 						</ul>
 					</li>
 					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
 							<span class="main-sub">회원관리</span></a>
 						<ul class="sub-group-list">
-							<li><a href="#"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_user.do"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
 							<li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
 						</ul>
+					</li>
+					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
+							<span class="main-sub">판례게시판</span></a>
+						<ul class="sub-group-list">
+							<li><a href="${pageContext.request.contextPath}/admin_precedent_normal.do"><i class="fa fa-paper-plane"></i><span>기존판례</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_precedent_review.do"><i class="fa fa-pencil"></i><span>후기판례</span></a></li>
+						</ul>
+					</li>
 				</ul>
 			</nav>
 		</div>

@@ -129,8 +129,8 @@
    <div class="review">
       <h3>판례게시판 > 기존판례</h3>
          
-      <div class="write">
-         <form name="write" action="admin_precedent_normal_ckeck.do" method="post" enctype="multipart/form-data">
+ 
+         <form name="write" action="admin_precedent_review_ckeck.do" method="post" enctype="multipart/form-data">
             <table  class="talk-Write">
                <tr>
                   <td colspan=2>
@@ -155,6 +155,12 @@
                </tr>
                <tr>
                   <td colspan=3>
+                     <label>당당변호사</label>
+                     <input type ="text" name="lname" id="lname" >
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan=3>
                      <label>내용</label>
                      <textarea name="content" id="content"></textarea>
                   </td>
@@ -164,14 +170,14 @@
                      <div class="write_button">
                         <button type="submit" id="writesucess" name="writesucess">저장</button>
                         <button type="reset" name="reset">취소</button>
-                        <a href="${pageContext.request.contextPath}/amdin_precedent_normal.do"><button type="button">이전 페이지</button></a>
+                        <a href="${pageContext.request.contextPath}/amdin_precedent_review.do"><button type="button">이전 페이지</button></a>
                      </div>
                   </td>
                </tr>
             </table>   
          </form>
       </div>
-   </div>
+
       
          
 </body>

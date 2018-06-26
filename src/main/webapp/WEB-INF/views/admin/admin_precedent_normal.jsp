@@ -7,7 +7,7 @@
 <html>
 <head>
    <meta charset="utf-8" />
-   <title>My JSP Page</title>
+   <title>Lawtion 관리자</title>
    <!-- Bootstrap 적용 -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, 
       minimum-scale=1.0, user-scalable=no"/>
@@ -99,7 +99,7 @@
             <c:forEach items = "${list}" var = "vo">
             <tr>
                <td>${vo.rno }</td>   
-               <td><a href="${pageContext.request.contextPath}/admin_precedent_content.do?no=${vo.no }&rno=${vo.rno }">${vo.title }</a></td>
+               <td><a href="${pageContext.request.contextPath}/admin_precedent_normal_content.do?no=${vo.no }&rno=${vo.rno }">${vo.title }</a></td>
                <td>${vo.result }</td>
                <td>${vo.hits }</td>
             </tr>

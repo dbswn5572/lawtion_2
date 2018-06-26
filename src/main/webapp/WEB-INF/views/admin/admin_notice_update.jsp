@@ -35,6 +35,19 @@
 			}
 			
 		});
+		
+		$("#btnupdate").click(function(){
+			if($("#title").val()==""){
+				alert("제목을 입력해주세요.");
+				$("#title").focus();
+			}else if($("input[type=file]").val() == ""){
+				//alert("파일선택 안함!!")
+				$("#code").val("exist");
+			}
+			
+			
+			write.submit();
+			});
 	});
 </script>
 <style>
@@ -67,7 +80,7 @@ table.theme{
 					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
 							<span class="main-sub">회원관리</span></a>
 						<ul class="sub-group-list">
-							<li><a href="#"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_user.do"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
 							<li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
 						</ul>
 				</ul>
@@ -77,42 +90,34 @@ table.theme{
 	<div class="container-admin">
 		<h3>공지사항</h3>
 		<div class="notice">
-			<table class="theme" border=1>
+		<form name="write" action="admin_precedent_normal_update_check.do" method="post" enctype="multipart/form-data">
+			<table class="theme" border=1 >
 				<tr>
 					<th>No</th>
-					<td>${rno}</td>
+					<td><input type="text" value="${vo.no}" disabled></td>
 				</tr>
 				<tr>
-					<th >제목</th>
-					<td>${vo.title }</td>
+					<th>제목</th>
+					<td><input name="title" type="text" value="${vo.title}" type=hidden></td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<c:choose>
-					<c:when test="${vo.content !='empty' }">
-						${vo.content}
-						<img src ="${pageContext.request.contextPath}/upload/${vo.rfname}"
-							width="100" height="100">
-					</c:when>
-					<c:otherwise>
-						&nbsp;
-					</c:otherwise>
-					</c:choose>
+					<td><textarea name="content" rows="20" cols="30">${vo.content }</textarea></td>
 				</tr>
 				<tr>
-					<td>등록날짜</td>
-					<td>${vo.rdate}</td>
+					<th>파일첨부</th>
+					<td><input type="file" name="file" value="${vo.fname }"></td>
 				</tr>
-				<tr>	
-					<td>조회수</td>
-					<td>${vo.hits}</td>
-				</tr>
+
+				</table>
 				
-			</table>
-	<a href="${pageContext.request.contextPath}/admin.do"><button type="button">목록</button></a>
-	<a href="${pageContext.request.contextPath}/admin_notice_update.do?no=${vo.no}&rno=${vo.rno}"><button type="button">수정하기</button></a>
-	<a href="${pageContext.request.contextPath}/admin_notice_delete.do?no=${vo.no }&rno=${vo.rno}"><button type="button">삭제하기</button></a>
-			
+				<a href="${pageContext.request.contextPath}/admin.do"><button type="button">목록</button></a>
+				<button type="submit" id="btnupdate" name="btnupdate">수정완료</button>
+				<a href="${pageContext.request.contextPath}/admin_notice_delete.do?no=${vo.no }&rno=${vo.rno}"><button type="button">삭제하기</button></a>
+				<input type="hidden" name="code" id="code">
+				<input type="hidden" name="no" value="${vo.no }"> 
+			</form>
+				
 			</div>
 		</div>	
 

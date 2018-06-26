@@ -53,9 +53,10 @@ ul.mylist {
 					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
 							<span class="main-sub">회원관리</span></a>
 						<ul class="sub-group-list">
-							<li><a href="#"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_user.do"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
 							<li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
-					</ul>
+						</ul>
+					</li>
 				</ul>
 			</nav>
 		</div>

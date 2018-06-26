@@ -47,7 +47,7 @@ $(document).ready(function(){
 			<label>하소연 작성</label>
 		</div>
 		<div class="write">
-			<form name="write" action="talk_update_check.do" method="post" enctype="multipart/form-data">
+			<form name="boardForm" action="talk_update_check.do" method="post" enctype="multipart/form-data">
 				<table  class="talk-Write">
 					<tr>
 						<td colspan=2>
@@ -79,7 +79,7 @@ $(document).ready(function(){
 							<div class="write_button">
 								<input type="hidden" name="no" value="${vo.no}">
 								<input type="hidden" name="code" id="code">
-								<button type="submit" id="btnupdate" name="btnupdate">수정완료</button></a>
+								<button type="submit" id="btnupdate" name="btnupdate">수정완료</button>
 								<button type="reset" name="reset">취소</button>
 								<a href="${pageContext.request.contextPath}/talk_board_content.do?no=${vo.no}&rno=${rno}"><button type="button">이전 페이지</button></a>
 							</div>

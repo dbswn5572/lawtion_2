@@ -38,6 +38,12 @@ public class PrecedentVO_review {
 		return result;
 	}
 	public void setResult(String result) {
+		if (result.equals("win")) {
+			result = "½Â";
+		}
+		if(result.equals("lose")){
+			result="ÆÐ";
+		}
 		this.result = result;
 	}
 	public String getLname() {

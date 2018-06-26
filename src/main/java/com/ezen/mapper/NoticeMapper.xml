@@ -24,9 +24,9 @@
    </update>
    <insert id="getInsertResult">
       insert into lawtion_notice values
-      (sequ_lawtion_notice.nextval,#{title},#{content},#{fname},#{rfname},sysdate,0)
+      (sequ_lawtion_notice.nextval,#{title},sysdate,#{hits},#{content},#{fname},#{rfname})
    </insert>
-   <update id="getUpdateResult">
+   <update id="getUpdateResult" >
       update lawtion_notice set title=#{title},content=#{content},fname=#{fname},
             rfname=#{rfname} where no=#{no}
    </update>

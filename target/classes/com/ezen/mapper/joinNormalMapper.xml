@@ -9,12 +9,21 @@
       insert into join_normal values(#{id},#{password},#{name},#{phone},#{email},#{birth},sysdate)
    </insert>
    
-   <select id="getResultList" resultType = "lawtion.vo.joinNormalVO">
-      select rownum as rno,name,id,birth,phone,email,to_char(jdate,'yyyy-mm-dd')
-         from (select * from join_normal order by jdate desc)
-   </select>
-   
    <update id="getUpdateResult">
       UPDATE join_normal SET password=#{password},phone=#{phone1}+#{phone2}+#{phone3},email=#{email} WHERE id=#{sid}
    </update>
+   
+  <select id="execTotalCount" resultType="int">
+      select count(*) from join_normal
+   </select>
+   
+   
+   <select id="getResultList" resultType="lawtion.vo.joinNormalVO">
+      SELECT ROWNUM AS RNO, ID, NAME, PHONE, BIRTH,EMAIL, JDATE FROM (SELECT ROWNUM AS RNO, ID, NAME, PHONE, BIRTH, JDATE ,EMAIL FROM JOIN_NORMAL ORDER BY JDATE DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2}
+   </select>
+   
+   <delete id="getDeleteResult">
+   	  DELETE FROM JOIN_NORMAL WHERE ID=#{PARAM1}
+   </delete>
+   
 </mapper>

@@ -7,7 +7,7 @@
 <html>
 <head>
    <meta charset="utf-8" />
-   <title>My JSP Page</title>
+   <title>Lawtion 관리자</title>
    <!-- Bootstrap 적용 -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, 
       minimum-scale=1.0, user-scalable=no"/>
@@ -22,12 +22,12 @@
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
    <link rel="stylesheet" type="text/css" href= "${pageContext.request.contextPath}/css/lawtion.css">
-   <script src="resources/ckeditor/ckeditor.js"></script>
+
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/am-pagination.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/paging.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
    
 <script>
    $(document).ready(function(){
@@ -43,51 +43,17 @@
          
       });
       
-      $("#writesucess").click(function(){
-         if($("#title").val()==""){
-            alert("제목을 입력해주세요.");
-            $("#title").focus();
-         }else if($("input[type=file]").val() == ""){
-            //alert("파일선택 안함!!")
-            $("#code").val("exist");
-         }else if(editor.getData() == ""){
-             alert("내용을 입력하세요");
-             return false;
-            }
-         
-      });
+      $("#btnupdate").click(function(){
+			if($("#title").val()==""){
+				alert("제목을 입력해주세요.");
+				$("#title").focus();
+			}
+			
+			write.submit();
+			});
       
-      CKEDITOR.replace( 'content', {//해당 이름으로 된 textarea에 에디터를 적용
-            width:'790',
-            height:'500px',
-            filebrowserImageUploadUrl: '/upload/upload', //여기 경로로 파일을 전달하여 업로드 시킨다.
-            uiColor: '#D9E5FF'
-        });
-         
-         
-        CKEDITOR.on('dialogDefinition', function( ev ){
-            var dialogName = ev.data.name;
-            var dialogDefinition = ev.data.definition;
-          
-            switch (dialogName) {
-                case 'image': //Image Properties dialog
-                    //dialogDefinition.removeContents('info');
-                    dialogDefinition.removeContents('Link');
-                    dialogDefinition.removeContents('advanced');
-                    break;
-            }
-        });
-        
-        var editorConfig = { filebrowserUploadUrl : "/fileUpload.do" };
-        
-        var ck = null;
-     
-        window.onload = function(){
-            ck = CKEDITOR.replace("content" , editorConfig);
-        };
    });
 </script>
-
 </head>
 <body>
    <header>
@@ -126,52 +92,33 @@
          </nav>
       </div>
    </header>
-   <div class="review">
-      <h3>판례게시판 > 기존판례</h3>
-         
-      <div class="write">
-         <form name="write" action="admin_precedent_normal_ckeck.do" method="post" enctype="multipart/form-data">
-            <table  class="talk-Write">
-               <tr>
-                  <td colspan=2>
-                     <label>관리자</label>
-                     <input type ="text"   value="hyeona" disabled>
-                  </td>
-                  <td></td>
-               </tr>
-               <tr>
-                  <td colspan=3>
-                     <label>소송명</label>
-                     <input type ="text" name="title" id="title" >
-                  </td>
-               </tr>
-               <tr>
-                  <td colspan=2>
-                  <label>승패</label>
-                  <select name="result" id="result">
-                     <option value="win">승</option>
-                     <option value="lose">패</option>
-                  </select>
-               </tr>
-               <tr>
-                  <td colspan=3>
-                     <label>내용</label>
-                     <textarea name="content" id="content"></textarea>
-                  </td>
-               </tr>
-               <tr>
-                  <td colspan=3>
-                     <div class="write_button">
-                        <button type="submit" id="writesucess" name="writesucess">저장</button>
-                        <button type="reset" name="reset">취소</button>
-                        <a href="${pageContext.request.contextPath}/amdin_precedent_normal.do"><button type="button">이전 페이지</button></a>
-                     </div>
-                  </td>
-               </tr>
-            </table>   
-         </form>
-      </div>
-   </div>
+   
+   
+   <div class="reviewlist1">
+         <form name="write" action="admin_precedent_normal_update_check.do" method="post">
+         	<table>
+				<tr>
+					<th >제목</th>
+					<td><input name="title" type="text" value="${vo.title}" type=hidden></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><textarea name="content" rows="20" cols="30">${vo.content }</textarea></td>
+				</tr>
+			</table>	
+				
+	<a href="${pageContext.request.contextPath}/admin_precedent_normal.do"><button type="button">목록</button></a>
+	<button type="submit" id="btnupdate" name="btnupdate">수정하기</button>
+	<a href="${pageContext.request.contextPath}/admin_precedent_normal_delete.do?no=${vo.no }&rno=${vo.rno}"><button type="button">삭제하기</button></a>
+	<input type="hidden" name="no" value="${no }"> 	
+		
+		
+		</form>
+		
+			</div>
+	
+     
+
       
          
 </body>

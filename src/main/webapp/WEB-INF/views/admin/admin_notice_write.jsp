@@ -53,7 +53,7 @@ ul.mylist {
 							<span class="main-sub">Lawtion Admin</span>
 						</a>
 					</li>
-					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do?no=${vo.no}&rno=${vo.rno}"><i class="fa fa-paper-plane"></i>
+					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do"><i class="fa fa-paper-plane"></i>
 							<span class="main-sub">공지사항</span></a>
 						<ul class="sub-group-list">
 							<li><a href="${pageContext.request.contextPath}/admin_notice_write.do?no=${vo.no}&rno=${vo.rno}"><i class="fa fa-pencil"></i><span>공지사항 작성</span></a></li>
@@ -62,7 +62,7 @@ ul.mylist {
 					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
 							<span class="main-sub">회원관리</span></a>
 						<ul class="sub-group-list">
-							<li><a href="#"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_user.do"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
 							<li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
 					</ul>
 				</ul>
@@ -86,7 +86,7 @@ ul.mylist {
 					<input type="file" name="file">
 				</li>
 				<li>
-					<button type="submit" id="btnWrite">등록완료</button>
+					<a href="#"><button type="submit" id="btnWrite">등록완료</button></a>
 					<button type="reset">다시쓰기</button>
 					<a href="admin.do"><button type="button">목록</button></a>
 				</li>
