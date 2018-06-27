@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" 
-import="lawtion.vo.joinNormalVO, lawtion.dao.joinNormalDAO"%>
+import="lawtion.vo.joinLayerVO, lawtion.dao.joinLayerDAO"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!doctype html>
@@ -121,7 +121,7 @@ import="lawtion.vo.joinNormalVO, lawtion.dao.joinNormalDAO"%>
 		</div>
    </header>
    <div class = "content">
-      <h1>일반회원 관리</h1>
+      <h1>변호사회원 관리</h1>
       <table>
          <tr>
             <th>JOIN_DATE</th>
@@ -130,17 +130,15 @@ import="lawtion.vo.joinNormalVO, lawtion.dao.joinNormalDAO"%>
             <th>PHONE</th>
             <th>EMAIL</th>
             <th>BIRTH</th>
-            <th>DELETE</th>
          </tr>
          <c:forEach items="${list}" var="vo">
          <tr>
             <td>${vo.jdate}</td>
-            <td>${vo.id}</td>
+            <td><a href="${pageContext.request.contextPath}/lawyer_info.do?id=${vo.id}">${vo.id}</a></td>
             <td>${vo.name}</td>
             <td>${vo.phone}</td>
             <td>${vo.email }</td>
             <td>${vo.birth}</td>
-            <td><a href="${pageContext.request.contextPath}/user_delete.do?id=${vo.id}"><button type="button" id="bt-delete">DELETE</button></a></td>
          </tr>
          </c:forEach>
          <tr>

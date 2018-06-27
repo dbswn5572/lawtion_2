@@ -72,9 +72,9 @@ ul.mylist {
 		<h3>공지사항 삭제</h3>
 		
 
-		<a href="${pageContext.request.contextPath}/admin_precedent_normal_delete_check.do?no=${no}"><button type="button">삭제완료</button></a>
-		<a href="${pageContext.request.contextPath}/admin_precedent_normal_content.do?no=${no}&rno=${rno}"><button type="button">이전페이지</button></a>
-		<a href="${pageContext.request.contextPath}/admin_precedent_normal.do"><button type="button">목록</button></a>
+		<a href="${pageContext.request.contextPath}/admin_precedent_review_delete_check.do?no=${no}"><button type="button">삭제완료</button></a>
+		<a href="${pageContext.request.contextPath}/admin_precedent_review_content.do?no=${no}&rno=${rno}"><button type="button">이전페이지</button></a>
+		<a href="${pageContext.request.contextPath}/admin_precedent_review.do"><button type="button">목록</button></a>
 	</div>	
 </body>
 </html>

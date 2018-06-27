@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" 
-   pageEncoding="UTF-8" import="lawtion.vo.*,lawtion.dao.*,java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" 
+import="lawtion.vo.joinLayerVO, lawtion.dao.joinLayerDAO"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-   <meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8" />
    <title>Lawtion 관리자</title>
    <!-- Bootstrap 적용 -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, 
@@ -27,8 +27,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/paging.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-
-   
+<title>Insert title here</title>
 <script>
    $(document).ready(function(){
       $("li.menuu>a").click(function(){
@@ -44,9 +43,28 @@
       });
    });
 </script>
+<style>
+
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    
+  }
+  th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+  div.content{
+  	width:80%;
+  	float:right;
+  }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-   <header>
+<header>
       <div class="ad-nav1">
 		<input type="checkbox" id="menu_state" checked>
 			<nav class="ad-header-nav1" >
@@ -67,7 +85,7 @@
 							<span class="main-sub">회원관리</span></a>
 						<ul class="sub-group-list">
 							<li><a href="${pageContext.request.contextPath}/admin_user.do"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
-							<li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_lawyer.do"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
 						</ul>
 					</li>
 					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
@@ -81,34 +99,39 @@
 			</nav>
 		</div>
    </header>
-   <div class="reviewlist">
-      <div class="write-btn">
-         <a href ="${pageContext.request.contextPath}/admin_precedent_normal_write.do"><button type="button">글쓰기</button></a>
-      </div>
-   </div>
-   
-   <div class="reviewlist1">
-         <table border=0 class="all">
-            <tr>
-               <th>No</th>
-               <th>소송명</th>
-               <th>승패</th>
-               <th>조회수</th>
-            </tr>
-            <c:forEach items = "${list}" var = "vo">
-            <tr>
-               <td>${vo.rno }</td>   
-               <td><a href="${pageContext.request.contextPath}/admin_precedent_normal_content.do?no=${vo.no }&rno=${vo.rno }">${vo.title }</a></td>
-               <td>${vo.result }</td>
-               <td>${vo.hits }</td>
-            </tr>
-            </c:forEach>
-
-         </table>
-      </div>
-
+	<div class = "content">
+      <h1>변호사 ${vo.id}님 상세정보</h1>
+      <table>
+         <tr>
+            <th>JOIN_DATE</th>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PHONE</th>
+            <th>EMAIL</th>
+            <th>BIRTH</th>
+            <th>PICTURE</th>
+            <th>LICENSE</th>
+            <th>LIST</th>
+         </tr>
+         <tr>
+            <td>${vo.jdate}</td>
+            <td>${vo.id}</td>
+            <td>${vo.name}</td>
+            <td>${vo.phone}</td>
+            <td>${vo.email }</td>
+            <td>${vo.birth}</td>
+            <td><img src="${pageContext.request.contextPath}/businessUpload/${vo.rbusiness}" style='width=100px; height=100px;'></td>
+            <td><img src="${pageContext.request.contextPath}/licenseUpload/${vo.rlicense}" style='width=100px; height=100px;'></td>
+            <td><a href="${pageContext.request.contextPath}/admin_lawyer.do"><button>LIST</button></a></td>
+         </tr>
+         <tr>
+            <td colspan="4" >
+               <div id="ampaginationsm"></div>               
+            </td>
+         </tr>   
       
-         
+      </table>
+   </div> 
+
 </body>
-   
 </html>

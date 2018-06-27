@@ -1,7 +1,8 @@
 package com.ezen.controller;
 
 
-import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 
@@ -14,7 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import lawtion.dao.AuctionBoardDAO;
 import lawtion.dao.LoginDAO;
+import lawtion.dao.NoticeDAO;
+import lawtion.dao.joinLayerDAO;
 import lawtion.dao.joinNormalDAO;
+import lawtion.vo.NoticeVO;
+import lawtion.vo.joinLayerVO;
 import lawtion.vo.joinNormalVO;
 
 @Controller
@@ -84,15 +89,27 @@ public class MypageController {
          result = dao.getUpdateResult(vo);
          
          if (result == 1) {
-            mv.setViewName("/mypage/mypage_user");
+            mv.setViewName("redirect:/index.do");
          }
          
          return mv;
       }
       
       @RequestMapping(value="/mypagelawyer.do", method=RequestMethod.GET)
-      public String mypage_laywer(){
-         return "/mypage/mypage_lawyer";
+      public ModelAndView mypage_laywer(String sid){
+    	  ModelAndView mv = new ModelAndView();
+          
+          System.out.println(sid);
+          
+          LoginDAO dao = sqlSession.getMapper(lawtion.dao.LoginDAO.class);
+          
+          String name = dao.getLawyerName(sid);
+          
+          System.out.println(name);
+          mv.addObject("name", name);
+          mv.setViewName("/mypage/mypage_lawyer");
+          
+          return mv;
       }
       
       @RequestMapping(value="/mypagelawyerpro.do", method=RequestMethod.GET)
@@ -106,7 +123,53 @@ public class MypageController {
       }
       
       @RequestMapping(value="/mypagelawyerinfo.do", method=RequestMethod.GET)
-      public String mypage_lawyer_info(){
-         return "/mypage/mypage_lawyer_info";
+      public ModelAndView mypage_lawyer_info(String sid){
+    	  ModelAndView mv = new ModelAndView();
+          
+          LoginDAO dao = sqlSession.getMapper(lawtion.dao.LoginDAO.class);
+          joinLayerVO vo = dao.getLayerResultVO(sid);
+          
+          mv.addObject("vo", vo);
+          mv.addObject("sid", sid);
+          
+          mv.setViewName("/mypage/mypage_lawyer_info");
+          
+          return mv;
       }
+      
+      
+      @RequestMapping(value="/mypagelawyerinfo_update.do", method=RequestMethod.POST)
+  	public ModelAndView mypage_lawyer_check(joinLayerVO vo) throws Exception{ 
+  		
+  		ModelAndView mv = new ModelAndView();
+  		joinLayerDAO dao = sqlSession.getMapper(lawtion.dao.joinLayerDAO.class);
+  		
+  		int result = 0;
+  		
+  		if(vo.getCode().equals("exist")){
+  			result = dao.getUpdateResultNoFile(vo);
+  		
+  		}else{
+  			UUID uuid = UUID.randomUUID();
+  			String fname = vo.getFileBusiness().getOriginalFilename();
+  			String rfname = uuid.toString()+"_"+fname;
+  			String path = context.getRealPath("/upload/"+rfname);
+  		
+  			FileOutputStream fos = new FileOutputStream(path);
+  			fos.write(vo.getFileBusiness().getBytes());
+  			fos.close();
+  		
+  			vo.setBusiness(fname);
+  			vo.setRbusiness(rfname);
+  		
+  			result = dao.getUpdateResult(vo);
+  		}
+
+  		if(result==1){
+  			mv.setViewName("redirect:/index.do");
+  		}
+  		return mv;
+  		
+  	}
+     
 }

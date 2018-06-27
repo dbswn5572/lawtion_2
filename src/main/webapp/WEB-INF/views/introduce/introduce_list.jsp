@@ -137,10 +137,11 @@
 					<td class="content">
 						${vo.name }
 					</td>
+				
 					<td class="group">
-						<a href="http://www.shinkim.com">${vo.dname }</a>
+						<a href="http://www.shinkim.com">법무법인태양</a>
 					</td>
-					<td>${vo.part }</td>			
+					<td>건설,토지</td>			
 				</tr>
 				</c:forEach>
 				<tr>

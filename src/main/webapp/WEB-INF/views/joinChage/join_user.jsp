@@ -100,9 +100,9 @@
 						<th>휴대폰번호</th>
 						<td>
 							<select name="phone1" id="phone1" class="phoneselect">
-							<option value="010">010</option>
-							<option value="011">011</option>
-							<option value="017">017</option>
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="017">017</option>
 							</select>
 							-<input type="text" name="phone2" class="phone" id="phone2">
 							-<input type="text" name="phone3" class="phone" id="phone3">

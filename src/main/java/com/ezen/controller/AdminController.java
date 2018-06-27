@@ -19,10 +19,12 @@ import org.springframework.web.servlet.ModelAndView;
 import lawtion.dao.NoticeDAO;
 import lawtion.dao.PrecedentDAO;
 import lawtion.dao.PrecedentDAO_review;
+import lawtion.dao.joinLayerDAO;
 import lawtion.dao.joinNormalDAO;
 import lawtion.vo.NoticeVO;
 import lawtion.vo.PrecedentVO;
 import lawtion.vo.PrecedentVO_review;
+import lawtion.vo.joinLayerVO;
 import lawtion.vo.joinNormalVO;
 
 
@@ -183,7 +185,6 @@ public class AdminController {
 		int result = 0;
 		
 		if(vo.getCode().equals("exist")){
-			System.out.println(result);
 			result = dao.getUpdateResultNoFile(vo);
 		
 		}else{
@@ -335,17 +336,17 @@ public class AdminController {
    }
 
     @RequestMapping(value="/admin_precedent_normal_update_check.do", method=RequestMethod.POST)
-  	public ModelAndView admin_precedent_normal_update_check(String no){ 
+  	public ModelAndView admin_precedent_normal_update_check(PrecedentVO vo){ 
   		
   		ModelAndView mv = new ModelAndView();
   		PrecedentDAO dao = sqlSession.getMapper(lawtion.dao.PrecedentDAO.class);
   		
   		int result = 0;
-  		result = dao.getUpdateResult(no);
+  		result = dao.getUpdateResult(vo);
   		
   
   		
-  		mv.addObject("no",no);
+  		mv.addObject("vo",vo);
   		
   		if(result==1){
   			mv.setViewName("redirect:/admin_precedent_normal.do");
@@ -374,7 +375,7 @@ public class AdminController {
 		PrecedentDAO dao = sqlSession.getMapper(lawtion.dao.PrecedentDAO.class);
 		
 		
-		result = dao.getDeleteResult(no);
+		result = dao.getDeleteResult_notice(no);
 	
 		
 		if(result==1){
@@ -384,13 +385,6 @@ public class AdminController {
 		
 		return mv;
 	}
-   
-   @RequestMapping(value="/admin_precedent_review_write.do",method=RequestMethod.GET)
-   public ModelAndView adminprecedentreviewwrite(){
-      ModelAndView mv = new ModelAndView();
-      mv.setViewName("/admin/admin_precedent_normal_write");
-      return mv;
-   }
    
    @RequestMapping(value="/admin_precedent_review.do",method=RequestMethod.GET)
    public ModelAndView admin_precedent_review(String rpage){
@@ -433,6 +427,13 @@ public class AdminController {
       return mv;
    }
    
+   @RequestMapping(value="/admin_precedent_review_write.do",method=RequestMethod.GET)
+   public ModelAndView admin_precedent_review_write(){
+      ModelAndView mv = new ModelAndView();
+      mv.setViewName("/admin/admin_precedent_review_write");
+      return mv;
+   }
+   
    @RequestMapping(value="admin_precedent_review_ckeck.do",method=RequestMethod.POST)
    public String admin_precedent_review_ckeck(PrecedentVO_review vo){
       String page="";
@@ -446,6 +447,86 @@ public class AdminController {
       
       return page;
    }
+   
+   @RequestMapping(value="admin_precedent_review_content.do", method=RequestMethod.GET)
+   public ModelAndView admin_precedent_review_content(String no, String rno){
+      ModelAndView mv = new ModelAndView();
+      
+      PrecedentDAO_review dao = sqlSession.getMapper(PrecedentDAO_review.class);
+
+      PrecedentVO_review vo = dao.getResultVO(no);
+               
+      mv.addObject("no", no);
+      mv.addObject("rno", rno);
+      mv.addObject("vo", vo);
+       mv.setViewName("/admin/admin_precedent_review_content");
+      
+      return mv;
+   }
+   
+   @RequestMapping(value="/admin_precedent_review_update.do",method=RequestMethod.GET)
+   public ModelAndView admin_precedent_review_update(String no,String rno){
+      ModelAndView mv = new ModelAndView();
+      PrecedentDAO_review dao = sqlSession.getMapper(lawtion.dao.PrecedentDAO_review.class);
+      PrecedentVO_review vo = dao.getResultVO(no);
+      
+      mv.addObject("no",no);
+      mv.addObject("rno",rno);
+      mv.addObject("vo",vo);
+      mv.setViewName("/admin/admin_precedent_review_update");
+      return mv;
+   }
+
+    @RequestMapping(value="/admin_precedent_review_update_check.do", method=RequestMethod.POST)
+  	public ModelAndView admin_precedent_review_update_check(PrecedentVO_review vo){ 
+  		
+  		ModelAndView mv = new ModelAndView();
+  		PrecedentDAO_review dao = sqlSession.getMapper(lawtion.dao.PrecedentDAO_review.class);
+  		
+  		int result = 0;
+  		result = dao.getUpdateResult(vo);
+  		
+  
+  		
+  		mv.addObject("vo",vo);
+  		
+  		if(result==1){
+  			mv.setViewName("redirect:/admin_precedent_review.do");
+  		}
+  		
+  		return mv;
+  		
+  	}
+   
+   @RequestMapping(value="/admin_precedent_review_delete.do",method=RequestMethod.GET)
+	public ModelAndView admin_precedent_review_delete(String no, String rno){
+		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("no",no);
+		mv.addObject("rno",rno);
+		mv.setViewName("/admin/admin_precedent_review_delete");
+		
+		return mv;
+	}
+	
+   @RequestMapping(value="/admin_precedent_review_delete_check.do",method=RequestMethod.GET)
+	public ModelAndView admin_precedent_review_delete_check(String no){
+		ModelAndView mv = new ModelAndView();
+		
+		int result = 0;
+		PrecedentDAO_review dao = sqlSession.getMapper(lawtion.dao.PrecedentDAO_review.class);
+		
+		
+		result = dao.getDeleteResult_notice(no);
+	
+		
+		if(result==1){
+			mv.setViewName("redirect:/admin_precedent_review.do");
+		}
+
+		
+		return mv;
+	}
    
    @RequestMapping(value="/admin_user.do",method=RequestMethod.GET)
    public ModelAndView admin_user_list(String rpage){
@@ -483,6 +564,59 @@ public class AdminController {
       mv.setViewName("/admin/admin_user");
       return mv;
    }
+   
+   
+   
+   @RequestMapping(value="/admin_lawyer.do",method=RequestMethod.GET)
+   public ModelAndView admin_lawyer_list(String rpage){
+      joinLayerDAO dao = sqlSession.getMapper(lawtion.dao.joinLayerDAO.class);
+      //페이징 처리 - startCount, endCount 구하기
+      int startCount = 0;
+      int endCount = 0;
+      int pageSize = 5;   //한페이지당 게시물 수
+      int reqPage = 1;   //요청페이지   
+      int pageCount = 1;   //전체 페이지 수
+      int dbCount = dao.execTotalCount();   //DB에서 가져온 전체 행수
+            
+      //총 페이지 수 계산
+      if(dbCount % pageSize == 0){
+         pageCount = dbCount/pageSize;
+      }else{
+         pageCount = dbCount/pageSize+1;
+      }
+
+      //요청 페이지 계산
+      if(rpage != null){            
+         reqPage = Integer.parseInt(rpage); 
+         startCount = (reqPage-1) * pageSize+1;   
+         endCount = reqPage * pageSize; 
+      }else{
+         startCount = 1;
+         endCount = 10;
+      }      
+      ArrayList<joinLayerVO> list = dao.getResultList(startCount, endCount);
+      ModelAndView mv = new ModelAndView();
+      
+      mv.addObject("list",list);
+      mv.addObject("dbCount", dbCount);
+      mv.addObject("rpage", reqPage);
+      mv.setViewName("/admin/admin_lawyer");
+      return mv;
+   }
+   
+   
+   @RequestMapping(value="/lawyer_info.do",method=RequestMethod.GET)
+   public ModelAndView lawyer_info(String id){
+	   joinLayerDAO dao = sqlSession.getMapper(lawtion.dao.joinLayerDAO.class);
+	   ModelAndView mv = new ModelAndView();
+	   
+	   joinLayerVO vo = dao.getResultVO(id);
+	   
+	   mv.addObject("vo",vo);
+	   mv.setViewName("/admin/lawyer_info");
+	   return mv;
+   }
+   
    @RequestMapping(value="/user_delete.do",method=RequestMethod.GET)
    public ModelAndView user_delete(String id){
 	   ModelAndView mv = new ModelAndView();

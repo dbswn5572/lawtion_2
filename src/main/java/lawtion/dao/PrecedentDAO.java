@@ -24,7 +24,9 @@ public interface PrecedentDAO {
 	public int execTotalCount1(String search);
 	
 	public int InsertPrecedent(PrecedentVO vo);
+	
 	public ArrayList<PrecedentVO> getResultList(int startCount, int endCount);
-	public int getUpdateResult(String no);
-	public int getDeleteResult(String no);
+	public int getUpdateResult(PrecedentVO vo);
+	public int getDeleteResult_notice(String no);
+
 }

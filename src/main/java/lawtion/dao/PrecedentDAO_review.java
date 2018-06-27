@@ -1,10 +1,8 @@
 package lawtion.dao;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.util.ArrayList;
 
-import lawtion.vo.PrecedentVO;
 import lawtion.vo.PrecedentVO_review;
 
 public interface PrecedentDAO_review {
@@ -25,4 +23,8 @@ public interface PrecedentDAO_review {
 	public ArrayList<PrecedentVO_review> getResultList(int startCount, int endCount); 
 	
 	public int InsertPrecedent(PrecedentVO_review vo);
+	
+	public int getDeleteResult_notice(String no);
+	
+	public int getUpdateResult(PrecedentVO_review vo);
 }

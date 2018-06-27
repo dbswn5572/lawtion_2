@@ -34,7 +34,7 @@
 		<div class="mypage-auction">
 			<div class="mypage-box1">
 				<a href="${pageContext.request.contextPath}/mypagelawyer.do">
-				<label>김선웅님의</label>
+				<label>${name}님의</label>
 				<span>역경매<br>신청현황</span>
 				</a>
 			</div>
@@ -55,7 +55,7 @@
 				</a>
 			</div>
 			<div class="mypage-box4">
-				<a href="${pageContext.request.contextPath}/mypagelawyerinfo.do">
+				<a href="${pageContext.request.contextPath}/mypagelawyerinfo.do?sid=${sid}">
 					<img src="${pageContext.request.contextPath}/images/mypage-my.png">
 					<span>개인정보 수정</span>
 				</a>

@@ -68,11 +68,12 @@ public class joinNormalVO {
    }
 
    public String getPhone() {
+	  phone=phone1+phone2+phone3;
       return phone;
-   }
+   }	
 
    public void setPhone(String phone) {
-      this.phone = phone;
+      this.phone=phone;
    }
 
    public String getEmail() {

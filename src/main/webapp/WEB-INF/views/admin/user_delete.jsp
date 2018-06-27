@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>정말삭제하시겠습니까?</h1>
+<h1>정말 삭제하시겠습니까?</h1>
 <a href="${pageContext.request.contextPath}/delete_check.do?id=${id}"><button type="button" id="yes">예</button></a>
 <a href="${pageContext.request.contextPath}/admin_user.do"><button type="button" id="no">아니오</button></a>
 </body>

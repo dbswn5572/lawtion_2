@@ -47,4 +47,11 @@
 	insert into precedent_review values(sequ_precedent_review.nextval,#{title},#{content},#{result},#{lname},0)
 </insert>
 
+<delete id="getDeleteResult_notice">
+ 	delete from precedent_review where no=#{no}
+ </delete>
+ 
+ <update id="getUpdateResult" >
+      update precedent_review set title=#{title},content=#{content} where no=#{no}
+ </update>
 </mapper>

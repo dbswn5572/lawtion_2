@@ -211,3 +211,31 @@ nav.ad-header-nav1 label[for="menu_state"] i {
       border:1px solid blue;   
       text-size:16px;
    }
+   
+   /*admin_precedent_update */
+   
+	
+/* admin_precedent_update.jsp */
+	div.reviewlist_pre{
+		width:60%;
+		margin:auto;
+	}
+	
+	div.reviewlist_pre table th{
+		width:30%;
+		text-align:center;
+	}
+	
+	div.reviewlist_pre table td{
+		width:50%;
+	}
+	
+	div.reviewlist_pre button{
+		margin:auto;
+		margin-left:20px;
+	}
+	
+	
+	
+	
+	

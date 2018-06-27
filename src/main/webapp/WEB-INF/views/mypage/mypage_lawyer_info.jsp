@@ -98,7 +98,27 @@ function previewImage(targetObj, View_area) {
 	}
 }
 
+$(document).ready(function(){
+	
+	$("#btnupdate").click(function(){
+		if($("#password").val()==""){
+			alert("비밀번호를 입력해주세요.");
+			$("#password").focus();
+		}else if($("input[type=profile_pt]").val() == ""){
+			//alert("파일선택 안함!!")
+			$("#code").val("exist");
+		}
+		
+		
+		info.submit();
+		});
+});
+
+
+
+
 </script>
+
 </head>
 <jsp:include page ="../header.jsp"/>
 <body>	
@@ -144,26 +164,27 @@ function previewImage(targetObj, View_area) {
 				<span class="mypage-sub-title">개인정보 수정</span>
 			</div>
 			<div class="mypage-content-table">
-				<form action="#" method="post" class="mypage-info">
+				<form name="info" action="mypagelawyerinfo_update.do" method="post" class="mypage-info" enctype="multipart/form-data">
 					<table>
 						<tr>
 							<th>아이디</th>
-							<td><input type="text" disabled value="hyeona6923"></td>
+							<td><input type="text" disabled value="${vo.id}"></td>
 							<th>본인사진</th>
 						</tr>
 						<tr>
 							<th>비밀번호</th>
-							<td><input type="password"></td>
+							<td><input type="password" name="password"></td>
 							<td rowspan=4>
 								<div class="mypage-img">
-									<input type="file" name="profile_pt" id="profile_pt" onchange="previewImage(this,'View_area')" style='width:100%;'>
+									<input type="file" value="${vo.business }" name="profile_pt" id="profile_pt" onchange="previewImage(this,'View_area')" style='width:100%;'>
+									
 									<div id='View_area' style='position:relative; width: 200px; height: 200px; color: black; border: 0px solid black; dispaly: inline; margin-top:10px;'></div>
 								</div>
 							</td>
 						</tr>
 						<tr>
 							<th>비밀번호확인</th>
-							<td><input type="password"></td>
+							<td><input type="password" name="cpassword"></td>
 						</tr>
 						<tr>
 							<th>핸드폰번호</th>
@@ -173,19 +194,22 @@ function previewImage(targetObj, View_area) {
 								<option value="011">011</option>
 								<option value="017">017</option>
 								</select>
-								-<input type="text" name="phone2" class="phone" id="phone2">
-								-<input type="text" name="phone3" class="phone" id="phone3">
+								-<input type="text" name="phone2" class="phone" id="phone2" value="${vo.phone2}">
+								-<input type="text" name="phone3" class="phone" id="phone3" value="${vo.phone3}">
 							</td>
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td><input type="text" name="email" placeholder=" Email 주소 전체를 입력해주세요." id="email"></td>
+							<td><input type="text" name="email" id="email" value="${vo.email }"></td>
 						</tr>
 					</table>
-				</form>
-				<div class="mypage-info">
-					<button type="mypage-info-button">수정완료</button>
+					<div class="mypage-info">
+					<input type="hidden" name="id" value="${vo.id}">
+					<input type="hidden" name="code" id="code">
+					<button type="submit" id="btnupdate" name="btnupdate">수정완료</button>
 				</div>
+				</form>
+				
 			</div>
 		</div>
 	</div>

@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Lawtin 관리자 </title>
+	<title>Lawtion 관리자 </title>
 	<!-- Bootstrap 적용 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, 
 		minimum-scale=1.0, user-scalable=no"/>
@@ -71,10 +71,10 @@ table.theme{
 							<span class="main-sub">Lawtion Admin</span>
 						</a>
 					</li>
-					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do?no=${vo.no}&rno=${vo.rno}"><i class="fa fa-paper-plane"></i>
+					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do"><i class="fa fa-paper-plane"></i>
 							<span class="main-sub">공지사항</span></a>
 						<ul class="sub-group-list">
-							<li><a href="${pageContext.request.contextPath}/admin_notice_write.do?no=${vo.no}&rno=${vo.rno}"><i class="fa fa-pencil"></i><span>공지사항 작성</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_notice_write.do"><i class="fa fa-pencil"></i><span>공지사항 작성</span></a></li>
 						</ul>
 					</li>
 					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
@@ -83,6 +83,14 @@ table.theme{
 							<li><a href="${pageContext.request.contextPath}/admin_user.do"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
 							<li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
 						</ul>
+					</li>
+					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
+							<span class="main-sub">판례게시판</span></a>
+						<ul class="sub-group-list">
+							<li><a href="${pageContext.request.contextPath}/admin_precedent_normal.do"><i class="fa fa-paper-plane"></i><span>기존판례</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/admin_precedent_review.do"><i class="fa fa-pencil"></i><span>후기판례</span></a></li>
+						</ul>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -90,7 +98,7 @@ table.theme{
 	<div class="container-admin">
 		<h3>공지사항</h3>
 		<div class="notice">
-		<form name="write" action="admin_precedent_normal_update_check.do" method="post" enctype="multipart/form-data">
+		<form name="write" action="admin_notice_update_check.do" method="post" enctype="multipart/form-data">
 			<table class="theme" border=1 >
 				<tr>
 					<th>No</th>
