@@ -60,6 +60,11 @@ table.theme{
 							<span class="main-sub">Lawtion Admin</span>
 						</a>
 					</li>
+					<li data-content="2" class="active unread" >
+						<a href="${pageContext.request.contextPath}/index.do"><i class="fa fa-gavel"></i>
+							<span class="main-sub">홈으로</span>
+						</a>
+					</li>
 					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do"><i class="fa fa-paper-plane"></i>
 							<span class="main-sub">공지사항</span></a>
 						<ul class="sub-group-list">

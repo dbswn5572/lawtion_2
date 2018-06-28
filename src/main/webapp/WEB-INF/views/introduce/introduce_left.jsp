@@ -118,12 +118,13 @@
 				<tbody >
 				<c:forEach items="${list}" var="vo">
 				
-				 <tr class="law"  align=center id="${vo.no}">
+				 <tr class="law"  align=center id="${vo.id}">
+				
 					<td  scope="row" style="cursor:pointer;" class="profile">
-						<img src="${pageContext.request.contextPath}/images/profile2.jpg" class="rounded-circle">
+						<img src="${pageContext.request.contextPath}/businessUpload/${vo.rbusiness}" class="rounded-circle">
 						<span class="content">${vo.name}</span><br>
-						<span class="group">${vo.dname}</span><br>
-						<span>#${vo.part }</span>			
+						<span class="group">범무법인태양</span><br>
+						<span>#건설,토지</span>			
 					</td>
 				</tr>
 				

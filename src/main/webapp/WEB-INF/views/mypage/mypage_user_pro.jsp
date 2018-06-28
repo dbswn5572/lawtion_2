@@ -33,8 +33,8 @@
    <div class="mypage-main">
       <div class="mypage-auction">
          <div class="mypage-box1">
-            <a href="${pageContext.request.contextPath}/mypageuser.do?sid=${sid}">
-            <label>김선웅님의</label>
+            <a href="${pageContext.request.contextPath}/mypageuser.do">
+            <label>${name}님의</label>
             <span>역경매<br>신청현황</span>
             </a>
          </div>
@@ -42,18 +42,26 @@
             <a href="${pageContext.request.contextPath}/mypageuserpro.do">
                <img src="${pageContext.request.contextPath}/images/mypage-write.png">
                <span>입찰 대기중</span>
-               <label>1건</label>
+               	<c:choose>
+         		<c:when test="${lid == null}">
+               	<label>${bidding}건</label>
+               	</c:when>
+               	<c:when test="${lid != null}">
+               	<label>0건</label>
+               	</c:when>
+               	</c:choose>
             </a>
          </div>
          <div class="mypage-box3">
             <a href="${pageContext.request.contextPath}/mypageusersuccess.do">
                <img src="${pageContext.request.contextPath}/images/mypage-success.png">
                <span>낙찰 및 마감</span>
-               <label>2건</label>
+               	<label>${past}건</label>
+              
             </a>
          </div>
          <div class="mypage-box4">
-            <a href="${pageContext.request.contextPath}/mypageuserinfo.do?sid=${sid}">
+            <a href="${pageContext.request.contextPath}/mypageuserinfo.do">
             <img src="${pageContext.request.contextPath}/images/mypage-my.png">
             <span>개인정보 수정</span>
             </a>
@@ -62,42 +70,30 @@
       <div class="mypage-content">
          <div class="mypage-content-sub">
             <span class="mypage-sub-title">입찰 대기중</span>
-            <div class="mypage-sub-title-num"><span>1</span></div>
+            <div class="mypage-sub-title-num"><span>${bidding}</span></div>
          </div>
          <div class="mypage-content-table">
          <table border=0>
             <tr>
                <th>작성날짜</th>
                <th>변호사명</th>
-               <th>제목</th>
+               <th>제안서</th>
                <th>의뢰비용</th>
                <th>변호사정보</th>
                <th>낙찰 결정</th>
             </tr>
+            <c:forEach items="${list}" var="vo">
+            
             <tr>
-               <td>2018-06-13</td>
-               <td>김선웅</td>
-               <td>가나다라마바사아자차카타파하</td>
-               <td>1,500,000원</td>
+               <td>${vo.cdate}</td>
+               <td>${vo.id}</td>
+               <td>${vo.content}</td>
+               <td>${vo.cost}</td>
                <td>click</td>
-               <td>click</td>
+               <td>낙찰</td>
             </tr>
-            <tr>
-               <td>2018-06-13</td>
-               <td>이지호</td>
-               <td>가나다라마바사아자차카타파하</td>
-               <td>2,500,000원</td>
-               <td>click</td>
-               <td>click</td>
-            </tr>
-            <tr>
-               <td>2018-06-13</td>
-               <td>심명보</td>
-               <td>가나다라마바사아자차카타파하</td>
-               <td>1,800,000원</td>
-               <td>click</td>
-               <td>click</td>
-            </tr>
+            
+            </c:forEach>
          </table>
          </div>
       </div>

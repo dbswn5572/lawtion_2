@@ -129,10 +129,10 @@
 				</thead>
 				<tbody>
 				<c:forEach items="${list}" var="vo">
-				<tr align=center class="law" id="${vo.no}" >
+				<tr align=center class="law" id="${vo.id}" >
 				<th scope="row" class="number">${vo.rno}</th>
 					<td class="profile">
-						<img src="${pageContext.request.contextPath}/images/profile2.jpg" class="rounded-circle">
+						<img src="${pageContext.request.contextPath}/businessUpload/${vo.rbusiness}" style='width:100px;height:100px;' class="rounded-circle">
 					</td>
 					<td class="content">
 						${vo.name }

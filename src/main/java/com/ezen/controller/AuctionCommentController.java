@@ -26,24 +26,24 @@ public class AuctionCommentController{
 	
 	/* �Խ��� ��� ��� */
 	@RequestMapping(value="/reply_write_check.do", method=RequestMethod.GET)
-	@ResponseBody
-	public String reply_write_check(String id, String content, String no){
-		//System.out.println("content=" + content);
-		//System.out.println("no=" + no);
-		AuctionCommentVO vo = new AuctionCommentVO();
-		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
-		
-		vo.setId(id);
-		vo.setContent(content);
-		vo.setAno(Integer.parseInt(no));
-		vo.setLawyer(dao.WhoAreYou(id));
-				
-		//��� �߰��۾� : CGV_BOARD_REPLY		
-		int result = dao.getReplyInsertResult(vo);
-		//dao.closed();
-				
-		return String.valueOf(result);
-	}
+	   @ResponseBody
+	   public String reply_write_check(String id, String content, String no){
+
+	      AuctionCommentVO vo = new AuctionCommentVO();
+	      AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+	      
+	      vo.setId(id);
+	      vo.setContent(content);
+	      vo.setAno(Integer.parseInt(no));
+	      vo.setLawyer(dao.WhoAreYou(id));
+	      vo.setCost(0);
+	            
+	      //��� �߰��۾� : CGV_BOARD_REPLY      
+	      int result = dao.getReplyInsertResult(vo);
+	      //dao.closed();
+	            
+	      return String.valueOf(result);
+	   }
 	
 	/* 
 	 * 
@@ -51,59 +51,61 @@ public class AuctionCommentController{
 	 * 
 	 * */
 	@RequestMapping(value="/reply_write_check2.do", method=RequestMethod.GET)
-	@ResponseBody
-	public String reply_write_check2(String id, String content, String no){
-		//System.out.println("content=" + content);
-		//System.out.println("no=" + no);
-		AuctionCommentVO vo = new AuctionCommentVO();
-		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
-		
-		vo.setId(id);
-		vo.setContent(content);
-		vo.setAno(Integer.parseInt(no));
-		vo.setLawyer(2);
-				
-		//��� �߰��۾� : CGV_BOARD_REPLY	
-		int result = dao.getReplyInsertResult(vo);
-		//dao.closed();
-		
-		return String.valueOf(result);
-	}
+	   @ResponseBody
+	   public String reply_write_check2(String id, String content, String no, int cost){
+	      //System.out.println("content=" + content);
+	      //System.out.println("no=" + no);
+	      AuctionCommentVO vo = new AuctionCommentVO();
+	      AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+	      
+	      vo.setId(id);
+	      vo.setContent(content);
+	      vo.setAno(Integer.parseInt(no));
+	      vo.setLawyer(2);
+	      vo.setCost(cost);
+	            
+	      //��� �߰��۾� : CGV_BOARD_REPLY   
+	      int result = dao.getReplyInsertResult(vo);
+	      //dao.closed();
+	      
+	      return String.valueOf(result);
+	   }
 	
 	/* �Խ��� ��� �������� */
 	@RequestMapping(value="/reply_list.do", method=RequestMethod.GET)
-	@ResponseBody
-	public JSONArray reply_list(String no){
-		//System.out.println("no=" + no);
-		
-		JSONArray jarray = new JSONArray();		
-		
-		//��۰������� - ArrayList<BoardReplyVO>	
-		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
-		ArrayList<AuctionCommentVO> list = dao.getReplyList(no);
-		//dao.closed();
-		AuctionCommentVO cvo = new AuctionCommentVO();
-		cvo.setTotal(dao.execTotalCommentCount(no));
-		cvo.setTotal2(dao.execTotalBiddingCount(no));
-		
-		
-		//ArrayList<BoardReplyVO> Ÿ�� �����͸� JSON ���·� �ٲپ ����
-		for(AuctionCommentVO vo:list){
-			JSONObject obj = new JSONObject();
-			obj.put("id",vo.getId());
-			obj.put("rid", vo.getAno());
-			obj.put("content", vo.getContent());
-			obj.put("rdate", vo.getCdate());
-			obj.put("bid", vo.getCno());
-			obj.put("total", cvo.getCtotal());
-			obj.put("total2", cvo.getBtotal());
-			obj.put("lawyer", vo.getLawyer());
-			
-			jarray.add(obj);
-		}
-		
-		return jarray;
-		
-	}
+	   @ResponseBody
+	   public JSONArray reply_list(String no){
+	      //System.out.println("no=" + no);
+	      
+	      JSONArray jarray = new JSONArray();      
+	      
+	      //��۰������� - ArrayList<BoardReplyVO>   
+	      AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+	      ArrayList<AuctionCommentVO> list = dao.getReplyList(no);
+	      //dao.closed();
+	      AuctionCommentVO cvo = new AuctionCommentVO();
+	      cvo.setTotal(dao.execTotalCommentCount(no));
+	      cvo.setTotal2(dao.execTotalBiddingCount(no));
+	      
+	      
+	      //ArrayList<BoardReplyVO> Ÿ�� �����͸� JSON ���·� �ٲپ ����
+	      for(AuctionCommentVO vo:list){
+	         JSONObject obj = new JSONObject();
+	         obj.put("id",vo.getId());
+	         obj.put("rid", vo.getAno());
+	         obj.put("content", vo.getContent());
+	         obj.put("rdate", vo.getCdate());
+	         obj.put("bid", vo.getCno());
+	         obj.put("total", cvo.getCtotal());
+	         obj.put("total2", cvo.getBtotal());
+	         obj.put("lawyer", vo.getLawyer());
+	         obj.put("cost", vo.getCost());
+	         
+	         jarray.add(obj);
+	      }
+	      
+	      return jarray;
+	      
+	   }
 
 }

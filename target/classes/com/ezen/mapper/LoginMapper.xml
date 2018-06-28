@@ -21,10 +21,10 @@
    </select>
    
    <select id="getResultVO" resultType="lawtion.vo.joinNormalVO">
-      select name, id, substr(phone,4,4) as phone2, substr(phone,8) as phone3, email from join_normal where id=#{param1}
+      select name, id, substr(phone,4,4) as phone2, substr(phone,8) as phone3, email  from join_normal where id=#{param1}
    </select>
    <select id="getLayerResultVO" resultType="lawtion.vo.joinLayerVO">
-      select name, id, substr(phone,4,4) as phone2, substr(phone,8) as phone3, email from join_lawyer where id=#{param1}
+      select name, id, substr(phone,4,4) as phone2, substr(phone,8) as phone3, email, business,rbusiness from join_lawyer where id=#{param1}
    </select>
    
    

@@ -2,14 +2,19 @@ package com.ezen.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import lawtion.dao.*;
 import lawtion.deadline.AuctionBoardDeadLine;
 import lawtion.vo.AuctionBoardVO;
+import lawtion.vo.AuctionCommentVO;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,52 +132,75 @@ public class AuctionBoardController {
 	@RequestMapping(value="/auction_board_content.do", method=RequestMethod.GET)
 	public ModelAndView auction_board_content(String no, String rno, int rpage, String id){
 		ModelAndView mv = new ModelAndView();
-		
-		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
-		AuctionBoardVO vo = dao.getResultVO(no);
-		dao.getUpdateHits(no);
-		int lawyer = dao.WhoAreYou(id);
-		
-		mv.addObject("vo",vo);
-		mv.addObject("rno",rno);
-		mv.addObject("rpage",rpage);
-		mv.addObject("lawyer",lawyer);
-		mv.setViewName("/auction_board/auction_board_content");
-		
-		return mv;
+	      
+	      AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+	      AuctionBoardVO vo = dao.getResultVO(no);
+	      ArrayList<AuctionCommentVO> list = dao.getReplyList(no);
+	      dao.getUpdateHits(no);
+	      int lawyer = dao.WhoAreYou(id);
+	      
+	      mv.addObject("vo",vo);
+	      mv.addObject("rno",rno);
+	      mv.addObject("list",list);
+	      mv.addObject("rpage",rpage);
+	      mv.addObject("lawyer",lawyer);
+	      mv.setViewName("/auction_board/auction_board_content");
+	      
+	      return mv;
 	}
 	
 	@RequestMapping(value="/auction_board_write.do", method=RequestMethod.GET)
-	public ModelAndView auction_board_write(){
+	public ModelAndView auction_board_write(HttpSession session, HttpServletRequest request, HttpServletResponse response)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
+		String s = "";
+   	  
+   	  
+       	try{
+       	s = session.getAttribute("sid").toString();
+       	}catch (NullPointerException e){
+       		
+       	}
+		
 		AuctionBoardDeadLine dl = new AuctionBoardDeadLine();
+		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
 		dl.deadlineDate();
 		
+		int a = dao.getResultVOCount(s);
+		
+		mv.addObject("a",a);
 		mv.addObject("dl",dl);
 		mv.setViewName("/auction_board/auction_board_write");
 		
 		return mv;
+		
 	}
 
 	@RequestMapping(value="/auction_board_check.do", method=RequestMethod.POST)
-	public String auction_board_check(AuctionBoardVO vo){
+	public String auction_board_check(AuctionBoardVO vo, HttpSession session, HttpServletRequest request, HttpServletResponse response)throws Exception{
 		
 		String page="";
-		
-		if(vo.getAgree() == null){
-			vo.setAgree("off");
-		}
-		
-		AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
-		int result = dao.getInsertResult(vo);
-		//dao.closed();
-		
-		if(result==1){
-			page = "redirect:/auction_board.do";
-		}
-		
-		return page;
+	      
+	      if(vo.getAgree() == null){
+	         vo.setAgree("off");
+	      }
+	      
+	      AuctionBoardDAO dao = sqlSession.getMapper(AuctionBoardDAO.class);
+	      int result = dao.getInsertResult(vo);
+	      response.setContentType("text/html; charset=UTF-8");
+	      request.setCharacterEncoding("utf-8");
+	      PrintWriter w = response.getWriter();
+	      
+	      if(result==1){
+	    		 
+	        	 AuctionBoardVO vo2 = dao.getResultVOId(vo.getId());
+	    		 session.setAttribute("no", vo2.getNo());
+		         page = "redirect:/auction_board.do";
+		         
+	    	 }
+	      
+	      return page;
+	      
 	}
 	
 	@RequestMapping(value="/auction_board_bidding.do", method=RequestMethod.GET)

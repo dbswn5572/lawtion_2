@@ -42,7 +42,7 @@
    <div class="mypage-main">
       <div class="mypage-auction">
          <div class="mypage-box1">
-            <a href="${pageContext.request.contextPath}/mypageuser.do?sid=${sid}">
+            <a href="${pageContext.request.contextPath}/mypageuser.do">
             <label>${vo.name }님의</label>
             <span>역경매<br>신청현황</span>
             </a>
@@ -51,14 +51,21 @@
             <a href="${pageContext.request.contextPath}/mypageuserpro.do">
                <img src="${pageContext.request.contextPath}/images/mypage-write.png">
                <span>입찰 대기중</span>
-               <label>1건</label>
+               	<c:choose>
+         		<c:when test="${lid == null}">
+               	<label>${bidding}건</label>
+               	</c:when>
+               	<c:when test="${lid != null}">
+               	<label>0건</label>
+               	</c:when>
+               	</c:choose>
             </a>
          </div>
          <div class="mypage-box3">
             <a href="${pageContext.request.contextPath}/mypageusersuccess.do">
                <img src="${pageContext.request.contextPath}/images/mypage-success.png">
                <span>낙찰 및 마감</span>
-               <label>2건</label>
+               <label>${past}건</label>
             </a>
          </div>
          <div class="mypage-box4">

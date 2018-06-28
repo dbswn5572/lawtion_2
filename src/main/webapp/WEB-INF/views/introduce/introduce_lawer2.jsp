@@ -83,51 +83,7 @@
 		<div class="right-iframe" >
 			<iframe id="right-iframe" name="ifram2" height="620" width="1100" src ="${pageContext.request.contextPath}/introduce_right.do?no=${no} " scrolling="no"></iframe>
 			
-			<!-- <div class="right-img" >
-				 <img src="http://localhost:9000/lawtion/images/content_img.jpg">
-			</div>
-			<hr>
-			<div class="lawyer-detail">
-				<table class="career">
-					<tr>
-					
-						<td rowspan="3" class="profile">
-							<img src="http://localhost:9000/lawtion/images/profile2.jpg">
-						</td>
-						<td rowspan="3" colspan="3" class="nameSet">
-							<div class="dnameGG">
-								<span class="dname">${vo.dname }</span>&nbsp;&nbsp;&nbsp;
-								&nbsp;&nbsp;&nbsp;&nbsp;
-								<button id="popup" onclick="window.open('introduce_calender.do','window_name',
-								'width=430,height=400','left='+(screen.availWidth-660)/2+',top='+(screen.availHeight-430)/2+',location=no,status=no,scrollbars=no');">
-								일정</button>
-							</div>
-							<hr>
-							<div class = "nameGG"><span class="name">${vo.name}&nbsp;변호사</span></div><br>
-							<span class="aaa"> 경력사항 </span><br>
-							<div class="detailGG">
-							<span>
-								-${vo.carrer }
-							</span>
-							</div>
-						</td>
-						<td class="trialSet" rowspan="3" colspan="3">
-							<span >낙찰횟수</span><br><br>
-							<span class="trial">${vo.trial }</span>
-							<hr >
-							<span >승소</span><br><br>
-							<span class="win">${vo.win }</span>
-							<hr>
-							<span >패소</span><br><br>
-							<span class="lose">${vo.lose }</span>
-							
-							
-						</td>
-						
-					</tr>
-					
-				</table>
-			</div>-->
+			
 		</div>
 	
 	</section>

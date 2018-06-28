@@ -54,7 +54,7 @@ CKEDITOR.replace( 'contents', {
                   <td colspan="6">
                      ${vo.content}<br>
                      <c:if test="${not empty vo.rfname}">                        
-                     <img src="${pageContext.request.contextPath}/images/${vo.rfname}"
+                     <img src="${pageContext.request.contextPath}/upload/${vo.rfname}"
                      width="400" height="300">
                      </c:if>      
                   </td>         

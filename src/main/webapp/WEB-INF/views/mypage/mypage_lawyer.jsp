@@ -43,7 +43,7 @@
 				<a href="${pageContext.request.contextPath}/mypagelawyerpro.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-write.png">
 					<span>입찰 신청</span>
-					<label>1건</label>
+					<label></label>
 				</a>
 			</div>
 			
@@ -51,11 +51,11 @@
 				<a href="${pageContext.request.contextPath}/mypagelawyersuccess.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-success.png">
 					<span>낙찰 및 마감</span>
-					<label>2건</label>
+					<label></label>
 				</a>
 			</div>
 			<div class="mypage-box4">
-				<a href="${pageContext.request.contextPath}/mypagelawyerinfo.do?sid=${sid}">
+				<a href="${pageContext.request.contextPath}/mypagelawyerinfo.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-my.png">
 					<span>개인정보 수정</span>
 				</a>

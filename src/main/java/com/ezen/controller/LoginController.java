@@ -40,6 +40,7 @@ public class LoginController {
       int result1 = login_check(vo2, session);
       ModelAndView mv = new ModelAndView();
       LoginDAO dao = sqlSession.getMapper(LoginDAO.class);
+      AuctionBoardDAO dao2 = sqlSession.getMapper(AuctionBoardDAO.class);
       int result2 = dao.LoginResult(vo1);
       response.setContentType("text/html; charset=UTF-8");
       request.setCharacterEncoding("utf-8");
@@ -47,19 +48,34 @@ public class LoginController {
 
       
       if((result2 == 1 && result1 == 0) || (result2 == 0 && result1 == 1)){
-         if(result2==1){
-         session.setAttribute("sid", vo1.getId());
-         }else{
-         session.setAttribute("sid", vo2.getId());
-         }
+          if(result2==1){
+          session.setAttribute("sid", vo1.getId());
+          	try{
+          		AuctionBoardVO vo3 = dao2.getResultVOId(vo1.getId());
+          		session.setAttribute("no", vo3.getNo()); //NullPointer 오류 해결 방법
+          		AuctionCommentVO vo4 = dao2.getReplyBiddingId(Integer.toString(vo3.getNo()));
+          		session.setAttribute("lid", vo4.getId()); //NullPointer 오류 해결 방법
+          	}catch (NullPointerException e){
+         	 
+          	}
+          }else{
+          session.setAttribute("sid", vo2.getId());
+          AuctionBoardVO vo3 = dao2.getResultVOId(vo2.getId());
+          	try{
+          		session.setAttribute("no", vo3.getNo()); //NullPointer 오류 해결 방법
+          	}catch (NullPointerException e){
+      	 
+          	}
          
-         mv.setViewName("redirect:/index.do");
-      }else{
+          }
+          mv.setViewName("redirect:/index.do");
+          
+       }else{
     	  
     	  
     	 mv.setViewName("index");
     	 w.println("<script>");
-    	 w.println("alert('���̵�� ��й�ȣ�� Ȯ���ϼ���.');");
+    	 w.println("alert('아이디와 비밀번호를 확인해주세요.');");
     	 w.println("</script>");
     	 w.flush();
     	 

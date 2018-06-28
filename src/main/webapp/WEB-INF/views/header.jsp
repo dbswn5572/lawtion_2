@@ -82,6 +82,13 @@
       <div>
          <nav class="header-nav1">
             <c:choose>
+            <c:when test="${sid.equals('admin')}">
+            <ul>
+               <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
+               <li><a class="btn-login" id="header_login" style="cursor:pointer">로그아웃</a></li>
+               <li><a href="${pageContext.request.contextPath}/admin.do">관리자페이지</a></li>
+            </ul>
+            </c:when>
             <c:when test="${sid == null}">
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
@@ -93,7 +100,7 @@
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
                <li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
-               <li><a href="${pageContext.request.contextPath}/mypageuser.do?sid=${sid}">마이페이지</a></li>
+               <li><a href="${pageContext.request.contextPath}/mypage_check.do">마이페이지</a></li>
             </ul>
             </c:when>
             </c:choose>

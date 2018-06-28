@@ -104,7 +104,7 @@ $(document).ready(function(){
 		if($("#password").val()==""){
 			alert("비밀번호를 입력해주세요.");
 			$("#password").focus();
-		}else if($("input[type=profile_pt]").val() == ""){
+		}else if($("input[type=file]").val() == ""){
 			//alert("파일선택 안함!!")
 			$("#code").val("exist");
 		}
@@ -132,7 +132,7 @@ $(document).ready(function(){
 		<div class="mypage-auction">
 			<div class="mypage-box1">
 				<a href="${pageContext.request.contextPath}/mypagelawyer.do">
-				<label>김선웅님의</label>
+				<label>${name}님의</label>
 				<span>역경매<br>신청현황</span>
 				</a>
 			</div>
@@ -141,7 +141,7 @@ $(document).ready(function(){
 				<a href="${pageContext.request.contextPath}/mypagelawyerpro.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-write.png">
 					<span>입찰신청</span>
-					<label>1건</label>
+					<label></label>
 				</a>
 			</div>
 			
@@ -149,7 +149,7 @@ $(document).ready(function(){
 				<a href="${pageContext.request.contextPath}/mypagelawyersuccess.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-success.png">
 					<span>낙찰 및 마감</span>
-					<label>2건</label>
+					<label></label>
 				</a>
 			</div>
 			<div class="mypage-box4">
@@ -166,7 +166,7 @@ $(document).ready(function(){
 			<div class="mypage-content-table">
 				<form name="info" action="mypagelawyerinfo_update.do" method="post" class="mypage-info" enctype="multipart/form-data">
 					<table>
-						<tr>
+						<tr> 
 							<th>아이디</th>
 							<td><input type="text" disabled value="${vo.id}"></td>
 							<th>본인사진</th>
@@ -176,7 +176,7 @@ $(document).ready(function(){
 							<td><input type="password" name="password"></td>
 							<td rowspan=4>
 								<div class="mypage-img">
-									<input type="file" value="${vo.business }" name="profile_pt" id="profile_pt" onchange="previewImage(this,'View_area')" style='width:100%;'>
+									<input type="file" value="${vo.business }" name="fileBusiness" id="business" onchange="previewImage(this,'View_area')" style='width:100%;'>
 									
 									<div id='View_area' style='position:relative; width: 200px; height: 200px; color: black; border: 0px solid black; dispaly: inline; margin-top:10px;'></div>
 								</div>

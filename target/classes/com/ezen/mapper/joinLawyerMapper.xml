@@ -21,4 +21,13 @@
 	<select id="getResultVO" resultType="lawtion.vo.joinLayerVO">
 	  SELECT ID,NAME,PHONE,BIRTH,EMAIL,JDATE,LICENSE,BUSINESS,RLICENSE, RBUSINESS FROM JOIN_LAWYER WHERE ID=#{id}
 	</select>
+	
+	<update id="getUpdateResult">
+   		update join_lawyer set password=#{password}, phone=#{phone},business=#{business}, 
+   		rbusiness=#{rbusiness} where id=#{id}
+   </update>
+   <update id="getUpdateResultNoFile">
+   		update join_lawyer set password=#{password}, phone=#{phone} where id=#{id}
+   </update>
+	
 </mapper>

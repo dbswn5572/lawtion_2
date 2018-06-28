@@ -109,7 +109,7 @@ public class IntroController {
 	
 	/* iframe ∆‰¿Ã¡ˆ   */
 	@RequestMapping(value="/introduce_left.do",method=RequestMethod.GET)
-	public ModelAndView introduce_left(String rpage){
+	public ModelAndView introduce_left(String rpage, String no){
 		ModelAndView mv = new ModelAndView();
 		//IntroduceDAO dao = new IntroduceDAO();
 		IntroduceDAO dao = sqlSession.getMapper(lawtion.dao.IntroduceDAO.class);
@@ -147,6 +147,7 @@ public class IntroController {
 		mv.addObject("list", list);
 		mv.addObject("dbCount",dbCount);
 		mv.addObject("rpage",rpage);
+		mv.addObject("no", no);
 		mv.setViewName("/introduce/introduce_left");
 		return mv;
 	

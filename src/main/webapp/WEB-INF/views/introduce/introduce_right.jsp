@@ -36,11 +36,11 @@
 					<tr>
 					
 						<td rowspan="3" class="profile">
-							<img src="${pageContext.request.contextPath}/images/profile2.jpg">
+							<img src="${pageContext.request.contextPath}/businessUpload/${vo.rbusiness}">
 						</td>
 						<td rowspan="3" colspan="3" class="nameSet">
 							<div class="dnameGG">
-								<span class="dname">${vo.dname }</span>&nbsp;&nbsp;&nbsp;
+								<span class="dname">법무법인태양</span>&nbsp;&nbsp;&nbsp;
 								&nbsp;&nbsp;&nbsp;&nbsp;
 							</div>
 							<hr>
@@ -49,19 +49,23 @@
 							<div class="detailGG">
 			
 							<span>
-								-${vo.carrer }
+								- 부산대학교 경영학과 졸업<br>
+								- 부산지방법원 속초지원 판사<br>
+								- 수원지방법원 부장 판사<br>
+  								- 똑똑 법률사무소(2012-2017.03)<br>
+  								- 법무법인 세종 대표(2017.08-현재)
 							</span>
 							</div>
 						</td>
 						<td class="trialSet" rowspan="3" colspan="3">
 							<span >낙찰횟수</span><br><br>
-							<span class="trial">${vo.trial }</span>
+							<span class="trial">30</span>
 							<hr >
 							<span >승소</span><br><br>
-							<span class="win">${vo.win }</span>
+							<span class="win">27</span>
 							<hr>
 							<span >패소</span><br><br>
-							<span class="lose">${vo.lose }</span>
+							<span class="lose">3</span>
 							
 							
 						</td>

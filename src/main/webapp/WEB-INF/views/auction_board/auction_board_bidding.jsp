@@ -8,90 +8,89 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/lawtion.css">
 <style>
-	html, body{
-	overflow-y:auto;
-	overflow-x:hidden;
-	}
-	div.a{
-	witdh:100%;
-	height:100%;
-	background-color:white;
-	border:1px solid white;
-	text-align:center;
-	}
-	div.b{
-	margin:auto;
-	text-align:left;
-	padding:0px 20px 0px 20px;
-	border:1px solid #eee;
-	}
-	table tr td a{
-	text-decoration:none;
-	color:#555;
-	font:bold 12px tahoma;
-	padding-left:10px;
-	}
-	span.y{
-	margin-right:350px;
-	font:bold 14px tahoma;
-	}
-	section.y{
-	padding:10px;
-	}
-	span.a{
-	margin-left:310px;
-	font:bold 14px tahoma;
-	}
-	section.a{
-	padding:10px 10px 30px 10px;
-	}
-	select{
-	height:24px;
-	}
-	.abw_money{
-	height:18px;
-	}
+   html, body{
+   overflow-y:auto;
+   overflow-x:hidden;
+   }
+   div.a{
+   witdh:100%;
+   height:100%;
+   background-color:white;
+   border:1px solid white;
+   text-align:center;
+   }
+   div.b{
+   margin:auto;
+   text-align:left;
+   padding:0px 20px 0px 20px;
+   border:1px solid #eee;
+   }
+   table tr td a{
+   text-decoration:none;
+   color:#555;
+   font:bold 12px tahoma;
+   padding-left:10px;
+   }
+   span.y{
+   margin-right:350px;
+   font:bold 14px tahoma;
+   }
+   section.y{
+   padding:10px;
+   }
+   span.a{
+   margin-left:310px;
+   font:bold 14px tahoma;
+   }
+   section.a{
+   padding:10px 10px 30px 10px;
+   }
+   select{
+   height:24px;
+   }
+   .abw_money{
+   height:18px;
+   }
 </style>
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
 <script>
 //function abcclose(){
-	//window.opener.location.href="http://localhost:9900/lawtion/auction_board_content_check.do";
-	//self.close();
+   //window.opener.location.href="http://localhost:9900/lawtion/auction_board_content_check.do";
+   //self.close();
 //}
-
 $(document).ready(function(){
-	$(".reply-write-button2").click(function(){
-    	var content = $(".reply-write-content2").val(); // 해당하는 frm을 serialize를 해줍니다. ajax로 데이터를 보내기위해서 하는 작업입니다.
-    	var no = "${no}"; // id값은 기본키이자 바뀌면안되는것이고 id값으로 조건을 줄꺼라서 고유 id 값을 받아옵니다.
-    	var id = "${sid}";
-    	
-    	$.ajax({
-    		url : "${pageContext.request.contextPath}/reply_write_check2.do", // controller로 보낼 url
-    		type : 'GET', // post방식으로 전송
-        	data : 'content='+content+'&no='+no+'&id='+id, // data로는 위에서 serialize한 frm을 보냅니다.
-        	async : false, // 전역변수 사용을 위해서 설정해준다
-        	dataType : 'json', // serialize하면 json형태로 값을 보내줘야합니다.
-        	contentType: "application/x-www-form-urlencoded; charset=UTF-8", // 인코딩 설정
-        	success : function(data){
-        		
-        		window.opener.reply_view_load();//부모 창에 있는 댓글 확인 함수를 불러온다.
-        		//window.opener.location.reload();
-            	self.close(); // 변경 후 자식 창을 받아줍니다.
+   $(".reply-write-button2").click(function(){
+       var content = $(".reply-write-content2").val(); // 해당하는 frm을 serialize를 해줍니다. ajax로 데이터를 보내기위해서 하는 작업입니다.
+       var no = "${no}"; // id값은 기본키이자 바뀌면안되는것이고 id값으로 조건을 줄꺼라서 고유 id 값을 받아옵니다.
+       var id = "${sid}";
+      var cost = $(".abw_money").val();
+       
+       $.ajax({
+          url : "${pageContext.request.contextPath}/reply_write_check2.do", // controller로 보낼 url
+          type : 'GET', // post방식으로 전송
+           data : 'content='+content+'&no='+no+'&id='+id+ '&cost='+cost, // data로는 위에서 serialize한 frm을 보냅니다.
+           async : false, // 전역변수 사용을 위해서 설정해준다
+           dataType : 'json', // serialize하면 json형태로 값을 보내줘야합니다.
+           contentType: "application/x-www-form-urlencoded; charset=UTF-8", // 인코딩 설정
+           success : function(data){
+              
+              window.opener.reply_view_load();//부모 창에 있는 댓글 확인 함수를 불러온다.
+              //window.opener.location.reload();
+               self.close(); // 변경 후 자식 창을 받아줍니다.
             
-        	}
-    	});
-	});
+           }
+       });
+   });
 });
-
 </script>
 </head>
 <body>
-	
-	<div class="a">
-	<h1>입찰 신청하기</h1>
-	<br>
-	<section class="y"><span class="y">[필수] 역경매 입찰 이용약관</span></section>
-	<div class="b" style="white-space:nowrap; overflow:auto;width:500px;height:200px;font-size:12px;">제1조 (개인정보의 처리 및 이용 목적)<br><br>회사는 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적 이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.<br><br>
+   
+   <div class="a">
+   <h1>입찰 신청하기</h1>
+   <br>
+   <section class="y"><span class="y">[필수] 역경매 입찰 이용약관</span></section>
+   <div class="b" style="white-space:nowrap; overflow:auto;width:500px;height:200px;font-size:12px;">제1조 (개인정보의 처리 및 이용 목적)<br><br>회사는 개인정보를 다음의 목적을 위해 처리합니다. 처리한 개인정보는 다음의 목적 이외의 용도로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 예정입니다.<br><br>
 
 1.     회사의 의·약학적 연구 활동: 임상활동을 통해 수집한 데이터 분석 등 의약학적 연구 및 개발 업무 수행<br><br>
 
@@ -127,75 +126,75 @@ $(document).ready(function(){
 
 4.     개인을 식별할 수 없는 상태로 가공하여 이용하는 경우</div>
 
-		<section class="a"><span class="a">역경매 이용약관에 동의합니다.</span><input type="checkbox"></section>
-		
-		<!-- form name="boardForm" action="board_controller.jsp" method="post" class="auction_board_write"> -->
-				<table class="auction_table_write">
-					<tr><th colspan="2"></th></tr>
-					<tr>
-						<td>의뢰자</td>
-						<td><input type="text" class="abw_customer" name="customer" id="customer" disabled value="정미숙"><a href="#">의뢰자 정보보기</a></td>
-					</tr>
-					<tr>
-						<td>신청자</td>
-						<td><input type="text" class="abw_lawyer" name="lawyer" id="lawyer" disabled value="김선웅"></td>
-					</tr>
-					<tr>
-						<td>제안서</td>
-						<td>
-						<textarea rows="10" cols="60"  class="reply-write-content2" name="content" placeholder="이용약관에 따라 작성해주시기 바랍니다."></textarea></td>
-					</tr>
-					<tr>
-						<td>예상 <br>의뢰비용</td>
-						<td><input type="text" class="abw_money" name="money" id="money">
-							<select name="money" id="money">
-								<option value="self">미결정</option>
-								<option value="self">직접입력</option>
-							</select><br>*추후에도 의뢰인과 금액을 상의할 수 있습니다.
-						</td>
-					</tr>
-					<tr>
-						<td>공개설정</td>
-						<td><input type="checkbox" name="agree" id="agree" class="agree-checkbox"><span>체크하시면 일반 회원들도 제안서 열람이 가능합니다.</span></td>
-					</tr>
-					
-				
-				
-				<!-- <form name="boardform" action="#" method="post">
-				<ul>
-					<li>
-						<label>제목</label>
-						<input type="text" name="title">				
-					</li>
-					<li>
-						<label>내용</label>
-						<textarea rows="10" cols="50"></textarea>
-					</li>
-					<li>
-						<label>첨부파일</label>
-						<input type="file" name="fname">
-					</li>
-					<li>
-						
-						<button type="button">완료</button>
-						<button type="reset">취소</button>
-						<a href="http://localhost:9900/mycgv/board/board_content.jsp"><button type="button">이전 페이지</button></a>
-						<a href="http://localhost:9900/mycgv/board/board_list.jsp"><button type="button">전체 리스트</button></a>
-						
-					</li>
-				</ul>
-				</form> -->
-				
-				
-				
-				<tr>
-					<td colspan="2" class="abw_success">
-						<a href="#"><button class="reply-write-button2">완료</button></a>
-					</td>
-				</tr>
-			</table>	
-			<!-- </form> -->
-	</div>
-	
+      <section class="a"><span class="a">역경매 이용약관에 동의합니다.</span><input type="checkbox"></section>
+      
+      <!-- form name="boardForm" action="board_controller.jsp" method="post" class="auction_board_write"> -->
+            <table class="auction_table_write">
+               <tr><th colspan="2"></th></tr>
+               <tr>
+                  <td>의뢰자</td>
+                  <td><input type="text" class="abw_customer" name="customer" id="customer" disabled value="정미숙"><a href="#">의뢰자 정보보기</a></td>
+               </tr>
+               <tr>
+                  <td>신청자</td>
+                  <td><input type="text" class="abw_lawyer" name="lawyer" id="lawyer" disabled value="김선웅"></td>
+               </tr>
+               <tr>
+                  <td>제안서</td>
+                  <td>
+                  <textarea rows="10" cols="60"  class="reply-write-content2" name="content" placeholder="이용약관에 따라 작성해주시기 바랍니다."></textarea></td>
+               </tr>
+               <tr>
+                  <td>예상 <br>의뢰비용</td>
+                  <td><input type="text" class="abw_money" name="money" id="money">
+                     <select name="money" id="money">
+                        <option value="self">미결정</option>
+                        <option value="self">직접입력</option>
+                     </select><br>*추후에도 의뢰인과 금액을 상의할 수 있습니다.
+                  </td>
+               </tr>
+               <tr>
+                  <td>공개설정</td>
+                  <td><input type="checkbox" name="agree" id="agree" class="agree-checkbox"><span>체크하시면 일반 회원들도 제안서 열람이 가능합니다.</span></td>
+               </tr>
+               
+            
+            
+            <!-- <form name="boardform" action="#" method="post">
+            <ul>
+               <li>
+                  <label>제목</label>
+                  <input type="text" name="title">            
+               </li>
+               <li>
+                  <label>내용</label>
+                  <textarea rows="10" cols="50"></textarea>
+               </li>
+               <li>
+                  <label>첨부파일</label>
+                  <input type="file" name="fname">
+               </li>
+               <li>
+                  
+                  <button type="button">완료</button>
+                  <button type="reset">취소</button>
+                  <a href="http://localhost:9900/mycgv/board/board_content.jsp"><button type="button">이전 페이지</button></a>
+                  <a href="http://localhost:9900/mycgv/board/board_list.jsp"><button type="button">전체 리스트</button></a>
+                  
+               </li>
+            </ul>
+            </form> -->
+            
+            
+            
+            <tr>
+               <td colspan="2" class="abw_success">
+                  <a href="#"><button class="reply-write-button2">완료</button></a>
+               </td>
+            </tr>
+         </table>   
+         <!-- </form> -->
+   </div>
+   
 </body>
 </html>

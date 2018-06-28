@@ -43,7 +43,14 @@
             <a href="${pageContext.request.contextPath}/mypageuserpro.do">
                <img src="${pageContext.request.contextPath}/images/mypage-write.png">
                <span>입찰 대기중</span>
-               <label>${bidding}</label>
+               	<c:choose>
+         		<c:when test="${lid == null}">
+               	<label>${bidding}건</label>
+               	</c:when>
+               	<c:when test="${lid != null}">
+               	<label>0건</label>
+               	</c:when>
+               	</c:choose>
             </a>
          </div>
          
@@ -51,11 +58,13 @@
             <a href="${pageContext.request.contextPath}/mypageusersuccess.do">
                <img src="${pageContext.request.contextPath}/images/mypage-success.png">
                <span>낙찰 및 마감</span>
-               <label>2건</label>
+               	<label>${past}건</label>
+               	
+               
             </a>
          </div>
          <div class="mypage-box4">
-            <a href="${pageContext.request.contextPath}/mypageuserinfo.do?sid=${sid}">
+            <a href="${pageContext.request.contextPath}/mypageuserinfo.do">
                <img src="${pageContext.request.contextPath}/images/mypage-my.png">
                <span>개인정보 수정</span>
             </a>
