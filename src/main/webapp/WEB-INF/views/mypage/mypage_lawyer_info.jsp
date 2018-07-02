@@ -98,27 +98,7 @@ function previewImage(targetObj, View_area) {
 	}
 }
 
-$(document).ready(function(){
-	
-	$("#btnupdate").click(function(){
-		if($("#password").val()==""){
-			alert("비밀번호를 입력해주세요.");
-			$("#password").focus();
-		}else if($("input[type=file]").val() == ""){
-			//alert("파일선택 안함!!")
-			$("#code").val("exist");
-		}
-		
-		
-		info.submit();
-		});
-});
-
-
-
-
 </script>
-
 </head>
 <jsp:include page ="../header.jsp"/>
 <body>	
@@ -132,84 +112,80 @@ $(document).ready(function(){
 		<div class="mypage-auction">
 			<div class="mypage-box1">
 				<a href="${pageContext.request.contextPath}/mypagelawyer.do">
-				<label>${name}님의</label>
-				<span>역경매<br>신청현황</span>
+				<label>�輱������</label>
+				<span>�����<br>��û��Ȳ</span>
 				</a>
 			</div>
 			
 			<div class="mypage-box2">
 				<a href="${pageContext.request.contextPath}/mypagelawyerpro.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-write.png">
-					<span>입찰신청</span>
-					<label></label>
+					<span>���� ��û</span>
+					<label>1��</label>
 				</a>
 			</div>
 			
 			<div class="mypage-box3">
 				<a href="${pageContext.request.contextPath}/mypagelawyersuccess.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-success.png">
-					<span>낙찰 및 마감</span>
-					<label></label>
+					<span>���� �� ����</span>
+					<label>2��</label>
 				</a>
 			</div>
 			<div class="mypage-box4">
 				<a href="${pageContext.request.contextPath}/mypagelawyerinfo.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-my.png">
-					<span>개인정보수정</span>
+					<span>�������� ����</span>
 				</a>
 			</div>
 		</div>
 		<div class="mypage-content">
 			<div class="mypage-content-sub">
-				<span class="mypage-sub-title">개인정보 수정</span>
+				<span class="mypage-sub-title">�������� ����</span>
 			</div>
 			<div class="mypage-content-table">
-				<form name="info" action="mypagelawyerinfo_update.do" method="post" class="mypage-info" enctype="multipart/form-data">
+				<form action="#" method="post" class="mypage-info">
 					<table>
-						<tr> 
-							<th>아이디</th>
-							<td><input type="text" disabled value="${vo.id}"></td>
-							<th>본인사진</th>
+						<tr>
+							<th>���̵�</th>
+							<td><input type="text" disabled value="hyeona6923"></td>
+							<th>���λ���</th>
 						</tr>
 						<tr>
-							<th>비밀번호</th>
-							<td><input type="password" name="password"></td>
+							<th>��й�ȣ</th>
+							<td><input type="password"></td>
 							<td rowspan=4>
 								<div class="mypage-img">
-									<input type="file" value="${vo.business }" name="fileBusiness" id="business" onchange="previewImage(this,'View_area')" style='width:100%;'>
-									
+									<input type="file" name="profile_pt" id="profile_pt" onchange="previewImage(this,'View_area')" style='width:100%;'>
 									<div id='View_area' style='position:relative; width: 200px; height: 200px; color: black; border: 0px solid black; dispaly: inline; margin-top:10px;'></div>
 								</div>
 							</td>
 						</tr>
 						<tr>
-							<th>비밀번호확인</th>
-							<td><input type="password" name="cpassword"></td>
+							<th>��й�ȣ Ȯ��</th>
+							<td><input type="password"></td>
 						</tr>
 						<tr>
-							<th>핸드폰번호</th>
+							<th>�޴��� ��ȣ</th>
 							<td>
 								<select name="phone1" id="phone1" class="phoneselect">
 								<option value="010">010</option>
 								<option value="011">011</option>
 								<option value="017">017</option>
 								</select>
-								-<input type="text" name="phone2" class="phone" id="phone2" value="${vo.phone2}">
-								-<input type="text" name="phone3" class="phone" id="phone3" value="${vo.phone3}">
+								-<input type="text" name="phone2" class="phone" id="phone2">
+								-<input type="text" name="phone3" class="phone" id="phone3">
 							</td>
 						</tr>
 						<tr>
-							<th>이메일</th>
-							<td><input type="text" name="email" id="email" value="${vo.email }"></td>
+							<th>�̸���</th>
+							<td><input type="text" name="email" placeholder=" Email�ּ� ��ü�� �Է����ּ���." id="email"></td>
 						</tr>
 					</table>
-					<div class="mypage-info">
-					<input type="hidden" name="id" value="${vo.id}">
-					<input type="hidden" name="code" id="code">
-					<button type="submit" id="btnupdate" name="btnupdate">수정완료</button>
-				</div>
 				</form>
-				
+				<div class="mypage-info">
+					<button type="mypage-info-button">�����Ϸ�</button>
+				</div>
 			</div>
 		</div>
 	</div>

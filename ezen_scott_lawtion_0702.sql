@@ -276,7 +276,8 @@ create table lawtion_auction_board(
   category varchar2(50),
   edate varchar2(50),
   area varchar2(50),
-  agree varchar2(50)
+  agree varchar2(50),
+  bidding number(4)
 );
 
 create sequence sequ_lawtion_auction_board
@@ -289,7 +290,8 @@ create table lawtion_auction_comment(
   content varchar2(500),
   cdate date,
   ano number(4),
-  lawyer number(4), 
+  lawyer number(4),
+  cost number(10,0),
   CONSTRAINT fk_lawtion_auction_comment_ano foreign key(ano) REFERENCES lawtion_auction_board(no) ON DELETE CASCADE
 );
 
@@ -297,5 +299,4 @@ create sequence sequ_lawtion_auction_comment
   start with 1
   increment by 1;
 commit;
-
 

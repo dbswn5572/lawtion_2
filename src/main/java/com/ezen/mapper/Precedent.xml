@@ -15,6 +15,19 @@
 <!--  <select id="getResultList" resultType="lawtion.vo.PrecedentVO">
 	select rownum as rno, no, title, result, hits from precedent_normal
 </select>-->
+
+<select id="getTreeResult" resultType="lawtion.vo.PrecedentVO">
+	select rownum as rno, no , title, result, hits from precedent_normal where result=#{param1}
+</select>
+
+<select id="getTreeScale" resultType="lawtion.vo.PrecedentVO">
+	select rownum as rno, no , title, result, hits from precedent_normal where scale=#{param1}
+</select>
+
+<select id="getTreeCate" resultType="lawtion.vo.PrecedentVO">
+	select rownum as rno, no , title, result, hits from precedent_normal where category=#{param1}
+</select>
+
 <select id="getResultVO" resultType="lawtion.vo.PrecedentVO">
 	select title,content from precedent_normal where no=#{param1}
 </select>
@@ -38,7 +51,7 @@
 <select id="getResultList" resultType="lawtion.vo.PrecedentVO">
 	select rno, no, title, content, result, hits
 	 from (select rownum as rno, no, title, content, result, hits
-	 from (select rownum as rno, no, title, content, result, hits from precedent_normal order by rno desc))
+	 from (select * from precedent_normal))
 	 where rno between #{param1} and #{param2}
 </select>
 
@@ -46,11 +59,4 @@
 	insert into precedent_normal values(sequ_precedent_normal.nextval,#{title},#{content},#{result},0)
 </insert>
 
-<update id="getUpdateResult" >
-      update precedent_normal set title=#{title},content=#{content} where no=#{no}
- </update>
- 
- <delete id="getDeleteResult_notice">
- 	delete from precedent_normal where no=#{no}
- </delete>
 </mapper>

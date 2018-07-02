@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   	<link rel="stylesheet" type="text/css" href="http://localhost:9000/mycgv/css/am-pagination.css">
   	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -118,13 +118,12 @@
 				<tbody >
 				<c:forEach items="${list}" var="vo">
 				
-				 <tr class="law"  align=center id="${vo.id}">
-				
+				 <tr class="law"  align=center id="${vo.no}">
 					<td  scope="row" style="cursor:pointer;" class="profile">
-						<img src="${pageContext.request.contextPath}/businessUpload/${vo.rbusiness}" class="rounded-circle">
+						<img src="${pageContext.request.contextPath}/images/profile2.jpg" class="rounded-circle">
 						<span class="content">${vo.name}</span><br>
-						<span class="group">범무법인태양</span><br>
-						<span>#건설,토지</span>			
+						<span class="group">${vo.dname}</span><br>
+						<span>#${vo.part }</span>			
 					</td>
 				</tr>
 				

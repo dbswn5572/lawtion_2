@@ -7,7 +7,7 @@
 <html>
 <head>
    <meta charset="utf-8" />
-   <title>Lawtion 관리자</title>
+   <title>My JSP Page</title>
    <!-- Bootstrap 적용 -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, 
       minimum-scale=1.0, user-scalable=no"/>
@@ -48,38 +48,39 @@
 <body>
    <header>
       <div class="ad-nav1">
-		<input type="checkbox" id="menu_state" checked>
-			<nav class="ad-header-nav1" >
-				<!-- <label for="menu_state"><i class="fa fa-balance-scale"></i></label>-->
-				<ul>
-					<li data-content="2" class="active unread" >
-						<a href="#"><i class="fa fa-gavel"></i>
-							<span class="main-sub">Lawtion Admin</span>
-						</a>
-					</li>
-					<li class="menuu"><a href="${pageContext.request.contextPath}/admin.do"><i class="fa fa-paper-plane"></i>
-							<span class="main-sub">공지사항</span></a>
-						<ul class="sub-group-list">
-							<li><a href="${pageContext.request.contextPath}/admin_notice_write.do"><i class="fa fa-pencil"></i><span>공지사항 작성</span></a></li>
-						</ul>
-					</li>
-					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
-							<span class="main-sub">회원관리</span></a>
-						<ul class="sub-group-list">
-							<li><a href="${pageContext.request.contextPath}/admin_user.do"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
-							<li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
-						</ul>
-					</li>
-					<li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
-							<span class="main-sub">판례게시판</span></a>
-						<ul class="sub-group-list">
-							<li><a href="${pageContext.request.contextPath}/admin_precedent_normal.do"><i class="fa fa-paper-plane"></i><span>기존판례</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/admin_precedent_review.do"><i class="fa fa-pencil"></i><span>후기판례</span></a></li>
-						</ul>
-					</li>
-				</ul>
-			</nav>
-		</div>
+      <input type="checkbox" id="menu_state" checked>
+         <nav class="ad-header-nav1" >
+            <!-- <label for="menu_state"><i class="fa fa-balance-scale"></i></label>-->
+            <ul>
+               <li data-content="2" class="active unread" >
+                  <a href="#"><i class="fa fa-gavel"></i>
+                     <span class="main-sub">Lawtion Admin</span>
+                  </a>
+               </li>
+               <li class="menuu"><a href="#"><i class="fa fa-paper-plane"></i>
+                     <span class="main-sub">공지사항</span></a>
+                  <ul class="sub-group-list">
+                     <li><a href="#"><i class="fa fa-pencil"></i><span>게시글 작성</span></a></li>
+                     <li><a href="#"><i class="fa fa-inbox"></i><span>게시글 관리</span></a></li>
+                  </ul>
+               </li>
+               <li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
+                     <span class="main-sub">회원관리</span></a>
+                  <ul class="sub-group-list">
+                     <li><a href="#"><i class="fa fa-paper-plane"></i><span>일반회원</span></a></li>
+                     <li><a href="#"><i class="fa fa-pencil"></i><span>변호사회원</span></a></li>
+                  </ul>
+               </li>
+               <li class="menuu"><a href="#"><i class="fa fa-cog fa-fw"></i>
+                     <span class="main-sub">판례게시판</span></a>
+                  <ul class="sub-group-list">
+                     <li><a href="${pageContext.request.contextPath}/admin_precedent_normal.do"><i class="fa fa-pencil"></i><span>기존판례</span></a></li>
+                     <li><a href="${pageContext.request.contextPath}/admin_precedent_review.do"><i class="fa fa-pencil"></i><span>후기판례</span></a></li>
+                  </ul>
+               </li>
+            </ul>
+         </nav>
+      </div>
    </header>
    <div class="reviewlist">
       <div class="write-btn">
@@ -98,7 +99,7 @@
             <c:forEach items = "${list}" var = "vo">
             <tr>
                <td>${vo.rno }</td>   
-               <td><a href="${pageContext.request.contextPath}/admin_precedent_normal_content.do?no=${vo.no }&rno=${vo.rno }">${vo.title }</a></td>
+               <td><a href="${pageContext.request.contextPath}/admin_precedent_content.do?no=${vo.no }&rno=${vo.rno }">${vo.title }</a></td>
                <td>${vo.result }</td>
                <td>${vo.hits }</td>
             </tr>

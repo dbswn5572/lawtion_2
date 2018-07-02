@@ -9,7 +9,6 @@
 <title>header</title>
    <!-- Twitter Bootstrap3 & jQuery -->
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
    <script src="http://code.jquery.com/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -54,26 +53,23 @@
                <!-- 내용 -->
                <div class="modal-body">
                <form name="loginForm" action="login_check.do" method="post">
-                  <div class="modal_id">
-                  	<label class="login-label1">ID</label>
-                  	<input type="text" name="id" id="id">
-                  </div>
-                  <div class="modal_pass">
-                  	<label class="login-label1">PASSWORD</label>
-                  	<input type="password" name="password" id="pass">
-                  </div>
+                  <label class="login-label1">ID</label>
+                  <input type="text" name="id" id="id">
+                  <label class="login-label1">PASSWORD</label>
+                  <input type="password" name="password" id="pass">
                   <div class="checkbox">
-                        <label>
-                       		<input type="checkbox" value="remember-me"> 아이디 기억하기
-                        </label>
-                   </div>
+                          <label>
+                         <input type="checkbox" value="remember-me"> 아이디 기억하기
+                          </label>
+                     </div>
                </form>
                </div>
                <!-- 하단 -->
                <div class="modal-footer">
-               <h4 class="model-login"><button type="button" id="btnLogin">LOGIN</button></h4>
-               <h4 class="model-join"><a href="${pageContext.request.contextPath}/join.do"><button type="button">JOIN</button></a></h4>
-               
+               <button type="button">아이디/비밀번호 찾기</button>
+               <button type="button" id="btnLogin">LOGIN</button>
+               <h4>or</h4>
+               <a href="${pageContext.request.contextPath}/join_select.do"><button type="button">JOIN</button></a>
                </div>
             </div>
          </div>
@@ -82,25 +78,18 @@
       <div>
          <nav class="header-nav1">
             <c:choose>
-             <c:when test="${sid.equals('admin')}">
-            <ul>
-               <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
-               <li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
-               <li><a href="${pageContext.request.contextPath}/admin.do">관리자페이지</a></li>
-            </ul>
-            </c:when>
             <c:when test="${sid == null}">
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
                <li><a class="btn-login" id="header_login" style="cursor:pointer">로그인</a></li>
-               <li><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
+               <li><a href="${pageContext.request.contextPath}/join_select.do">회원가입</a></li>
             </ul>
             </c:when>
             <c:when test="${sid != null}">
             <ul>
                <li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
                <li><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></li>
-               <li><a href="${pageContext.request.contextPath}/mypage_check.do">마이페이지</a></li>
+               <li><a href="${pageContext.request.contextPath}/join_select.do">회원가입</a></li>
             </ul>
             </c:when>
             </c:choose>
@@ -129,7 +118,6 @@
             </ul>
          </nav>
       </div>
-      <div class="none"><p></div>
    </header>
 </body>
 </html>

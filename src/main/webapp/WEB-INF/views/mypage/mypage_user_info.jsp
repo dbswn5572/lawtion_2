@@ -42,7 +42,7 @@
    <div class="mypage-main">
       <div class="mypage-auction">
          <div class="mypage-box1">
-            <a href="${pageContext.request.contextPath}/mypageuser.do">
+            <a href="${pageContext.request.contextPath}/mypageuser.do?sid=${sid}">
             <label>${vo.name }님의</label>
             <span>역경매<br>신청현황</span>
             </a>
@@ -51,21 +51,14 @@
             <a href="${pageContext.request.contextPath}/mypageuserpro.do">
                <img src="${pageContext.request.contextPath}/images/mypage-write.png">
                <span>입찰 대기중</span>
-               	<c:choose>
-         		<c:when test="${lid == null}">
-               	<label>${bidding}건</label>
-               	</c:when>
-               	<c:when test="${lid != null}">
-               	<label>0건</label>
-               	</c:when>
-               	</c:choose>
+               <label>1건</label>
             </a>
          </div>
          <div class="mypage-box3">
             <a href="${pageContext.request.contextPath}/mypageusersuccess.do">
                <img src="${pageContext.request.contextPath}/images/mypage-success.png">
                <span>낙찰 및 마감</span>
-               <label>${past}건</label>
+               <label>2건</label>
             </a>
          </div>
          <div class="mypage-box4">
@@ -84,13 +77,11 @@
                <table>
                   <tr>
                      <th>아이디</th>
-                     <td><input type="text" disabled value="${vo.id}">
-                     </td>
+                     <td><input type="text" disabled value="${vo.id }"></td>
                   </tr>
                   <tr>
                      <th>비밀번호</th>
-                     <td><input type="password" id="password" name="password">
-                     </td>
+                     <td><input type="password" id="password" name="password"></td>
                   </tr>
                   <tr>
                      <th>비밀번호 확인</th>
@@ -104,8 +95,8 @@
                         <option value="011">011</option>
                         <option value="017">017</option>
                         </select>
-                        -<input type="text" name="phone2" class="phone" id="phone2" value="${vo.phone2}">
-                        -<input type="text" name="phone3" class="phone" id="phone3" value="${vo.phone3}">
+                        -<input type="text" name="phone2" class="phone" id="phone2" value="${vo.phone2 }">
+                        -<input type="text" name="phone3" class="phone" id="phone3" value="${vo.phone3 }">
                      </td>
                   </tr>
                   <tr>
@@ -115,9 +106,7 @@
                </table>
             
             <div class="mypage-info">
-               <input type="hidden" name="id" value="${vo.id}">
                <button type="submit">수정완료</button>
-               
             </div>
             </form>
          </div>

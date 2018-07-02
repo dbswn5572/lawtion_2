@@ -2,8 +2,20 @@ package lawtion.vo;
 
 public class PrecedentVO {
 	int rno, no, hits;
-	String title, content, result;
-
+	String title, category, scale, content, result;
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getScale() {
+		return scale;
+	}
+	public void setScale(String scale) {
+		this.scale = scale;
+	}
 	public int getRno() {
 		return rno;
 	}
@@ -13,7 +25,6 @@ public class PrecedentVO {
 	public int getNo() {
 		return no;
 	}
-
 	public void setNo(int no) {
 		this.no = no;
 	}

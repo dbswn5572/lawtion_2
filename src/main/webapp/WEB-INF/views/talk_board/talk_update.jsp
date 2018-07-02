@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href= "${pageContext.request.contextPath}/css/lawtion.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -33,9 +33,7 @@ $(document).ready(function(){
 	<jsp:include page ="../header.jsp"/>
 	<div class="review">
 		<div class="review-title">
-			<div class="title-sub">
-				<img src="${pageContext.request.contextPath}/images/talktitle.jpg" width="500" height="100" class="title">
-			</div>	
+			<img src="${pageContext.request.contextPath}/images/talktitle.PNG" width="240" height="60" class="title">
 		</div>
 		<div class="talknotice">
 			<label class="talktitle">
@@ -47,7 +45,7 @@ $(document).ready(function(){
 			<label>하소연 작성</label>
 		</div>
 		<div class="write">
-			<form name="boardForm" action="talk_update_check.do" method="post" enctype="multipart/form-data">
+			<form name="write" action="talk_update_check.do" method="post" enctype="multipart/form-data">
 				<table  class="talk-Write">
 					<tr>
 						<td colspan=2>
@@ -79,7 +77,7 @@ $(document).ready(function(){
 							<div class="write_button">
 								<input type="hidden" name="no" value="${vo.no}">
 								<input type="hidden" name="code" id="code">
-								<button type="submit" id="btnupdate" name="btnupdate">수정완료</button>
+								<button type="submit" id="btnupdate" name="btnupdate">수정완료</button></a>
 								<button type="reset" name="reset">취소</button>
 								<a href="${pageContext.request.contextPath}/talk_board_content.do?no=${vo.no}&rno=${rno}"><button type="button">이전 페이지</button></a>
 							</div>

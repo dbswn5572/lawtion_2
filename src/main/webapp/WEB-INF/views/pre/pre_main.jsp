@@ -42,7 +42,6 @@ $(document).ready(function(){
 
 <body>
 	<jsp:include page="../header1.jsp"/>
-	
 	<div class="review-title1">
 		<div class="title-sub">
 			<img src="http://localhost:9000/lawtion/images/precedenttitle.jpg" width="500" height="100" class="title">

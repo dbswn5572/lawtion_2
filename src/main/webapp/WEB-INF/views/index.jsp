@@ -58,8 +58,8 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
 </head>
 <body>
 <body class="back" background="${pageContext.request.contextPath}/images/footer1.jpg">
-   <jsp:include page ="header1.jsp"/>
-<p><p>
+   <jsp:include page ="header.jsp"/>
+
   <div class="content">
   <section class="section1">
   
@@ -71,8 +71,8 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
              <a href="#0">
                <div class="cd-project-title">
                   
-                  <h2>최고의 커뮤니티, 로션</h2>
-                  <p>로션을 파악해보자</p>
+                  <h2>Project 1</h2>
+                  <p>Brief description of the project here</p>
                   
                </div>
             </a>
@@ -81,8 +81,8 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
             <a href="#0">
             
                <div class="cd-project-title">
-                  <h2>2018 웹어워드 대상</h2>
-                  <p>2018년의 역사를 쓰다</p>
+                  <h2>Project 2</h2>
+                  <p>Brief description of the project here</p>
                </div>
             </a>
          </li>
@@ -91,8 +91,8 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
             <a href="#0">
             
                <div class="cd-project-title">
-                  <h2>갑중의 갑이라 불리는, 로션</h2>
-                  <p>로션이란?</p>
+                  <h2>Project 3</h2>
+                  <p>Brief description of the project here</p>
                </div>
             </a>
          </li>
@@ -101,8 +101,8 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
             <a href="#0">
          
                <div class="cd-project-title">
-                  <h2>이것이 로션이다</h2>
-                  <p>독보적인 커뮤니티, 로션</p>
+                  <h2>Project 4</h2>
+                  <p>Brief description of the project here</p>
                </div>
             </a>
          </li>
@@ -112,7 +112,7 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
            <li>
            <div class="preview-image">
              <div class="cd-project-title">
-                  <h2>웹어워드 2018</h2>
+                  <h2>Project 1</h2>
                <p>로션, '웹어워드 2018' 올해의 주목해야 할 커큐니티로 선정</p>
              </div>
           </div>
@@ -132,7 +132,7 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
           <li>
             <div class="preview-image">
                <div class="cd-project-title">
-                  <h2>최고의 커뮤니티</h2>
+                  <h2>Project 2</h2>
                   <p>로션, '웹어워드 2018' 올해의 주목해야 할 커큐니티로 선정</p>
                </div> 
             </div>
@@ -153,7 +153,7 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
           <li>
             <div class="preview-image">
                <div class="cd-project-title">
-                  <h2>갑오브갑</h2>
+                  <h2>Project 3</h2>
                   <p>로션, '웹어워드 2018' 올해의 주목해야 할 커큐니티로 선정</p>
                </div> 
             </div>
@@ -174,7 +174,7 @@ Rollover("menu5", "${pageContext.request.contextPath}/images/box5-5.jpg");
            <li>
             <div class="preview-image">
                <div class="cd-project-title">
-                  <h2>최고입니다</h2>
+                  <h2>Project 4</h2>
                   <p>로션, '웹어워드 2018' 올해의 주목해야 할 커큐니티로 선정</p>
                </div> 
             </div>

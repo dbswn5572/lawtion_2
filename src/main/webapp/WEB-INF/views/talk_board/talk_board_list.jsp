@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href= "${pageContext.request.contextPath}/css/lawtion.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/am-pagination.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/paging.js"></script>
@@ -37,7 +37,7 @@
 	    });
 		
  	});
-</script>
+</script> 
 </head>
 <body>
 	<jsp:include page ="../header.jsp"/>
@@ -58,7 +58,7 @@
 				<c:forEach items = "${allbestlist}" var = "vo">
 				<tr>
 					<td>${vo.rno }</td>
-					<td><a href="${pageContext.request.contextPath}/talk_board_content.do?no=${vo.no }&rno=${vo.rno }" style='color:black;'>${vo.title }</a></td>
+					<td><a href="${pageContext.request.contextPath}/talk_board_content.do?no=${vo.no }&rno=${vo.rno }">${vo.title }</a></td>
 				</tr>
 				</c:forEach>
 			</table>
@@ -78,7 +78,7 @@
 				<c:forEach items = "${alllist}" var = "vo">
 				<tr>
 					<td>${vo.rno }</td>
-					<td><a href="${pageContext.request.contextPath}/talk_board_content.do?no=${vo.no }&rno=${vo.rno }" style='color:black;'>${vo.title }</a></td>
+					<td><a href="${pageContext.request.contextPath}/talk_board_content.do?no=${vo.no }&rno=${vo.rno }">${vo.title }</a></td>
 					<td>정현아</td>
 					<td>${vo.tdate }</td>
 					<td>${vo.hits }</td>

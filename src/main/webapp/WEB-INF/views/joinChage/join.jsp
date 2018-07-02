@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/joincss.css">
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
@@ -13,7 +13,7 @@
 	<p>
 	<div class="review-title">
 		<div class="title-sub">
-			<img src="${pageContext.request.contextPath}/images/jointitle.jpg" width="500" height="100" class="title">
+			<img src="${pageContext.request.contextPath}/images/join.jpg" width="500" height="100" class="title">
 		</div>	
 	</div>
 	<div class="join-title">
@@ -27,8 +27,8 @@
 	<div class="join-main">
 		<div class="join-select">
 			<div class="join-text">
-				<label class="join-info-title">ì„œë¹„ìŠ¤ ì„ íƒ</label><br>
-				<label class="join-info-sub">ì•„ëž˜ ì¤‘ ì´ìš©í•˜ì‹¤ ì„œë¹„ìŠ¤ë¥¼ í™•ì¸í•˜ì‹œê³  ê°€ìž…ì„ ì§„í–‰í•´ ì£¼ì„¸ìš”.</label>
+				<label class="join-info-title">¼­ºñ½º ¼±ÅÃ</label><br>
+				<label class="join-info-sub">¾Æ·¡ Áß ÀÌ¿ëÇÏ½Ç ¼­ºñ½º¸¦ È®ÀÎÇÏ½Ã°í °¡ÀÔÀ» ÁøÇàÇØ ÁÖ¼¼¿ä.</label>
 			</div>
 			<div class="select">
 				<section class="select-content1">
@@ -36,7 +36,7 @@
 						<img src="${pageContext.request.contextPath}/images/user.png" width="90" height="90" class="user-title">
 					</div>
 					<div class="sel-info">
-						<a href="${pageContext.request.contextPath}/join_user.do"><button class="join-user-button">ì‚¬ìš©ìž</button></a>
+						<a href="${pageContext.request.contextPath}/join_user.do"><button class="join-user-button">»ç¿ëÀÚ</button></a>
 					</div>
 				</section>
 				<section class="select-content2">
@@ -44,7 +44,7 @@
 						<img src="${pageContext.request.contextPath}/images/lawyer.png" width="90" height="90" class="user-title">
 					</div>
 					<div class="sel-info">
-						<a href="${pageContext.request.contextPath}/join_lawyer.do"><button class="join-lawyer-button">ë³€í˜¸ì‚¬</button></a>
+						<a href="${pageContext.request.contextPath}/join_lawyer.do"><button class="join-lawyer-button">º¯È£»ç</button></a>
 					</div>
 				</section>
 			</div> <!-- end of select -->

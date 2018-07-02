@@ -7,24 +7,12 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class joinLayerVO {
    String id,password,name,birth,phone,email;
    String jdate,phone1,phone2,phone3;
-   String business,license,rbusiness,rlicense,code;
+   String business,license,rbusiness,rlicense;
    CommonsMultipartFile fileBusiness;
    CommonsMultipartFile fileLicense;
-
    
-  
-
-public String getCode() {
-	return code;
-}
-
-public void setCode(String code) {
-	this.code = code;
-}
-
-
-
-public CommonsMultipartFile getFileBusiness() {
+   
+   public CommonsMultipartFile getFileBusiness() {
       return fileBusiness;
    }
 
@@ -123,8 +111,7 @@ public CommonsMultipartFile getFileBusiness() {
    }
 
    public String getPhone() {
-	   phone= phone1+phone2+phone3;
-      return phone;
+      return phone1+phone2+phone3;
    }
 
    public void setPhone(String phone) {

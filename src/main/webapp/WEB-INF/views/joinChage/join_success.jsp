@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/joincss.css">
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.min.js"></script>
@@ -13,7 +13,7 @@
 	<p>
 	<div class="review-title">
 		<div class="title-sub">
-			<img src="${pageContext.request.contextPath}/images/jointitle.jpg" width="500" height="100" class="title">
+			<img src="${pageContext.request.contextPath}/images/join.jpg" width="500" height="100" class="title">
 		</div>	
 	</div>
 	<div class="join-title">

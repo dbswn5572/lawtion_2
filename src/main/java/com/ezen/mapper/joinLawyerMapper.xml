@@ -8,26 +8,4 @@
 		insert into join_lawyer(id,password,name,phone,email,birth,jdate,license,business,rlicense,rbusiness) 
 		values(#{id},#{password},#{name},#{phone},#{email},#{birth},sysdate,#{license},#{business},#{rlicense},#{rbusiness})
 	</insert>
-	
-	<select id="execTotalCount" resultType="int">
-      select count(*) from join_normal
-   </select>
-   
-   
-   <select id="getResultList" resultType="lawtion.vo.joinLayerVO">
-      SELECT ROWNUM AS RNO, ID, NAME, PHONE, BIRTH, EMAIL, JDATE FROM (SELECT ROWNUM AS RNO, ID, NAME, PHONE, BIRTH, JDATE ,EMAIL FROM JOIN_LAWYER ORDER BY JDATE DESC) WHERE ROWNUM BETWEEN #{param1} AND #{param2}
-   </select>
-	
-	<select id="getResultVO" resultType="lawtion.vo.joinLayerVO">
-	  SELECT ID,NAME,PHONE,BIRTH,EMAIL,JDATE,LICENSE,BUSINESS,RLICENSE, RBUSINESS FROM JOIN_LAWYER WHERE ID=#{id}
-	</select>
-	
-	<update id="getUpdateResult">
-   		update join_lawyer set password=#{password}, phone=#{phone},business=#{business}, 
-   		rbusiness=#{rbusiness} where id=#{id}
-   </update>
-   <update id="getUpdateResultNoFile">
-   		update join_lawyer set password=#{password}, phone=#{phone} where id=#{id}
-   </update>
-	
 </mapper>

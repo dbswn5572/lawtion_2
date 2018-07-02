@@ -1,38 +1,11 @@
 package lawtion.vo;
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
 public class IntroduceVO {
 
 	int rno,no,trial,win,lose;
-	String id,name,dname,part,carrer,business,rbusiness;
-	CommonsMultipartFile fileBusiness;
+	String name,dname,part,carrer;
 	
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getBusiness() {
-		return business;
-	}
-	public void setBusiness(String business) {
-		this.business = business;
-	}
-	public String getRbusiness() {
-		return rbusiness;
-	}
-	public void setRbusiness(String rbusiness) {
-		this.rbusiness = rbusiness;
-	}
-	public CommonsMultipartFile getFileBusiness() {
-		return fileBusiness;
-	}
-	public void setFileBusiness(CommonsMultipartFile fileBusiness) {
-		this.fileBusiness = fileBusiness;
-	}
 	public String getCarrer() {
 		return carrer;
 	}

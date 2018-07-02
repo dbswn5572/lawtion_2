@@ -41,7 +41,7 @@
    <jsp:include page ="../header.jsp"/>
 <body>
    <p>
-   <div class="review-title3">
+   <div class="review-title">
       <div class="title-sub">
          <img src="${pageContext.request.contextPath}/images/noticetitle.jpg" width="500" height="100" class="title">
       </div>   
@@ -50,7 +50,7 @@
 
    </div>
    <div class="notice">
-      <table border=0 class="notice_list">
+      <table>
          <tr class="theme">
             <th>No</th>
             <th class="subject">제목</th>
@@ -60,7 +60,7 @@
          <c:forEach items="${list}" var="vo">
             <tr>
                <td>${vo.rno}</td>
-               <td class="subject"><a href="${pageContext.request.contextPath}/notice_content.do?no=${vo.no}&rno=${vo.rno}" style='color:black;'>${vo.title}</a></td>
+               <td class="subject"><a href="${pageContext.request.contextPath}/notice_content.do?no=${vo.no}&rno=${vo.rno}">${vo.title}</a></td>
                <td>${vo.rdate }</td>
                <td>${vo.hits }</td>
             </tr>

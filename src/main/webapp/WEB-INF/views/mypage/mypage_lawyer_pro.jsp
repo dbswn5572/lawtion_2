@@ -34,7 +34,7 @@
 		<div class="mypage-auction">
 			<div class="mypage-box1">
 				<a href="${pageContext.request.contextPath}/mypagelawyer.do">
-				<label>${name}님의</label>
+				<label>김선웅님의</label>
 				<span>역경매<br>신청현황</span>
 				</a>
 			</div>
@@ -43,7 +43,7 @@
 				<a href="${pageContext.request.contextPath}/mypagelawyerpro.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-write.png">
 					<span>입찰 신청</span>
-					<label></label>
+					<label>1건</label>
 				</a>
 			</div>
 			
@@ -51,7 +51,7 @@
 				<a href="${pageContext.request.contextPath}/mypagelawyersuccess.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-success.png">
 					<span>낙찰 및 마감</span>
-					<label></label>
+					<label>2건</label>
 				</a>
 			</div>
 			<div class="mypage-box4">
@@ -76,18 +76,30 @@
 					<th>의뢰인정보</th>
 					<th>마감일</th>
 				</tr>
-			<c:forEach items="${list}" var="vo">
-            
-            <tr>
-               <td>${vo.cdate}</td>
-               <td>${vo.id}</td>
-               <td>${vo.content}</td>
-               <td>${vo.cost}</td>
-               <td>click</td>
-               <td>낙찰</td>
-            </tr>
-            
-            </c:forEach>
+				<tr>
+					<td>2018-06-13</td>
+					<td>김선웅</td>
+					<td>가나다라마바사아자차카타파하</td>
+					<td>1,500,000원</td>
+					<td>click</td>
+					<td>2018-06-15</td>
+				</tr>
+				<tr>
+					<td>2018-06-13</td>
+					<td>이지호</td>
+					<td>가나다라마바사아자차카타파하</td>
+					<td>2,500,000원</td>
+					<td>click</td>
+					<td>2018-06-14</td>
+				</tr>
+				<tr>
+					<td>2018-06-13</td>
+					<td>심명보</td>
+					<td>가나다라마바사아자차카타파하</td>
+					<td>1,800,000원</td>
+					<td>click</td>
+					<td>2018-06-14</td>
+				</tr>
 			</table>
 			</div>
 		</div>

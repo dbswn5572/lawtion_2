@@ -16,6 +16,18 @@
 	select rownum as rno, no, title, result, lname, hits from precedent_review
 </select>-->
 
+<select id="getTreeResult" resultType="lawtion.vo.PrecedentVO_review">
+	select rownum as rno, no, title, result, lname, hits from precedent_review where result=#{param1}
+</select>
+
+<select id="getTreeScale" resultType="lawtion.vo.PrecedentVO_review">
+	select rownum as rno, no, title, result, lname, hits from precedent_review where scale=#{param1}
+</select>
+
+<select id="getTreeCate" resultType="lawtion.vo.PrecedentVO_review">
+	select rownum as rno, no, title, result, lname, hits from precedent_review where category=#{param1}
+</select>
+
 <select id="getResultVO" resultType="lawtion.vo.PrecedentVO_review">
 	select title,content from precedent_review where no=#{param1}
 </select>
@@ -43,15 +55,4 @@
 	 where rno between #{param1} and #{param2}
 </select>
 
-<insert id="InsertPrecedent">
-	insert into precedent_review values(sequ_precedent_review.nextval,#{title},#{content},#{result},#{lname},0)
-</insert>
-
-<delete id="getDeleteResult_notice">
- 	delete from precedent_review where no=#{no}
- </delete>
- 
- <update id="getUpdateResult" >
-      update precedent_review set title=#{title},content=#{content} where no=#{no}
- </update>
 </mapper>

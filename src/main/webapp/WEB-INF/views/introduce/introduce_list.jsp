@@ -6,11 +6,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/am-pagination.css">
   	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" > 
-  	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
-  	
+  	<link href="https://fonts.googleapis.com/css?family=Nanum+Myeongjo" rel="stylesheet">
+  	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   	<script src="${pageContext.request.contextPath}/js/jquery.smoothwheel.js"></script>
@@ -89,9 +89,22 @@
 </script>
 </head>
 <body>
-	<jsp:include page="../header1.jsp"></jsp:include>
+	<jsp:include page="../header3.jsp"></jsp:include>
 	<!-- 하부 메뉴 네비게이션 -->
-		
+		<nav class="cd-stretchy-nav">
+				<a class="cd-nav-trigger" href="#0">
+					<span aria-hidden="true"></span>
+				</a>
+			<ul>
+				<li><a href="${pageContext.request.contextPath}/index.do" class="active"><span>Home</span></a></li>
+				<li><a href="#0"><span>LawTalk</span></a></li>
+				<li><a href="#0"><span>KakaoTalk</span></a></li>
+				<li><a href="#0"><span>Schedule</span></a></li>
+				<li><a href="#0"><span>Contact</span></a></li>
+			</ul>
+
+			<span aria-hidden="true" class="stretchy-nav-bg"></span>
+		</nav>
 		
 	<div class="introduce" id="introduce">
 		<section class="content_style">
@@ -117,7 +130,7 @@
 			
 			<table class="table table-hover table-bordered results" >
 				<thead>
-				<tr class="results_first">
+				<tr align=center>
 					<th>번호</th>
 					<th colspan="2">이름</th>			
 					<th>소속</th>
@@ -129,19 +142,18 @@
 				</thead>
 				<tbody>
 				<c:forEach items="${list}" var="vo">
-				<tr align=center class="law" id="${vo.id}" >
+				<tr align=center class="law" id="${vo.no}" >
 				<th scope="row" class="number">${vo.rno}</th>
 					<td class="profile">
-						<img src="${pageContext.request.contextPath}/businessUpload/${vo.rbusiness}" style='width:100px;height:100px;' class="rounded-circle">
+						<img src="${pageContext.request.contextPath}/images/profile2.jpg" class="rounded-circle">
 					</td>
 					<td class="content">
 						${vo.name }
 					</td>
-				
 					<td class="group">
-						<a href="http://www.shinkim.com">법무법인태양</a>
+						<a href="http://www.shinkim.com">${vo.dname }</a>
 					</td>
-					<td>건설,토지</td>			
+					<td>${vo.part }</td>			
 				</tr>
 				</c:forEach>
 				<tr>

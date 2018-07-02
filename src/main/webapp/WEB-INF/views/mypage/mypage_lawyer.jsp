@@ -34,7 +34,7 @@
 		<div class="mypage-auction">
 			<div class="mypage-box1">
 				<a href="${pageContext.request.contextPath}/mypagelawyer.do">
-				<label>${name}님의</label>
+				<label>김선웅님의</label>
 				<span>역경매<br>신청현황</span>
 				</a>
 			</div>
@@ -43,7 +43,7 @@
 				<a href="${pageContext.request.contextPath}/mypagelawyerpro.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-write.png">
 					<span>입찰 신청</span>
-					<label></label>
+					<label>1건</label>
 				</a>
 			</div>
 			
@@ -51,7 +51,7 @@
 				<a href="${pageContext.request.contextPath}/mypagelawyersuccess.do">
 					<img src="${pageContext.request.contextPath}/images/mypage-success.png">
 					<span>낙찰 및 마감</span>
-					<label></label>
+					<label>2건</label>
 				</a>
 			</div>
 			<div class="mypage-box4">

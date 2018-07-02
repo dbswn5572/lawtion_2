@@ -9,52 +9,13 @@
 <title>header</title>
 </head>
 <body>
-   <div id="loginmodal" class="modal fade" tabindex="-1" role="dialog"
-      aria-labelledby="loginmodalLabel" aria-hidden="true">
-         <!-- .modal-dialog -->
-         <div class="modal-dialog">
-            <!-- .modal-content -->
-            <div class="modal-content">
-               <!-- 제목 -->
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"
-                  aria-hidden="true">&times;</button>
-                  <h4 class="model-title" id="loginLabel">LAWTION</h4>
-               </div>
-               <!-- 내용 -->
-               <div class="modal-body">
-               <form name="loginForm" action="login_check.do" method="post">
-                  <div class="modal_id">
-                  	<label class="login-label1">ID</label>
-                  	<input type="text" name="id" id="id">
-                  </div>
-                  <div class="modal_pass">
-                  	<label class="login-label1">PASSWORD</label>
-                  	<input type="password" name="password" id="pass">
-                  </div>
-                  <div class="checkbox">
-                        <label>
-                       		<input type="checkbox" value="remember-me"> 아이디 기억하기
-                        </label>
-                   </div>
-               </form>
-               </div>
-               <!-- 하단 -->
-               <div class="modal-footer">
-               <h4 class="model-login"><button type="button" id="btnLogin">LOGIN</button></h4>
-               <h4 class="model-join"><a href="${pageContext.request.contextPath}/join.do"><button type="button">JOIN</button></a></h4>
-               
-               </div>
-            </div>
-         </div>
-      </div>
 	<header>
 		<div class="header3">
 			<nav class="header-nav1">
 				<ul>
 					<li><a href="${pageContext.request.contextPath}/index.do">홈으로</a></li>
 					<li><a href="${pageContext.request.contextPath}/login.do">로그인</a></li>
-					<li><a href="${pageContext.request.contextPath}/join.do">회원가입</a></li>
+					<li><a href="${pageContext.request.contextPath}/join_select.do">회원가입</a></li>
 				</ul>
 			</nav>
 			
